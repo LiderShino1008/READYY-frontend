@@ -1,0 +1,97 @@
+:root {
+    --green-light: rgb(99, 183, 175);
+    --green-dark: rgb(52, 116, 116);
+    --salmon-light: rgb(238, 133, 114);
+    --salmon-dark: rgb(207 99 79);
+    --grey-light: rgb(238, 238, 238);
+    --primary-white: rgb(255,255,255);
+}
+
+/* REDEFINITION OF STYLES */
+body {
+    padding-top: 4.3rem;
+}
+
+.navbar-dark {
+    background-color: var(--green-dark);
+}
+
+.navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link:hover {
+    color: var(--primary-white);
+}
+/* 
+.navbar-brand img {
+    height: 37px;
+} */
+
+main {
+    background-color: var(--grey-light);
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+}
+
+/* CUSTOM STYLES */
+.readyy-logo {
+    background: var(--green-light);
+    font-size: 1.55rem;
+    -webkit-text-stroke: thin;
+    letter-spacing: 0.2rem;
+    width: fit-content;
+}
+
+.readyy-logo div span {
+    letter-spacing: 0.2rem;
+}
+
+.readyy-logo img {
+    height: 37px;
+}
+
+.background-icon-banner {
+    background-color: var(--green-light);
+    border-radius: 10rem;
+    padding: 3.5rem 3rem;
+    max-width: fit-content;
+    margin: auto;
+    color: white;
+}
+
+.background-icon-banner i {
+   font-size: 6rem;
+}
+
+.background-icon-banner i.fas.fa-code {
+   font-size: 5.5rem;
+}
+
+.btn-rounded {
+    border-radius: 2rem;
+}
+
+.btn-readyy-salmon {
+    background-color: var(--salmon-light);
+    color: white
+}
+
+.btn-readyy-salmon:hover {
+    background-color: var(--salmon-dark);
+    color: white;
+}
+
+/* button.card:hover {
+    background-color: #ffc107;
+    transition: ease-out 0.1s;
+} */
+
+/* .amazon-div-addDelete-app {
+    right: 4%;
+    bottom: 4%;
+}
+
+.amazon-btn-addDelete-app {
+    width: 4rem;
+    height: 4rem;
+    font-size: xx-large;
+} */
