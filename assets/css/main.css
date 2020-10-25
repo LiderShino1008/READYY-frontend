@@ -4,7 +4,6 @@
     --salmon-light: rgb(238, 133, 114);
     --salmon-dark: rgb(207 99 79);
     --grey-light: rgb(238, 238, 238);
-    --primary-white: rgb(255,255,255);
 }
 
 /* REDEFINITION OF STYLES */
@@ -17,14 +16,10 @@ body {
 }
 
 .navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link:hover {
-    color: var(--primary-white);
+    color: var(--white);
 }
-/* 
-.navbar-brand img {
-    height: 37px;
-} */
 
-main {
+.bg-grey-light {
     background-color: var(--grey-light);
 }
 
@@ -35,36 +30,44 @@ main {
 /* CUSTOM STYLES */
 .readyy-logo {
     background: var(--green-light);
-    font-size: 1.55rem;
-    -webkit-text-stroke: thin;
-    letter-spacing: 0.2rem;
     width: fit-content;
 }
 
-.readyy-logo div span {
-    letter-spacing: 0.2rem;
+.readyy-logo img:first-child {
+    height: 20px;
 }
 
-.readyy-logo img {
+.readyy-logo img:last-child {
     height: 37px;
 }
 
 .background-icon-banner {
     background-color: var(--green-light);
     border-radius: 10rem;
-    padding: 3.5rem 3rem;
+    padding: 2.5rem;
     max-width: fit-content;
     margin: auto;
-    color: white;
 }
 
-.background-icon-banner i {
+.background-icon-banner img {
+    width: 6rem;
+}
+
+.bib-ss {
+    padding: 1rem !important;
+}
+
+.bib-ss img {
+    width: 9rem !important;
+}
+
+/* .background-icon-banner i {
    font-size: 6rem;
 }
 
 .background-icon-banner i.fas.fa-code {
    font-size: 5.5rem;
-}
+} */
 
 .btn-rounded {
     border-radius: 2rem;
@@ -80,18 +83,6 @@ main {
     color: white;
 }
 
-/* button.card:hover {
-    background-color: #ffc107;
-    transition: ease-out 0.1s;
-} */
-
-/* .amazon-div-addDelete-app {
-    right: 4%;
-    bottom: 4%;
+.vertical-center {
+    align-self: center;
 }
-
-.amazon-btn-addDelete-app {
-    width: 4rem;
-    height: 4rem;
-    font-size: xx-large;
-} */

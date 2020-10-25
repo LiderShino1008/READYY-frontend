@@ -17,10 +17,10 @@
 
     <nav class="navbar navbar-expand-md navbar-dark fixed-top">
         <a class="navbar-brand p-0" href="#">
-            <div class="readyy-logo p-1 text-dark">
+            <div class="readyy-logo p-1">
                 <div class="m-1 form-inline">
-                    <span>READYY</span>
-                    <img class="hero-nav__logo" src="assets/img/READYY.svg">
+                    <img src="assets/img/READYY_logo.svg">
+                    <img src="assets/img/READYY.svg">
                 </div>
             </div>
         </a>
@@ -43,12 +43,12 @@
         </div>
     </nav> <!-- /nav -->
     
-    <main role="main">
+    <main role="main" class="bg-grey-light">
         <!-- Main jumbotron for a primary marketing message or call to action -->
         <div class="jumbotron bg-white rounded-0">
             <div class="container">
                 <div class="row">
-                    <div class="col-12 col-md-6">
+                    <div class="col-12 col-lg-6 vertical-center">
                         <h1>Crea un sitio web para tu empresa y vende tus productos en línea</h1>
                         <p>Promociona tu negocio y llega a muchas más personas de una forma moderna. Crea y personaliza tu sitio a tu gusto, ¡En READYY te ayudamos a lanzar tu negocio fácil y rápido!</p>
                         <p>
@@ -56,7 +56,7 @@
                             <button class="btn btn-readyy-salmon btn-rounded" href="#" type="button" onclick="window.location = 'login.html';" style="border-radius: 2rem;">Iniciar sesión</button>
                         </p>
                     </div>
-                    <div class="col-12 col-md-6"><img src="assets/img/landing_banner1.jpg"></div>
+                    <div class="col-12 col-lg-6 pt-4 pt-lg-0 vertical-center"><img class="w-100" src="assets/img/landing_banner1.png"></div>
                 </div>
             </div>
         </div> <!-- /container -->
@@ -68,17 +68,17 @@
                     <p>¿Qué puede hacer en nuestra plataforma de comercio electrónico?</p>
                 </div>
                 <div class="col-md-4 text-center mb-3 mb-lg-0">
-                    <div class="background-icon-banner"><i class="fas fa-shopping-cart"></i></div>
+                    <div class="background-icon-banner bib-ss"><img src="assets/img/landing-carrito-compras.svg"></div>
                     <h4 class="mt-3">Comprar</h4>
                     <p>Adquiere los productos que tanto te gustan, ¡Explora las tiendas y compra ya!</p>
                 </div>
                 <div class="col-md-4 text-center mb-3 mb-lg-0">
-                    <div class="background-icon-banner"><i class="fas fa-paper-plane px-2"></i></div> 
-                    <h4 class="mt-3">Comprar</h4>
-                    <p>Adquiere los productos que tanto te gustan, ¡Explora las tiendas y compra ya!</p>                   
+                    <div class="background-icon-banner"><img src="assets/img/landing-avion-papel.svg"></div>
+                    <h4 class="mt-3">Administrar</h4>
+                    <p>Crea sitios web y maneja tu contenido a tu estilo con nuestro gestor de archivos</p>
                 </div>
                 <div class="col-md-4 text-center mb-3 mb-lg-0">
-                    <div class="background-icon-banner"><i class="fas fa-code py-1"></i></div>
+                    <div class="background-icon-banner"><img src="assets/img/landing-programacion.svg"></div>
                     <h4 class="mt-3">Editar</h4>
                     <p>Si tienes una página, edita de la manera tradicional o editando código HTML y CSS</p>
                 </div>
@@ -88,7 +88,7 @@
         <div class="jumbotron bg-white rounded-0">
             <div class="container">
                 <div class="row">
-                    <div class="col-12 col-md-6">
+                    <div class="col-12 col-lg-6 vertical-center">
                         <h2>Hablemos sobre editar</h2>
                         <p>Tienes la posibilidad de crear y editar bloques de contenido dentro de cada sitio web, ya sea ingresando la información que deseas mostrar, sin saber nada sobre diseño o programación, o con una herramienta de edición de código HTML y CSS.
     
@@ -96,7 +96,7 @@
     
                         ¡Simple, elegante, READYY!</p>
                     </div>
-                    <div class="col-12 col-md-6"><img src="assets/img/landing_banner2.jpg"></div>
+                    <div class="col-12 col-lg-6 pt-4 pt-lg-0 vertical-center"><img class="w-100" src="assets/img/landing_banner2.png"></div>
                 </div>
             </div>
         </div> <!-- /jumbotron -->
@@ -159,13 +159,14 @@
             </div>
         </div> <!-- /container -->
 
-        <footer class="px-5 pb-4 text-right">
+        <footer class="px-2 px-sm-5 pb-4 text-center">
             <div class="px-0 px-md-5 mx-3">
                 <hr>
                 <p class="pt-3">Plataforma de comercio electrónico <a href="#" class="text-info">«READYY»</a> por <a href="#" class="text-info">Walter Rivera H</a>.<br>© 2020.</p>
                 <p><a href="#" class="text-info">Volver arriba <i class="fas fa-arrow-up"></i></a></p>
             </div>
         </footer> <!-- /footer -->
+
     </main>
               
     <script src="assets/js/jquery-3.4.1.min.js"></script>

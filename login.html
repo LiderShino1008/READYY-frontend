@@ -18,10 +18,10 @@
     
     <nav class="navbar navbar-expand-md navbar-dark fixed-top">
         <a class="navbar-brand p-0" href="#">
-            <div class="readyy-logo p-1 text-dark">
+            <div class="readyy-logo p-1">
                 <div class="m-1 form-inline">
-                    <span>READYY</span>
-                    <img class="hero-nav__logo" src="assets/img/READYY.svg">
+                    <img src="assets/img/READYY_logo.svg">
+                    <img src="assets/img/READYY.svg">
                 </div>
             </div>
         </a>
@@ -46,35 +46,35 @@
 
     <main class="bg-white pt-3">
         <form class="form-signin">
-            <div class="readyy-logo p-1 text-dark m-auto" style="width: fit-content;">
+            <div class="readyy-logo p-1 m-auto">
                 <div class="m-1 form-inline">
-                    <span>READYY</span>
-                    <img class="hero-nav__logo" src="assets/img/READYY.svg" style="height: 37px;">
+                    <img src="assets/img/READYY_logo.svg">
+                    <img src="assets/img/READYY.svg">
                 </div>
             </div>
-            <h5 class="mt-2 mb-4">
+            <h5 class="mt-2 mb-4 text-center">
                 <p>¡Simple, elegante, READYY!</p>
             </h5>
             <h1 class="h3 mb-3 font-weight-normal">Ingresa tus credenciales</h1>
             <div class="form-row mb-3">
-                <label for="inputEmail" class="col-12 text-left">Correo electrónico</label>
+                <label for="login-txt-email" class="col-12 text-left">Correo electrónico</label>
                 <div class="col-12">
-                    <input type="email" id="inputEmail" class="form-control" required="" autofocus="">
+                    <input type="email" id="login-txt-email" class="form-control" required="" autofocus="">
                     <div class="invalid-feedback text-left">Campo vacío o inválido.</div>
                 </div>
             </div>
             <div class="form-row mb-3">
-                <label for="inputPassword" class="col-12 text-left">Contraseña</label>
+                <label for="login-txt-password" class="col-12 text-left">Contraseña</label>
                 <div class="col-12">
-                    <input type="password" id="inputPassword" class="form-control" required="">
+                    <input type="password" id="login-txt-password" class="form-control" required="">
                     <div class="invalid-feedback text-left">Campo vacío o inválido.</div>
                 </div>
             </div>
-            <button class="btn btn-readyy-salmon btn-rounded btn-block" type="button" onclick="console.log('Iniciar sesión')">Iniciar sesión</button>
+            <button class="btn btn-readyy-salmon btn-rounded btn-block" type="button" onclick="iniciarSesion()">Iniciar sesión</button>
         </form>
         
-        <footer class="px-5 pb-4 text-center">
-            <div class="px-5 p-sm-0 mx-3">
+        <footer class="px-2 px-sm-5 pb-4 text-center">
+            <div class="p-0 px-sm-5 mx-3">
                 <hr>
                 <p class="pt-3">Plataforma de comercio electrónico <a href="#" class="text-info">READYY</a> por <a href="#" class="text-info">Walter Rivera H</a>.<br>© 2020.</p>
             </div>
@@ -82,11 +82,11 @@
     
     </main>
               
-        <script src="assets/js/jquery-3.4.1.min.js"></script>
-        <script src="assets/js/popper.min.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
-        <script src="assets/js/controlador-login.js"></script>
-        <script src="assets/js/funciones-validacion.js"></script>
+    <script src="assets/js/jquery-3.4.1.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/controlador-login.js"></script>
+    <script src="assets/js/funciones-validacion.js"></script>
     
 </body>
 </html>
