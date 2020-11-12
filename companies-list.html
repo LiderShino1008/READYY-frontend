@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Tiendas | READYY</title>
+    <link rel="icon" href="assets/img/favicon.png">
+    <!--Bootstrap-->
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/bootstrap.min.css"/>
+    <!--FontAwesome-->
+    <link rel="stylesheet" href="assets/css/all.css">
+    <!--Custom CSS-->
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/main.css"/>
+</head>
+<body>
+    
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+        <a class="navbar-brand p-0" href="#">
+            <div class="readyy-logo p-1">
+                <div class="m-1 form-inline">
+                    <img src="assets/img/READYY_logo.svg">
+                    <img src="assets/img/READYY.svg">
+                </div>
+            </div>
+        </a>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>        
+        <div class="navbar-collapse collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                <a class="nav-link" href="#">Documentación</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="profile-buyer.html">Mi perfil</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="#" data-toggle="modal" data-target="#shoppingCart">Mi carrito</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="#">Cerrar sesión</a>
+                </li>
+                
+            </ul>
+        </div>
+    </nav> <!-- /nav -->
+    
+    <main class="bg-white">
+        <div class="jumbotron bg-white rounded-0">
+            <form class="form-row mb-3">
+                <div class="col-7 col-sm-9 col-md-10">
+                    <input type="text" id="companies-txt-search" class="form-control" required="">
+                    <div class="invalid-feedback text-left">Campo vacío o inválido.</div>
+                </div>
+                <div class="col-5 col-sm-3 col-md-2">
+                    <button class="btn btn-readyy-salmon btn-block" type="button">Buscar</button>
+                </div>
+            </form>
+            <div class="row">
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2 pb-3">
+                    <div class="card p-2">
+                        <div class="bg-secondary">
+                            <img src="assets/img/favicon.png" class="card-img-top p-1 item-img">
+                        </div>
+                        <div class="col-12 p-1 text-left">
+                            <h6 class="mb-1">Ejemplo 1</h6>
+                            <div>Por: Compañía DS</div>
+                            <div>El mejor servicio de lavandería de la ciudad</div>
+                            <div><i class="fas fa-star text-warning mr-2"></i>4.0</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2 pb-3">
+                    <div class="card p-2">
+                        <div class="bg-secondary">
+                            <img src="assets/img/favicon.png" class="card-img-top p-1 item-img">
+                        </div>
+                        <div class="col-12 p-1 text-left">
+                            <h6 class="mb-1">Ejemplo 1</h6>
+                            <div>Por: Compañía DS</div>
+                            <div>El mejor servicio de lavandería de la ciudad</div>
+                            <div><i class="fas fa-star text-warning mr-2"></i>4.0</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="px-2 px-sm-5 pb-4 text-center">
+            <div class="p-0 px-sm-5 mx-3">
+                <hr>
+                <p class="pt-3">Plataforma de comercio electrónico <a href="#" class="text-info">READYY</a> por <a href="#" class="text-info">Walter Rivera H</a>.<br>© 2020.</p>
+            </div>
+        </footer> <!-- /footer -->
+
+        <!-- VENTANAS MODALES -->
+        <!-- Carrito de compras -->
+        <div class="modal fade" id="shoppingCart" tabindex="-1" aria-labelledby="shoppingCartLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="shoppingCartLabel"><i class="fas fa-shopping-cart mr-2"></i>Carrito de compras</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                    <table class="table">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">Producto</th>
+                                <th scope="col">Cantidad</th>
+                                <th scope="col">Precio</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td scope="row">Hamburguesa con doble queso de lujo</td>
+                                <td scope="row">3</td>
+                                <td scope="row">L. 35.00</td>
+                                <td><button type="button" class="btn text-danger p-0 mr-2"><i class="fas fa-times-circle"></i></button></td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Hamburguesa con doble queso de lujo</td>
+                                <td scope="row">3</td>
+                                <td scope="row">L.35.00</td>
+                                <td><button type="button" class="btn text-danger p-0 mr-2"><i class="fas fa-times-circle"></i></button></td>
+                            </tr>
+                            <tr class="font-weight-bold">
+                                <td scope="row"></td>
+                                <td scope="row">TOTAL</td>
+                                <td scope="row">L.70.00</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary">Comprar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    </main>
+              
+    <script src="assets/js/jquery-3.4.1.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/funciones-validacion.js"></script>
+    
+</body>
+</html>

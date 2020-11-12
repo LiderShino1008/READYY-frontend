@@ -1,0 +1,447 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Mi perfil | READYY</title>
+    <link rel="icon" href="assets/img/favicon.png">
+    <!--Bootstrap-->
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/bootstrap.min.css"/>
+    <!--FontAwesome-->
+    <link rel="stylesheet" href="assets/css/all.css">
+    <!--Custom CSS-->
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/main.css"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/profile.css"/>
+</head>
+<body>
+    
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+        <a class="navbar-brand p-0" href="#">
+            <div class="readyy-logo p-1">
+                <div class="m-1 form-inline">
+                    <img src="assets/img/READYY_logo.svg">
+                    <img src="assets/img/READYY.svg">
+                </div>
+            </div>
+        </a>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>        
+        <div class="navbar-collapse collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                <a class="nav-link" href="#">Documentación</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="companies-list.html">Buscar empresas</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="#">Cerrar sesión</a>
+                </li>
+                
+            </ul>
+        </div>
+    </nav> <!-- /nav -->
+
+    <main class="bg-white">
+    
+        <div class="p-4 bg-grey-light">
+            <div class="row">
+                <div class="col-12 col-sm-8 col-md-9">
+                    <h4 class="font-weight-normal">¡Hola Juan Carlos López Pérez!</h4>
+                    <div>Fecha de nacimiento: 25/03/1997</div>
+                    <div>Se unió en: 19/10/2020</div>
+                </div>
+                <div class="col-12 col-sm-4 col-md-3 mt-2 mt-sm-0 text-right">
+                    <button class="btn btn-readyy-salmon btn-rounded" type="button" data-toggle="modal" data-target="#editBmModal"><i class="fas fa-pen mr-2"></i>Editar perfil</button>
+                </div>
+            </div>
+        </div>
+        <div class="p-4">
+            <div class="row pb-4 px-2">
+                <h4 class="col-6 font-weight-normal">Sitios web</h4>
+                <div class="col-6 text-right">
+                    <button class="btn btn-readyy-salmon btn-rounded" type="button" data-toggle="modal" data-target="#newPageModal"><i class="fas fa-plus-circle mr-2"></i>Agregar</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card shadow-sm bg-grey-light p-3 mb-3">
+                        <div class="row p-1">
+                            <div class="col-4 col-sm-3 col-md-2 col-xl-1">
+                                <img src="assets/img/favicon.png" class="w-100">
+                            </div>
+                            <div class="col-7 col-sm-9 col-md-10 col-xl-11">
+                                <p>Empresa 1<br><b>ID: </b>empresa-uno-1<br><b>Descripción: </b>Página principal de nuestra empresa, aquí puedes adquirir directamente nuestros productos de confianza.<br><b>Palabras claves: </b>Sed, ut, perspiciatis, unde, omnis, iste, natus, error<br></p>
+                                <button type="button" class="btn btn-link mr-3 p-0"><i class="fas fa-edit mr-2"></i>Editar</button>
+                                <button type="button" class="btn btn-link text-danger p-0"><i class="fas fa-trash mr-2"></i>Borrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="card shadow-sm bg-grey-light p-3 mb-3">
+                        <div class="row p-1">
+                            <div class="col-4 col-sm-3 col-md-2 col-xl-1">
+                                <img src="assets/img/favicon.png" class="w-100">
+                            </div>
+                            <div class="col-7 col-sm-9 col-md-10 col-xl-11">
+                                <p>Empresa 2<br><b>ID: </b>empresa-dos-2<br><b>Descripción: </b>Página dedicada a nuestros distribuidores oficiales, aquí pueden consultar los productos disponibles.<br><b>Palabras claves: </b>Sed, ut, perspiciatis, unde, omnis, iste, natus, error<br></p>
+                                <button type="button" class="btn btn-link mr-3 p-0"><i class="fas fa-edit mr-2"></i>Editar</button>
+                                <button type="button" class="btn btn-link text-danger p-0"><i class="fas fa-trash mr-2"></i>Borrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-4">
+            <div class="row pb-4 px-2">
+                <h4 class="col-6 font-weight-normal">Banco de archivos</h4>
+                <div class="col-6 text-right">
+                    <button class="btn btn-readyy-salmon btn-rounded" type="button" data-toggle="modal" data-target="#newFileModal"><i class="fas fa-plus-circle mr-2"></i>Agregar</button>
+                </div>
+            </div>
+            <div class="py-3 scroll-div">
+                <div class="col-8 col-sm-5">
+                    <div class="card shadow-sm p-2 bg-grey-light">
+                        <div class="bg-secondary m-1">
+                            <img src="assets/img/favicon.png" class="p-1 card-img-top item-img">
+                        </div>
+                        <div class="p-1 text-left">
+                            <h6 class="mb-1">Video_86462v34re2f.mp4</h6>
+                            <div>COD: 56bcv554shj379</div>
+                            <div>
+                                <button type="button" class="btn btn-link p-0"><i class="fas fa-edit mr-2"></i>Editar</button>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-link text-danger p-0"><i class="fas fa-trash mr-2"></i>Borrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-8 col-sm-5">
+                    <div class="card shadow-sm p-2 bg-grey-light">
+                        <div class="text-center text-light bg-secondary m-1 item-icon">
+                            <i class="fas fa-file-word"></i>
+                        </div>
+                        <div class="p-1 text-left">
+                            <h6 class="mb-1">Documento_informe_exposición_ejemplo.docx</h6>
+                            <div>COD: 56bcv554shj379</div>
+                            <div>
+                                <button type="button" class="btn btn-link p-0"><i class="fas fa-edit mr-2"></i>Editar</button>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-link text-danger p-0"><i class="fas fa-trash mr-2"></i>Borrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-8 col-sm-5">
+                    <div class="card shadow-sm p-2 bg-grey-light">
+                        <div class="text-center text-light bg-secondary m-1 item-icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <div class="p-1 text-left">
+                            <h6 class="mb-1">doc_adwed345_435hgdfaatnasfd_5876.pdf</h6>
+                            <div>COD: 56bcv554shj379</div>
+                            <div>
+                                <button type="button" class="btn btn-link p-0"><i class="fas fa-edit mr-2"></i>Editar</button>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-link text-danger p-0"><i class="fas fa-trash mr-2"></i>Borrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-8 col-sm-5">
+                    <div class="card shadow-sm p-2 bg-grey-light">
+                        <div class="text-center text-light bg-secondary m-1 item-icon">
+                            <i class="fas fa-file-excel"></i>
+                        </div>
+                        <div class="p-1 text-left">
+                            <h6 class="mb-1">hoja de calculo.xlsx</h6>
+                            <div>COD: 56bcv554shj379</div>
+                            <div>
+                                <button type="button" class="btn btn-link p-0"><i class="fas fa-edit mr-2"></i>Editar</button>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-link text-danger p-0"><i class="fas fa-trash mr-2"></i>Borrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-8 col-sm-5">
+                    <div class="card shadow-sm p-2 bg-grey-light">
+                        <div class="text-center text-light bg-secondary m-1 item-icon">
+                            <i class="fas fa-file-powerpoint"></i>
+                        </div>
+                        <div class="p-1 text-left">
+                            <h6 class="mb-1">presentación diapositivas en pp.ppsx</h6>
+                            <div>COD: 56bcv554shj379</div>
+                            <div>
+                                <button type="button" class="btn btn-link p-0"><i class="fas fa-edit mr-2"></i>Editar</button>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-link text-danger p-0"><i class="fas fa-trash mr-2"></i>Borrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-8 col-sm-5">
+                    <div class="card shadow-sm p-2 bg-grey-light">
+                        <div class="text-center text-light bg-secondary m-1 item-icon">
+                            <i class="fas fa-file"></i>
+                        </div>
+                        <div class="p-1 text-left">
+                            <h6 class="mb-1">doc_adwed345_435hgdfaatnasfd_5876.pdf</h6>
+                            <div>COD: 56bcv554shj379</div>
+                            <div>
+                                <button type="button" class="btn btn-link p-0"><i class="fas fa-edit mr-2"></i>Editar</button>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-link text-danger p-0"><i class="fas fa-trash mr-2"></i>Borrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-8 col-sm-5">
+                    <div class="card shadow-sm p-2 bg-grey-light">
+                        <div class="text-center text-light bg-secondary m-1 item-icon">
+                            <i class="fas fa-file-archive"></i>
+                        </div>
+                        <div class="p-1 text-left">
+                            <h6 class="mb-1">doc_adwed345_435hgdfaatnasfd_5876.pdf</h6>
+                            <div>COD: 56bcv554shj379</div>
+                            <div>
+                                <button type="button" class="btn btn-link p-0"><i class="fas fa-edit mr-2"></i>Editar</button>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-link text-danger p-0"><i class="fas fa-trash mr-2"></i>Borrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-4">
+            <div class="row pb-4 px-2">
+                <h4 class="col-12 col-sm-4 col-md-6 font-weight-normal">Categorías</h4>
+                <div class="col-12 col-sm-8 col-md-6 text-right d-flex">
+                    <input type="text" class="form-control mr-2" placeholder="Nueva categoría">
+                    <button class="btn btn-readyy-salmon d-inline-flex" type="button"><i class="fas fa-plus-circle mr-2 align-self-center"></i>Agregar</button>
+                </div>
+            </div>
+            <div class="py-3 scroll-div w-100">
+                <div class="col-8 col-sm-5">
+                    <div class="card shadow-sm p-2 bg-grey-light">
+                        <div class="p-1 text-left">
+                            <h6 class="mb-1">Vestimenta casual de verano</h6>
+                            <div>COD: 56bcv554shj379</div>
+                            <div>
+                                <button type="button" class="btn btn-link p-0"><i class="fas fa-edit mr-2"></i>Editar</button>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-link text-danger p-0"><i class="fas fa-trash mr-2"></i>Borrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-8 col-sm-5">
+                    <div class="card shadow-sm p-2 bg-grey-light">
+                        <div class="p-1 text-left">
+                            <h6 class="mb-1">Colección de otoño</h6>
+                            <div>COD: 56bcv554shj379</div>
+                            <div>
+                                <button type="button" class="btn btn-link p-0"><i class="fas fa-edit mr-2"></i>Editar</button>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-link text-danger p-0"><i class="fas fa-trash mr-2"></i>Borrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-8 col-sm-5">
+                    <div class="card shadow-sm p-2 bg-grey-light">
+                        <div class="p-1 text-left">
+                            <h6 class="mb-1">Telas y accesorios para ropa</h6>
+                            <div>COD: 56bcv554shj379</div>
+                            <div>
+                                <button type="button" class="btn btn-link p-0"><i class="fas fa-edit mr-2"></i>Editar</button>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-link text-danger p-0"><i class="fas fa-trash mr-2"></i>Borrar </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-4">
+            <div class="row pb-4 px-2">
+                <h4 class="col-6 font-weight-normal">Productos</h4>
+                <div class="col-6 text-right">
+                    <button class="btn btn-readyy-salmon btn-rounded" type="button" data-toggle="modal" data-target="#newItemModal"><i class="fas fa-plus-circle mr-2"></i>Agregar</button>
+                </div>
+            </div>
+            <div class="py-3 scroll-div">
+                <div class="col-8 col-sm-5">
+                    <div class="card shadow-sm p-2 bg-grey-light">
+                        <div class="bg-secondary m-1">
+                            <img src="assets/img/favicon.png" class="p-1 card-img-top item-img">
+                        </div>
+                        <div class="p-1 text-left">
+                            <h6 class="mb-1">Camisa Talla M Marca Gucci</h6>
+                            <div>COD: 56bcv554shj379</div>
+                            <div>Categoría: Moda y vestimentas</div>
+                            <div>Precio: L.3160.00</div>
+                            <div>
+                                <button type="button" class="btn btn-link p-0"><i class="fas fa-edit mr-2"></i>Editar</button>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-link text-danger p-0"><i class="fas fa-trash mr-2"></i>Borrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-8 col-sm-5">
+                    <div class="card shadow-sm p-2 bg-grey-light">
+                        <div class="bg-secondary m-1">
+                            <img src="assets/img/favicon.png" class="p-1 card-img-top item-img">
+                        </div>
+                        <div class="p-1 text-left">
+                            <h6 class="mb-1">Camisa Talla M Marca Gucci</h6>
+                            <div>COD: 56bcv554shj379</div>
+                            <div>Categoría: Moda y vestimentas</div>
+                            <div>Precio: L.3160.00</div>
+                            <div>
+                                <button type="button" class="btn btn-link p-0"><i class="fas fa-edit mr-2"></i>Editar</button>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-link text-danger p-0"><i class="fas fa-trash mr-2"></i>Borrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-8 col-sm-5">
+                    <div class="card shadow-sm p-2 bg-grey-light">
+                        <div class="bg-secondary m-1">
+                            <img src="assets/img/favicon.png" class="p-1 card-img-top item-img">
+                        </div>
+                        <div class="p-1 text-left">
+                            <h6 class="mb-1">Camisa Talla M Marca Gucci</h6>
+                            <div>COD: 56bcv554shj379</div>
+                            <div>Categoría: Moda y vestimentas</div>
+                            <div>Precio: L.3160.00</div>
+                            <div>
+                                <button type="button" class="btn btn-link p-0"><i class="fas fa-edit mr-2"></i>Editar</button>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-link text-danger p-0"><i class="fas fa-trash mr-2"></i>Borrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="px-2 px-sm-5 pb-4 text-center">
+            <div class="p-0 px-sm-5 mx-3">
+                <hr>
+                <p class="pt-3">Plataforma de comercio electrónico <a href="#" class="text-info">READYY</a> por <a href="#" class="text-info">Walter Rivera H</a>.<br>© 2020.</p>
+            </div>
+        </footer> <!-- /footer -->
+
+        <!-- VENTANAS MODALES -->
+        <!-- Editar perfil de administrador de negocios -->
+        <div class="modal fade" id="editBmModal" tabindex="-1" aria-labelledby="editBmModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="editBmModalLabel">Editar información de perfil</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                ...
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary">Guardar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Nuevo sitio web -->
+        <div class="modal fade" id="newPageModal" tabindex="-1" aria-labelledby="newPageModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="newPageModalLabel">Nuevo sitio web</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                ...
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary">Guardar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Nuevo archivo -->
+        <div class="modal fade" id="newFileModal" tabindex="-1" aria-labelledby="newFileModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="newFileModalLabel">Nuevo archivo</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                ...
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary">Guardar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Nuevo producto -->
+        <div class="modal fade" id="newItemModal" tabindex="-1" aria-labelledby="newItemModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="newItemModalLabel">Nuevo producto</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                ...
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary">Guardar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /VENTANAS MODALES -->
+        
+    </main>
+              
+    <script src="assets/js/jquery-3.4.1.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!--script src="assets/js/controlador-login.js"></script-->
+    <script src="assets/js/funciones-validacion.js"></script>
+    
+</body>
+</html>

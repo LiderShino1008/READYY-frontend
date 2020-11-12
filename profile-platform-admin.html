@@ -1,0 +1,353 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Mi perfil | READYY</title>
+    <link rel="icon" href="assets/img/favicon.png">
+    <!--Bootstrap-->
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/bootstrap.min.css"/>
+    <!--FontAwesome-->
+    <link rel="stylesheet" href="assets/css/all.css">
+    <!--Custom CSS-->
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/main.css"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/profile.css"/>
+</head>
+<body>
+    
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+        <a class="navbar-brand p-0" href="#">
+            <div class="readyy-logo p-1">
+                <div class="m-1 form-inline">
+                    <img src="assets/img/READYY_logo.svg">
+                    <img src="assets/img/READYY.svg">
+                </div>
+            </div>
+        </a>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>        
+        <div class="navbar-collapse collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                <a class="nav-link" href="#">Documentación</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="companies-list.html">Buscar empresas</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="#">Cerrar sesión</a>
+                </li>
+                
+            </ul>
+        </div>
+    </nav> <!-- /nav -->
+
+    <main class="bg-white">
+    
+        <div class="p-4 bg-grey-light">
+            <div class="row px-2">
+                <div class="col-12 col-sm-8 col-md-9">
+                    <h4 class="font-weight-normal">¡Hola Mr. Peanut Butter!</h4>
+                    <div>Fecha de nacimiento: 25/03/1997</div>
+                    <div>Se unió en: 19/10/2020</div>
+                    <br>
+                    <h6>Administrador de plataforma<i class="fas fa-paper-plane ml-2"></i></h6>
+                </div>
+                <div class="col-12 col-sm-4 col-md-3 mt-3 mt-sm-0 text-right">
+                    <button class="btn btn-readyy-salmon btn-rounded" type="button" data-toggle="modal" data-target="#editPaModal"><i class="fas fa-pen mr-2"></i>Editar perfil</button>
+                </div>
+            </div>
+        </div>
+        <div class="p-4">
+            <h5 class="px-2 font-weight-normal">► Ir a <a href="#">Administración de Temas y plantillas</a></h5>
+        </div>
+        <div class="p-4">
+            <div class="row pb-4 px-2">
+                <h4 class="col-6 font-weight-normal">Usuarios</h4>
+                <div class="col-6 text-right">
+                    <button class="btn btn-readyy-salmon btn-rounded" type="button" data-toggle="modal" data-target="#newUserModal"><i class="fas fa-plus-circle mr-2"></i>Agregar</button>
+                </div>
+            </div>
+            <div class="py-3 scroll-div w-100">
+                <div class="col-9 col-sm-5">
+                    <div class="card shadow-sm p-2 bg-grey-light">
+                        <div class="p-1 text-left">
+                            <div>Luigi Mario</div>
+                            <h6 class="mb-1">Cliente</h6>
+                            <div>
+                                <button type="button" class="btn btn-link p-0"><i class="fas fa-edit mr-2"></i>Editar</button>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-link text-danger p-0"><i class="fas fa-trash mr-2"></i>Borrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-9 col-sm-5">
+                    <div class="card shadow-sm p-2 bg-grey-light">
+                        <div class="p-1 text-left">
+                            <div>Juan Carlos López Pérez</div>
+                            <h6 class="mb-1">Administrador de negocios</h6>
+                            <div>
+                                <button type="button" class="btn btn-link p-0"><i class="fas fa-edit mr-2"></i>Editar</button>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-link text-danger p-0"><i class="fas fa-trash mr-2"></i>Borrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-9 col-sm-5">
+                    <div class="card shadow-sm p-2 bg-grey-light">
+                        <div class="p-1 text-left">
+                            <div>Scarlett Johansson</div>
+                            <h6 class="mb-1">Administrador de plataforma</h6>
+                            <div>
+                                <button type="button" class="btn btn-link p-0"><i class="fas fa-edit mr-2"></i>Editar</button>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-link text-danger p-0"><i class="fas fa-trash mr-2"></i>Borrar </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-4">
+            <div class="row pb-4 px-2">
+                <h4 class="col-6 font-weight-normal">Empresas</h4>
+                <div class="col-6 text-right">
+                    <button class="btn btn-readyy-salmon btn-rounded" type="button" data-toggle="modal" data-target="#newBusinessModal"><i class="fas fa-plus-circle mr-2"></i>Agregar</button>
+                </div>
+            </div>
+            <div class="py-3 scroll-div">
+                <div class="col-9 col-sm-5">
+                    <div class="card shadow-sm p-2 bg-grey-light">
+                        <div class="bg-secondary m-1">
+                            <img src="assets/img/favicon.png" class="p-1 card-img-top item-img">
+                        </div>
+                        <div class="p-1 text-left">
+                            <h6 class="mb-1">Empresa 1</h6>
+                            <div>empresa-uno-1</div>
+                            <div>
+                                <button type="button" class="btn btn-link text-indigo p-0"><i class="fas fa-ban mr-2"></i>Bloquear</button>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-link text-danger p-0"><i class="fas fa-trash mr-2"></i>Borrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-9 col-sm-5">
+                    <div class="card shadow-sm p-2 bg-grey-light">
+                        <div class="bg-secondary m-1">
+                            <img src="assets/img/favicon.png" class="p-1 card-img-top item-img">
+                        </div>
+                        <div class="p-1 text-left">
+                            <h6 class="mb-1">Empresa 1</h6>
+                            <div>empresa-uno-1</div>
+                            <div>
+                                <button type="button" class="btn btn-link text-indigo p-0"><i class="fas fa-ban mr-2"></i>Bloquear</button>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-link text-danger p-0"><i class="fas fa-trash mr-2"></i>Borrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-9 col-sm-5">
+                    <div class="card shadow-sm p-2 bg-grey-light">
+                        <div class="bg-secondary m-1">
+                            <img src="assets/img/favicon.png" class="p-1 card-img-top item-img">
+                        </div>
+                        <div class="p-1 text-left">
+                            <h6 class="mb-1">Empresa 1</h6>
+                            <div>empresa-uno-1</div>
+                            <div>
+                                <button type="button" class="btn btn-link text-indigo p-0"><i class="fas fa-ban mr-2"></i>Bloquear</button>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-link text-danger p-0"><i class="fas fa-trash mr-2"></i>Borrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-4">
+            <div class="row pb-4 px-2">
+                <h4 class="col-6 font-weight-normal">Planes de servicio</h4>
+                <div class="col-6 text-right">
+                    <button class="btn btn-readyy-salmon btn-rounded" type="button" data-toggle="modal" data-target="#newPlanModal"><i class="fas fa-plus-circle mr-2"></i>Agregar</button>
+                </div>
+            </div>
+            <div class="card-deck mx-0 py-3 text-center scroll-div">
+                <div class="col-9 col-sm-5">
+                    <div class="card shadow-sm mx-0">
+                        <div class="card-header">
+                            <h4 class="my-0 font-weight-normal">Principiante</h4>
+                        </div>
+                        <div class="card-body">
+                            <h1 class="card-title pricing-card-title">$0 <small class="text-muted">/ mes</small></h1>
+                            <ul class="list-unstyled mt-3 mb-4">
+                                <li>2 páginas</li>
+                                <li>6 categorías</li>
+                                <li>10 productos por cada categoría</li>
+                                <li>Sube hasta 30 archivos</li>
+                                <li>
+                                    <button type="button" class="btn btn-primary btn-rounded my-1"><span class="px-2"><i class="fas fa-edit mr-2"></i>Editar</span></button>
+                                </li>
+                                <li>
+                                    <button type="button" class="btn btn-danger btn-rounded"><span class="px-2"><i class="fas fa-trash mr-2"></i>Borrar</span></button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-9 col-sm-5">
+                    <div class="card shadow-sm mx-0">
+                        <div class="card-header">
+                            <h4 class="my-0 font-weight-normal">Profesional</h4>
+                        </div>
+                        <div class="card-body">
+                            <h1 class="card-title pricing-card-title">$12 <small class="text-muted">/ mes</small></h1>
+                            <ul class="list-unstyled mt-3 mb-4">
+                                <li>4 páginas</li>
+                                <li>12 categorías</li>
+                                <li>20 productos por cada categoría</li>
+                                <li>Sube hasta 60 archivos</li>
+                                <li>
+                                    <button type="button" class="btn btn-primary btn-rounded my-1"><span class="px-2"><i class="fas fa-edit mr-2"></i>Editar</span></button>
+                                </li>
+                                <li>
+                                    <button type="button" class="btn btn-danger btn-rounded"><span class="px-2"><i class="fas fa-trash mr-2"></i>Borrar</span></button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-9 col-sm-5">
+                    <div class="card shadow-sm mx-0">
+                        <div class="card-header">
+                            <h4 class="my-0 font-weight-normal">Avanzado</h4>
+                        </div>
+                        <div class="card-body">
+                            <h1 class="card-title pricing-card-title">$25 <small class="text-muted">/ mes</small></h1>
+                            <ul class="list-unstyled mt-3 mb-4">
+                                <li>8 páginas</li>
+                                <li>24 categorías</li>
+                                <li>40 productos por cada categoría</li>
+                                <li>Sube hasta 120 archivos</li>
+                                <li>
+                                    <button type="button" class="btn btn-primary btn-rounded my-1"><span class="px-2"><i class="fas fa-edit mr-2"></i>Editar</span></button>
+                                </li>
+                                <li>
+                                    <button type="button" class="btn btn-danger btn-rounded"><span class="px-2"><i class="fas fa-trash mr-2"></i>Borrar</span></button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="px-2 px-sm-5 pb-4 text-center">
+            <div class="p-0 px-sm-5 mx-3">
+                <hr>
+                <p class="pt-3">Plataforma de comercio electrónico <a href="#" class="text-info">READYY</a> por <a href="#" class="text-info">Walter Rivera H</a>.<br>© 2020.</p>
+            </div>
+        </footer> <!-- /footer -->
+        
+        <!-- VENTANAS MODALES -->
+        <!-- Editar perfil de administrador de plataforma -->
+        <div class="modal fade" id="editPaModal" tabindex="-1" aria-labelledby="editPaModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="editPaModalLabel">Editar información de perfil</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                ...
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary">Guardar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Nuevo usuario -->
+        <div class="modal fade" id="newUserModal" tabindex="-1" aria-labelledby="newUserModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="newUserModalLabel">Nuevo usuario</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                ...
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary">Guardar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Nueva empresa -->
+        <div class="modal fade" id="newBusinessModal" tabindex="-1" aria-labelledby="newBusinessModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="newBusinessModalLabel">Nueva empresa</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                ...
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary">Guardar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Nuevo plan -->
+        <div class="modal fade" id="newPlanModal" tabindex="-1" aria-labelledby="newPlanModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="newPlanModalLabel">Nuevo plan de servicios</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                ...
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary">Guardar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /VENTANAS MODALES -->
+        
+    </main>
+              
+    <script src="assets/js/jquery-3.4.1.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/funciones-validacion.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,22 @@
+/* REDEFINITION OF STYLES */
+
+/* CUSTOM STYLES */
+.background-icon-banner {
+    background-color: var(--green-light);
+    border-radius: 10rem;
+    padding: 2.5rem;
+    max-width: fit-content;
+    margin: auto;
+}
+
+.background-icon-banner img {
+    width: 6rem;
+}
+
+.bib-ss {
+    padding: 1rem !important;
+}
+
+.bib-ss img {
+    width: 9rem !important;
+}

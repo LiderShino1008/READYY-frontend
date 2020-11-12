@@ -1,0 +1,15 @@
+/* REDEFINITION OF STYLES */
+
+/* CUSTOM STYLES */
+
+.item-icon {
+    font-size: 5.2rem;
+}
+
+.ws-nw {
+    white-space: nowrap;
+}
+
+.text-indigo {
+    color: var(--indigo) !important;
+}

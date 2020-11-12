@@ -19,15 +19,15 @@ body {
     color: var(--white);
 }
 
-.bg-grey-light {
-    background-color: var(--grey-light);
-}
-
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
 }
 
 /* CUSTOM STYLES */
+.bg-grey-light {
+    background-color: var(--grey-light);
+}
+
 .readyy-logo {
     background: var(--green-light);
     width: fit-content;
@@ -40,34 +40,6 @@ body {
 .readyy-logo img:last-child {
     height: 37px;
 }
-
-.background-icon-banner {
-    background-color: var(--green-light);
-    border-radius: 10rem;
-    padding: 2.5rem;
-    max-width: fit-content;
-    margin: auto;
-}
-
-.background-icon-banner img {
-    width: 6rem;
-}
-
-.bib-ss {
-    padding: 1rem !important;
-}
-
-.bib-ss img {
-    width: 9rem !important;
-}
-
-/* .background-icon-banner i {
-   font-size: 6rem;
-}
-
-.background-icon-banner i.fas.fa-code {
-   font-size: 5.5rem;
-} */
 
 .btn-rounded {
     border-radius: 2rem;
@@ -85,4 +57,16 @@ body {
 
 .vertical-center {
     align-self: center;
+}
+
+.scroll-div {
+    display: flex;
+    overflow-x: auto;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.item-img {
+    height: 8rem;
+    object-fit: contain;
 }

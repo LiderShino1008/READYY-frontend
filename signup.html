@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8"/>
@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="assets/css/all.css">
     <!--Custom CSS-->
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/main.css"/>
-    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/login.css"/>
 </head>
 <body>
     
@@ -103,7 +102,7 @@
                     <p class="col-12">Selecciona tu plan de pago y adquisición de servicios.</p>
                     <div class="col-12">
                         <table class="table table-bordered">
-                            <thead class="table-dark">
+                            <thead class="thead-dark">
                                 <tr>
                                     <th scope="col">Plan de pago</th>
                                     <th scope="col">Precio</th>
@@ -112,17 +111,32 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td scope="row">Principiante</td>
+                                    <td scope="row">
+                                        <div class="custom-control custom-radio">
+                                            <input id="plan-principiante" name="registro-txt-plan" type="radio" class="custom-control-input" required="" value="Principiante">
+                                            <label class="custom-control-label" for="plan-principiante">Principiante</label>
+                                        </div>
+                                    </td>
                                     <td scope="row">GRATIS</td>
                                     <td scope="row" class="d-none d-sm-table-cell">3 páginas, 5 categorías cada una con 15 productos.</td>
                                 </tr>
                                 <tr>
-                                    <td scope="row">Profesional</td>
+                                    <td scope="row">
+                                        <div class="custom-control custom-radio">
+                                            <input id="plan-profesional" name="registro-txt-plan" type="radio" class="custom-control-input" required="" value="Profesional">
+                                            <label class="custom-control-label" for="plan-profesional">Profesional</label>
+                                        </div>
+                                    </td>
                                     <td scope="row">$12/mes</td>
                                     <td scope="row" class="d-none d-sm-table-cell">5 páginas, 10 categorías cada una con 50 productos.</td>
                                 </tr>
                                 <tr>
-                                    <td scope="row">Avanzado</td>
+                                    <td scope="row">
+                                        <div class="custom-control custom-radio">
+                                            <input id="plan-avanzado" name="registro-txt-plan" type="radio" class="custom-control-input" required="" value="Avanzado">
+                                            <label class="custom-control-label" for="plan-avanzado">Avanzado</label>
+                                        </div>
+                                    </td>
                                     <td scope="row">$25/mes</td>
                                     <td scope="row" class="d-none d-sm-table-cell">8 páginas, cada una con categorías y productos ilimitados.</td>
                                 </tr>
