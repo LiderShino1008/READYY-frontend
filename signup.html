@@ -56,111 +56,133 @@
             </h5>
             <p>Selecciona qué tipo de usuario deseas, ser un cliente para comprar productos o ser un administrador de negocios.</p>
             <form class="needs-validation" novalidate="">
-                <div class="my-3">
-                    <div class="custom-control custom-radio col-12">
-                        <input id="user-cliente" name="registro-userType" type="radio" class="custom-control-input" onclick="mostrarUT('cliente')" required="" value="Cliente">
-                        <label class="custom-control-label" for="user-cliente">Cliente</label>
-                    </div>
-                    <div class="custom-control custom-radio col-12">
-                        <input id="user-adm" name="registro-userType" type="radio" class="custom-control-input" onclick="mostrarUT('adm')" required="" value="Administrador de negocios">
-                        <label class="custom-control-label" for="user-adm">Administrador de negocios</label>
-                    </div>
-                </div>
-                <div class="row my-3 d-none" id="reg-div-cliente">
-                    <div class="col-12 col-md-6 col-lg-4 mb-3">
-                        <label for="registro-txt-nombre">Nombre</label>
-                        <input type="text" class="form-control" id="registro-txt-nombre" placeholder="" value="" required="">
-                        <div class="invalid-feedback">Campo vacío o dato inválido.</div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-4 mb-3">
-                        <label for="registro-txt-apellido">Apellido</label>
-                        <input type="text" class="form-control" id="registro-txt-apellido" placeholder="" value="" required="">
-                        <div class="invalid-feedback">Campo vacío o dato inválido.</div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-4 mb-3">
-                        <label for="registro-txt-nacimiento">Fecha de nacimiento</label>
-                        <input type="date" class="form-control" id="registro-txt-nacimiento" value="" required="">
-                        <div class="invalid-feedback">Campo vacío o dato inválido.</div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-4 mb-3">
-                        <label for="registro-txt-email">Correo electrónico</label>
-                        <input type="email" class="form-control" id="registro-txt-email" placeholder="nombre@ejemplo.com">
-                        <div class="invalid-feedback">Dirección de correo electrónico inválida.</div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-4 mb-3">
-                        <label for="registro-txt-pwd1">Contraseña <span>(8 o más caracteres)</span></label>
-                        <input type="password" class="form-control" id="registro-txt-pwd1">
-                        <div class="invalid-feedback">Debe incluir minúsculas, mayúsculas, números y algún signo.</div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-4 mb-3">
-                        <label for="registro-txt-pwd2">Confirmar contraseña</label>
-                        <input type="password" class="form-control" id="registro-txt-pwd2">
-                        <div class="invalid-feedback">La contraseña no coincide.</div>
-                    </div>
-                </div>
-                <div class="row my-3 d-none" id="reg-div-adm">
-                    <p class="col-12">Selecciona tu plan de pago y adquisición de servicios.</p>
+                <div class="form-row form-group">
                     <div class="col-12">
-                        <table class="table table-bordered">
-                            <thead class="thead-dark">
-                                <tr>
-                                    <th scope="col">Plan de pago</th>
-                                    <th scope="col">Precio</th>
-                                    <th scope="col" class="d-none d-sm-table-cell">Características</th>
-                                </tr>            
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td scope="row">
-                                        <div class="custom-control custom-radio">
-                                            <input id="plan-principiante" name="registro-txt-plan" type="radio" class="custom-control-input" required="" value="Principiante">
-                                            <label class="custom-control-label" for="plan-principiante">Principiante</label>
-                                        </div>
-                                    </td>
-                                    <td scope="row">GRATIS</td>
-                                    <td scope="row" class="d-none d-sm-table-cell">3 páginas, 5 categorías cada una con 15 productos.</td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">
-                                        <div class="custom-control custom-radio">
-                                            <input id="plan-profesional" name="registro-txt-plan" type="radio" class="custom-control-input" required="" value="Profesional">
-                                            <label class="custom-control-label" for="plan-profesional">Profesional</label>
-                                        </div>
-                                    </td>
-                                    <td scope="row">$12/mes</td>
-                                    <td scope="row" class="d-none d-sm-table-cell">5 páginas, 10 categorías cada una con 50 productos.</td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">
-                                        <div class="custom-control custom-radio">
-                                            <input id="plan-avanzado" name="registro-txt-plan" type="radio" class="custom-control-input" required="" value="Avanzado">
-                                            <label class="custom-control-label" for="plan-avanzado">Avanzado</label>
-                                        </div>
-                                    </td>
-                                    <td scope="row">$25/mes</td>
-                                    <td scope="row" class="d-none d-sm-table-cell">8 páginas, cada una con categorías y productos ilimitados.</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div class="custom-control custom-radio">
+                            <input id="user-cliente" name="registro-userType" type="radio" class="custom-control-input" required="" value="Cliente">
+                            <label class="custom-control-label" for="user-cliente">Cliente</label>
+                        </div>
                     </div>
-                    <div class="col-12 col-md-6 mb-3">
-                        <label for="registro-txt-empresa">Nombre de la empresa</label>
-                        <input type="text" class="form-control" id="registro-txt-empresa" placeholder="" value="" required="">
-                        <div class="invalid-feedback">Campo vacío o dato inválido.</div>
-                    </div>
-                    <div class="col-12 col-md-6 mb-3">
-                        <label for="registro-txt-direccion">Dirección</label>
-                        <input type="text" class="form-control" id="registro-txt-direccion" placeholder="" value="" required="">
-                        <div class="invalid-feedback">Campo vacío o dato inválido.</div>
-                    </div>
-                    <div class="col-12 col-md-6 mb-3">
-                        <label for="registro-txt-descripcion">Descripción breve</label>
-                        <input type="text" class="form-control" id="registro-txt-descripcion" placeholder="" value="" required="">
-                        <div class="invalid-feedback">Campo vacío o dato inválido.</div>
+                    <div class="col-12">
+                        <div class="custom-control custom-radio">
+                            <input id="user-adm" name="registro-userType" type="radio" class="custom-control-input" required="" value="Administrador de negocios">
+                            <label class="custom-control-label" for="user-adm">Administrador de negocios</label>
+                        </div>
                     </div>
                 </div>
-                <div class="col-12 my-3 justify-content-center d-none" id="reg-div-btn">
-                    <button class="btn btn-readyy-salmon btn-rounded" type="button" onclick="console.log('Registrar usuario')">Unirse ahora</button>
+                <div class="form-row" id="reg-div-cliente" style="display: none;">
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="form-group">
+                            <label for="registro-txt-nombre">Nombre</label>
+                            <input type="text" class="form-control" id="registro-txt-nombre" placeholder="" value="" required="">
+                            <div class="invalid-feedback">Campo vacío o dato inválido.</div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="form-group">
+                            <label for="registro-txt-apellido">Apellido</label>
+                            <input type="text" class="form-control" id="registro-txt-apellido" placeholder="" value="" required="">
+                            <div class="invalid-feedback">Campo vacío o dato inválido.</div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="form-group">
+                            <label for="registro-txt-nacimiento">Fecha de nacimiento</label>
+                            <input type="date" class="form-control" id="registro-txt-nacimiento" value="" required="">
+                            <div class="invalid-feedback">Campo vacío o dato inválido.</div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="form-group">
+                            <label for="registro-txt-email">Correo electrónico</label>
+                            <input type="email" class="form-control" id="registro-txt-email" placeholder="nombre@ejemplo.com">
+                            <div class="invalid-feedback">Dirección de correo electrónico inválida.</div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="form-group">
+                            <label for="registro-txt-pwd1">Contraseña <span>(8 o más caracteres)</span></label>
+                            <input type="password" class="form-control" id="registro-txt-pwd1">
+                            <div class="invalid-feedback">Debe incluir minúsculas, mayúsculas, números y algún signo.</div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="form-group">
+                            <label for="registro-txt-pwd2">Confirmar contraseña</label>
+                            <input type="password" class="form-control" id="registro-txt-pwd2">
+                            <div class="invalid-feedback">La contraseña no coincide.</div>
+                        </div>
+                    </div>
+                    <div class="col-12 form-row" id="reg-div-adm" style="display: none;">
+                        <p class="col-12">Selecciona tu plan de pago y adquisición de servicios.</p>
+                        <div class="col-12 form-group">
+                            <table class="table table-bordered">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th scope="col">Plan de pago</th>
+                                        <th scope="col">Precio</th>
+                                        <th scope="col" class="d-none d-sm-table-cell">Características</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td scope="row">
+                                            <div class="custom-control custom-radio">
+                                                <input id="plan-principiante" name="registro-txt-plan" type="radio" class="custom-control-input" required="" value="Principiante">
+                                                <label class="custom-control-label" for="plan-principiante">Principiante</label>
+                                            </div>
+                                        </td>
+                                        <td scope="row">GRATIS</td>
+                                        <td scope="row" class="d-none d-sm-table-cell">3 páginas, 5 categorías cada una con 15 productos.</td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">
+                                            <div class="custom-control custom-radio">
+                                                <input id="plan-profesional" name="registro-txt-plan" type="radio" class="custom-control-input" required="" value="Profesional">
+                                                <label class="custom-control-label" for="plan-profesional">Profesional</label>
+                                            </div>
+                                        </td>
+                                        <td scope="row">$12/mes</td>
+                                        <td scope="row" class="d-none d-sm-table-cell">5 páginas, 10 categorías cada una con 50 productos.</td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">
+                                            <div class="custom-control custom-radio">
+                                                <input id="plan-avanzado" name="registro-txt-plan" type="radio" class="custom-control-input" required="" value="Avanzado">
+                                                <label class="custom-control-label" for="plan-avanzado">Avanzado</label>
+                                            </div>
+                                        </td>
+                                        <td scope="row">$25/mes</td>
+                                        <td scope="row" class="d-none d-sm-table-cell">8 páginas, cada una con categorías y productos ilimitados.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="form-group">
+                                <label for="registro-txt-empresa">Nombre de la empresa</label>
+                                <input type="text" class="form-control" id="registro-txt-empresa" placeholder="" value="" required="">
+                                <div class="invalid-feedback">Campo vacío o dato inválido.</div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="form-group">
+                                <label for="registro-txt-direccion">Dirección</label>
+                                <input type="text" class="form-control" id="registro-txt-direccion" placeholder="" value="" required="">
+                                <div class="invalid-feedback">Campo vacío o dato inválido.</div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="form-group">
+                                <label for="registro-txt-descripcion">Descripción breve</label>
+                                <input type="text" class="form-control" id="registro-txt-descripcion" placeholder="" value="" required="">
+                                <div class="invalid-feedback">Campo vacío o dato inválido.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 mt-3 text-center">
+                        <button class="btn btn-readyy-salmon btn-rounded" type="button">Unirse ahora</button>
+                    </div>
                 </div>
             </form>
         </div>

@@ -262,83 +262,343 @@
         <!-- VENTANAS MODALES -->
         <!-- Editar perfil de administrador de plataforma -->
         <div class="modal fade" id="editPaModal" tabindex="-1" aria-labelledby="editPaModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="editPaModalLabel">Editar información de perfil</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">×</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                ...
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary">Guardar</button>
-              </div>
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editPaModalLabel">Editar información de perfil</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="form-pa-info">
+                            <div class="form-row">
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label for="pa-edit-nombre">Nombre</label>
+                                        <input type="text" class="form-control" id="pa-edit-nombre">
+                                        <div class="invalid-feedback">Campo vacío o dato inválido</div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label for="pa-edit-apellido">Apellido</label>
+                                        <input type="text" class="form-control" id="pa-edit-apellido">
+                                        <div class="invalid-feedback">Campo vacío o dato inválido</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-12 col-sm-6 mb-3">
+                                    <div class="form-group">
+                                        <label for="pa-edit-fecha">Fecha de nacimiento</label>
+                                        <input type="date" class="form-control" id="pa-edit-fecha">
+                                        <div class="invalid-feedback">Campo vacío o dato inválido</div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label for="pa-edit-email">Correo electrónico</label>
+                                        <input type="email" class="form-control" id="pa-edit-email">
+                                        <div class="invalid-feedback">Campo vacío o dato inválido</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <form id="form-pa-password" style="display: none;">
+                            <div class="form-row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="bm-password-anterior">Contraseña anterior</label>
+                                        <input type="password" class="form-control" id="pa-password-anterior">
+                                        <div class="invalid-feedback">Campo vacío o dato inválido</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="bm-password-nueva">Nueva contraseña</label>
+                                        <input type="password" class="form-control" id="pa-password-nueva">
+                                        <div class="invalid-feedback">Campo vacío o dato inválido</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="bm-password-confirmar">Confirmar contraseña</label>
+                                        <input type="password" class="form-control" id="pa-password-confirmar">
+                                        <div class="invalid-feedback">La contraseña no coincide.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="col-6">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="edit-password">
+                                 <label class="form-check-label" for="edit-password">Cambiar contraseña</label>
+                            </div>
+                        </div>
+                        <div class="col-6 text-right">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-primary">Guardar</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
         <!-- Nuevo usuario -->
         <div class="modal fade" id="newUserModal" tabindex="-1" aria-labelledby="newUserModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="newUserModalLabel">Nuevo usuario</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">×</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                ...
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary">Guardar</button>
-              </div>
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="newUserModalLabel">Nuevo usuario</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-row">
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label for="pa-usuario-nombre">Nombre</label>
+                                        <input type="text" class="form-control" id="pa-usuario-nombre">
+                                        <div class="invalid-feedback">Campo vacío o dato inválido</div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label for="pa-usuario-apellido">Apellido</label>
+                                        <input type="text" class="form-control" id="pa-usuario-apellido">
+                                        <div class="invalid-feedback">Campo vacío o dato inválido</div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6 mb-3">
+                                    <div class="form-group">
+                                        <label for="pa-usuario-fecha">Fecha de nacimiento</label>
+                                        <input type="date" class="form-control" id="pa-usuario-fecha">
+                                        <div class="invalid-feedback">Campo vacío o dato inválido</div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label for="pa-usuario-email">Correo electrónico</label>
+                                        <input type="email" class="form-control" id="pa-usuario-email">
+                                        <div class="invalid-feedback">Campo vacío o dato inválido</div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label for="pa-usuario-contraseña">Contraseña</label>
+                                        <input type="password" class="form-control" id="pa-usuario-contraseña">
+                                        <div class="invalid-feedback">Campo vacío o dato inválido</div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label for="pa-usuario-confirmar">Confirmar contraseña</label>
+                                        <input type="email" class="form-control" id="pa-usuario-confirmar">
+                                        <div class="invalid-feedback">Campo vacío o dato inválido</div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="pa-usuario-tipo">Tipo de usuario</label>
+                                        <select class="form-control" id="pa-usuario-tipo"></select>
+                                        <div class="invalid-feedback">Campo vacío o dato inválido</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="bm-data">
+                                <div class="form-row">
+                                    <div class="col-12 h6 form-group">Información de la empresa o negocio</div>
+                                    <div class="col-12 col-sm-6">
+                                        <div class="form-group">
+                                            <label for="pa-usuario-empresa">Nombre</label>
+                                            <input type="text" class="form-control" id="pa-usuario-empresa">
+                                            <div class="invalid-feedback">Campo vacío o dato inválido</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        <div class="form-group">
+                                            <label for="pa-usuario-direccion">Dirección</label>
+                                            <input type="text" class="form-control" id="pa-usuario-direccion">
+                                            <div class="invalid-feedback">Campo vacío o dato inválido</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label for="pa-usuario-descripcion">Breve descripción</label>
+                                            <input type="text" class="form-control" id="pa-usuario-descripcion">
+                                            <div class="invalid-feedback">Campo vacío o dato inválido</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-primary">Guardar</button>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-        <!-- Nueva empresa -->
+        <!-- Nueva empresa o sitio web -->
         <div class="modal fade" id="newBusinessModal" tabindex="-1" aria-labelledby="newBusinessModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="newBusinessModalLabel">Nueva empresa</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">×</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                ...
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary">Guardar</button>
-              </div>
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="newBusinessModalLabel">Nueva empresa o sitio web</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-row">
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label for="pa-sitio-titulo">Título del sitio</label>
+                                        <input type="text" class="form-control" id="pa-sitio-titulo">
+                                        <div class="invalid-feedback">Campo vacío o dato inválido</div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label for="pa-sitio-id">ID (sin espacios)</label>
+                                        <input type="text" class="form-control" id="pa-sitio-id" min="0">
+                                        <div class="invalid-feedback">Campo vacío o dato inválido</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label for="pa-sitio-descripcion">Descripción</label>
+                                        <input type="text" class="form-control" id="pa-sitio-descripcion">
+                                        <div class="invalid-feedback">Campo vacío o dato inválido</div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label for="pa-sitio-palabras">Plabaras claves</label>
+                                        <input type="text" class="form-control" id="pa-sitio-descripcion">
+                                        <div class="invalid-feedback">Campo vacío o dato inválido</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-12 col-md-6">
+                                    <div class="form-group">
+                                        <label for="pa-sitio-logo">Logotipo</label>
+                                        <div><input type="file" class="overflow-hidden" id="pa-sitio-logo" lang="es"></div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="form-group">
+                                        <label for="pa-sitio-favicon">Favicon</label>
+                                        <div><input type="file" class="overflow-hidden" id="pa-sitio-favicon" lang="es"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="pa-sitio-css">CSS extra</label>
+                                        <textarea class="form-control" id="pa-sitio-css" rows="3"></textarea>
+                                    </div>
+                                    <div class="invalid-feedback">Campo vacío o dato inválido</div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="pa-sitio-js">JS extra</label>
+                                        <textarea class="form-control" id="pa-sitio-js" rows="3"></textarea>
+                                    </div>
+                                    <div class="invalid-feedback">Campo vacío o dato inválido</div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-primary">Guardar</button>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
         <!-- Nuevo plan -->
         <div class="modal fade" id="newPlanModal" tabindex="-1" aria-labelledby="newPlanModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="newPlanModalLabel">Nuevo plan de servicios</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">×</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                ...
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary">Guardar</button>
-              </div>
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="newPlanModalLabel">Nuevo plan de servicios</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-row">
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label for="pa-plan-nombre">Nombre o título</label>
+                                        <input type="text" class="form-control" id="pa-plan-nombre">
+                                        <div class="invalid-feedback">Campo vacío o dato inválido</div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label for="pa-plan-precio">Precio (en dólares)</label>
+                                        <input type="text" class="form-control" id="pa-plan-precio">
+                                        <div class="invalid-feedback">Campo vacío o dato inválido</div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label for="pa-plan-paginas">Maximo de páginas</label>
+                                        <input type="number" class="form-control" id="pa-plan-paginas" min="0">
+                                        <div class="invalid-feedback">Campo vacío o dato inválido</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label for="pa-plan-categorias">Categorías disponible</label>
+                                        <input type="number" class="form-control" id="pa-plan-categorias" min="0">
+                                        <div class="invalid-feedback">Campo vacío o dato inválido</div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label for="pa-plan-productos">Productos por categoría</label>
+                                        <input type="number" class="form-control" id="pa-plan-productos" min="0">
+                                        <div class="invalid-feedback">Campo vacío o dato inválido</div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label for="pa-plan-archivos">Límite de archivos</label>
+                                        <input type="number" class="form-control" id="pa-plan-archivos" min="0">
+                                        <div class="invalid-feedback">Campo vacío o dato inválido</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-primary">Guardar</button>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
         <!-- /VENTANAS MODALES -->
         

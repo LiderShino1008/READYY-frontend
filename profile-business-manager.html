@@ -52,6 +52,11 @@
                     <h4 class="font-weight-normal">¡Hola Juan Carlos López Pérez!</h4>
                     <div>Fecha de nacimiento: 25/03/1997</div>
                     <div>Se unió en: 19/10/2020</div>
+                    <br>
+                    <h6>Plan de servicio: Profesional<i class="fas fa-briefcase ml-2"></i></h6>
+                    <div>Empresa: Telas del atlántico</div>
+                    <div>Dirección: Blvd. Juan Pérez, esquina opuesta a Burger Queen, SPS</div>
+                    <div>Descripción breve: Con 20 años de experiencia en el mundo de la moda y confección, ¡Calidad y servicio al alcance de tu mano!</div>
                 </div>
                 <div class="col-12 col-sm-4 col-md-3 mt-2 mt-sm-0 text-right">
                     <button class="btn btn-readyy-salmon btn-rounded" type="button" data-toggle="modal" data-target="#editBmModal"><i class="fas fa-pen mr-2"></i>Editar perfil</button>
@@ -73,7 +78,7 @@
                                 <img src="assets/img/favicon.png" class="w-100">
                             </div>
                             <div class="col-7 col-sm-9 col-md-10 col-xl-11">
-                                <p>Empresa 1<br><b>ID: </b>empresa-uno-1<br><b>Descripción: </b>Página principal de nuestra empresa, aquí puedes adquirir directamente nuestros productos de confianza.<br><b>Palabras claves: </b>Sed, ut, perspiciatis, unde, omnis, iste, natus, error<br></p>
+                                <p><b>Título del sitio: </b>Empresa 1<br><b>ID: </b>empresa-uno-1<br><b>Descripción: </b>Página principal de nuestra empresa, aquí puedes adquirir directamente nuestros productos de confianza.<br><b>Palabras claves: </b>Sed, ut, perspiciatis, unde, omnis, iste, natus, error<br><span class="d-flex"><b class="mr-2">Favicon:</b><span style="width: 1.6rem;"><img src="assets/img/favicon.png" class="w-100"></span></span></p>
                                 <button type="button" class="btn btn-link mr-3 p-0"><i class="fas fa-edit mr-2"></i>Editar</button>
                                 <button type="button" class="btn btn-link text-danger p-0"><i class="fas fa-trash mr-2"></i>Borrar</button>
                             </div>
@@ -87,7 +92,7 @@
                                 <img src="assets/img/favicon.png" class="w-100">
                             </div>
                             <div class="col-7 col-sm-9 col-md-10 col-xl-11">
-                                <p>Empresa 2<br><b>ID: </b>empresa-dos-2<br><b>Descripción: </b>Página dedicada a nuestros distribuidores oficiales, aquí pueden consultar los productos disponibles.<br><b>Palabras claves: </b>Sed, ut, perspiciatis, unde, omnis, iste, natus, error<br></p>
+                                <p><b>Título del sitio: </b>Empresa 2<br><b>ID: </b>empresa-dos-2<br><b>Descripción: </b>Página dedicada a nuestros distribuidores oficiales, aquí pueden consultar los productos disponibles.<br><b>Palabras claves: </b>Sed, ut, perspiciatis, unde, omnis, iste, natus, error<br><span class="d-flex"><b class="mr-2">Favicon:</b><span style="width: 1.6rem;"><img src="assets/img/favicon.png" class="w-100"></span></span></p>
                                 <button type="button" class="btn btn-link mr-3 p-0"><i class="fas fa-edit mr-2"></i>Editar</button>
                                 <button type="button" class="btn btn-link text-danger p-0"><i class="fas fa-trash mr-2"></i>Borrar</button>
                             </div>
@@ -355,83 +360,294 @@
         <!-- VENTANAS MODALES -->
         <!-- Editar perfil de administrador de negocios -->
         <div class="modal fade" id="editBmModal" tabindex="-1" aria-labelledby="editBmModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="editBmModalLabel">Editar información de perfil</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">×</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                ...
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary">Guardar</button>
-              </div>
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                          <h5 class="modal-title" id="editBmModalLabel">Editar información de perfil</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">×</span>
+                          </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="form-bm-info">
+                            <div class="form-row">
+                                <div class="col-12 h6">Datos personales</div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label for="bm-edit-nombre">Nombre</label>
+                                        <input type="text" class="form-control" id="bm-edit-nombre">
+                                        <div class="invalid-feedback">Campo vacío o dato inválido</div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label for="bm-edit-apellido">Apellido</label>
+                                        <input type="text" class="form-control" id="bm-edit-apellido">
+                                        <div class="invalid-feedback">Campo vacío o dato inválido</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label for="bm-edit-fecha">Fecha de nacimiento</label>
+                                        <input type="date" class="form-control" id="bm-edit-fecha">
+                                        <div class="invalid-feedback">Campo vacío o dato inválido</div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label for="bm-edit-email">Correo electrónico</label>
+                                        <input type="email" class="form-control" id="bm-edit-email">
+                                        <div class="invalid-feedback">Campo vacío o dato inválido</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-12 h6">Información de la empresa</div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label for="bm-edit-empresa">Nombre de la empresa</label>
+                                        <input type="text" class="form-control" id="bm-edit-empresa">
+                                        <div class="invalid-feedback">Campo vacío o dato inválido</div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label for="bm-edit-direccion">Direccion</label>
+                                        <input type="text" class="form-control" id="bm-edit-direccion">
+                                        <div class="invalid-feedback">Campo vacío o dato inválido</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="bm-edit-descripcion">Descripción breve</label>
+                                        <input type="text" class="form-control" id="bm-edit-descripcion">
+                                        <div class="invalid-feedback">Campo vacío o dato inválido</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <form id="form-bm-password" style="display: none;">
+                            <div class="form-row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="bm-password-anterior">Contraseña anterior</label>
+                                        <input type="password" class="form-control" id="bm-password-anterior">
+                                        <div class="invalid-feedback">Campo vacío o dato inválido</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="bm-password-nueva">Nueva contraseña</label>
+                                        <input type="password" class="form-control" id="bm-password-nueva">
+                                        <div class="invalid-feedback">Campo vacío o dato inválido</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="bm-password-confirmar">Confirmar contraseña</label>
+                                        <input type="password" class="form-control" id="bm-password-confirmar">
+                                        <div class="invalid-feedback">La contraseña no coincide.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="col-6">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="edit-password">
+                                 <label class="form-check-label" for="edit-password">Cambiar contraseña</label>
+                            </div>
+                        </div>
+                        <div class="col-6 text-right">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-primary">Guardar</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
         <!-- Nuevo sitio web -->
         <div class="modal fade" id="newPageModal" tabindex="-1" aria-labelledby="newPageModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="newPageModalLabel">Nuevo sitio web</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">×</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                ...
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary">Guardar</button>
-              </div>
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="newPageModalLabel">Nuevo sitio web</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-row">
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label for="bm-sitio-titulo">Título del sitio</label>
+                                        <input type="text" class="form-control" id="bm-sitio-titulo">
+                                        <div class="invalid-feedback">Campo vacío o dato inválido</div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label for="bm-sitio-id">ID (sin espacios)</label>
+                                        <input type="text" class="form-control" id="bm-sitio-id" min="0">
+                                        <div class="invalid-feedback">Campo vacío o dato inválido</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label for="bm-sitio-descripcion">Descripción</label>
+                                        <input type="text" class="form-control" id="bm-sitio-descripcion">
+                                        <div class="invalid-feedback">Campo vacío o dato inválido</div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label for="bm-sitio-palabras">Plabaras claves</label>
+                                        <input type="text" class="form-control" id="bm-sitio-descripcion">
+                                        <div class="invalid-feedback">Campo vacío o dato inválido</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-12 col-md-6">
+                                    <div class="form-group">
+                                        <label for="bm-sitio-logo">Logotipo</label>
+                                        <div><input type="file" class="overflow-hidden" id="bm-sitio-logo" lang="es"></div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="form-group">
+                                        <label for="bm-sitio-favicon">Favicon</label>
+                                        <div><input type="file" class="overflow-hidden" id="bm-sitio-favicon" lang="es"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="bm-sitio-css">CSS extra</label>
+                                        <textarea class="form-control" id="bm-sitio-css" rows="3"></textarea>
+                                    </div>
+                                    <div class="invalid-feedback">Campo vacío o dato inválido</div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="bm-sitio-js">JS extra</label>
+                                        <textarea class="form-control" id="bm-sitio-js" rows="3"></textarea>
+                                    </div>
+                                    <div class="invalid-feedback">Campo vacío o dato inválido</div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-primary">Guardar</button>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
         <!-- Nuevo archivo -->
         <div class="modal fade" id="newFileModal" tabindex="-1" aria-labelledby="newFileModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="newFileModalLabel">Nuevo archivo</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">×</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                ...
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary">Guardar</button>
-              </div>
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="newFileModalLabel">Nuevo archivo</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="bm-archivo-nombre">Nombre</label>
+                                        <input type="text" class="form-control" id="bm-archivo-nombre">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="bm-archivo-file">Archivo</label>        
+                                        <div><input type="file" class="overflow-hidden" id="bm-archivo-file" lang="es"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-primary">Guardar</button>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
         <!-- Nuevo producto -->
         <div class="modal fade" id="newItemModal" tabindex="-1" aria-labelledby="newItemModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="newItemModalLabel">Nuevo producto</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">×</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                ...
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary">Guardar</button>
-              </div>
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="newItemModalLabel">Nuevo producto</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-row">
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label for="bm-producto-nombre">Nombre</label>
+                                        <input type="text" class="form-control" id="bm-producto-nombre">
+                                        <div class="invalid-feedback">Campo vacío o dato inválido</div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label for="bm-producto-precio">Precio</label>
+                                        <input type="number" class="form-control" id="bm-producto-precio" min="0">
+                                        <div class="invalid-feedback">Campo vacío o dato inválido</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-12 col-md-6">
+                                    <div class="form-group">
+                                        <label for="bm-producto-categoria">Categoría</label>
+                                        <select class="form-control" id="bm-producto-categoria"></select>
+                                        <div class="invalid-feedback">Campo vacío o dato inválido</div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="form-group">
+                                        <label for="bm-producto-imagen">Imagen</label>
+                                        <div><input type="file" class="overflow-hidden" id="bm-producto-imagen" lang="es"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-primary">Guardar</button>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
         <!-- /VENTANAS MODALES -->
         
@@ -440,7 +656,6 @@
     <script src="assets/js/jquery-3.4.1.min.js"></script>
     <script src="assets/js/popper.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
-    <!--script src="assets/js/controlador-login.js"></script-->
     <script src="assets/js/funciones-validacion.js"></script>
     
 </body>
