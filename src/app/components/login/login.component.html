@@ -1,0 +1,39 @@
+<main class="bg-white pt-3">
+    <form [formGroup]="formularioLogin" class="w-100 p-3 col-11 col-sm-8 col-md-6 col-lg-4 m-auto text-center">
+        <div class="readyy-logo p-1 m-auto">
+            <div class="m-1 form-inline">
+                <img src="assets/img/READYY_logo.svg">
+                <img src="assets/img/READYY.svg">
+            </div>
+        </div>
+        <h5 class="mt-2 mb-4 text-center">
+            <p>¡Simple, elegante, READYY!</p>
+        </h5>
+        <h3 class="mb-3 font-weight-normal">Ingresa tus credenciales</h3>
+        <div class="form-row mb-3">
+            <label for="login-txt-email" class="col-12 text-left">Correo electrónico</label>
+            <div class="col-12">
+                <input [ngClass]="{'is-valid':txtEmail.valid, 'is-invalid':txtEmail.invalid && (txtEmail.dirty || txtEmail.touched)}" formControlName="txtEmail" type="email" class="form-control" id="login-txt-email" required="" autofocus="">
+                <div *ngIf= "txtEmail.errors?.required" class="invalid-feedback text-left">Campo obligatorio.</div>
+                <div *ngIf= "txtEmail.errors?.pattern" class="invalid-feedback text-left">Ingresa un email válido.</div>
+            </div>
+        </div>
+        <div class="form-row mb-3">
+            <label for="login-txt-password" class="col-12 text-left">Contraseña</label>
+            <div class="col-12">
+                <input [ngClass]="{'is-valid':txtPassword.valid, 'is-invalid':txtPassword.invalid && (txtPassword.dirty || txtPassword.touched)}" formControlName="txtPassword" type="password" class="form-control" id="login-txt-password" required="">
+                <div *ngIf= "txtPassword.errors?.required" class="invalid-feedback text-left">Campo obligatorio.</div>
+                <div *ngIf= "txtPassword.errors?.pattern" class="invalid-feedback text-left">Mínimo 8 caracteres, incluyendo números, minúsculas y mayúsculas.</div>
+            </div>
+        </div>
+        <button [disabled]="!formularioLogin.valid" class="btn btn-readyy-salmon btn-rounded btn-block" type="button" (click)="validarLogin()">Iniciar sesión</button>
+    </form>
+    
+    <footer class="px-2 px-sm-5 pb-4 text-center">
+        <div class="p-0 px-sm-5 mx-3">
+            <hr>
+            <p class="pt-3">Plataforma de comercio electrónico <a href="#" class="text-info">READYY</a> por <a href="#" class="text-info">Walter Rivera H</a>.<br>© 2020.</p>
+        </div>
+    </footer> <!-- /footer -->
+
+</main>

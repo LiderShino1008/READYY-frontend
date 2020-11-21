@@ -1,0 +1,72 @@
+:root {
+    --green-light: rgb(99, 183, 175);
+    --green-dark: rgb(52, 116, 116);
+    --salmon-light: rgb(238, 133, 114);
+    --salmon-dark: rgb(207 99 79);
+    --grey-light: rgb(238, 238, 238);
+}
+
+/* REDEFINITION OF STYLES */
+body {
+    padding-top: 4.3rem;
+}
+
+.navbar-dark {
+    background-color: var(--green-dark);
+}
+
+.navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link:hover {
+    color: var(--white);
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+}
+
+/* CUSTOM STYLES */
+.bg-grey-light {
+    background-color: var(--grey-light);
+}
+
+.readyy-logo {
+    background: var(--green-light);
+    width: fit-content;
+}
+
+.readyy-logo img:first-child {
+    height: 20px;
+}
+
+.readyy-logo img:last-child {
+    height: 37px;
+}
+
+.btn-rounded {
+    border-radius: 2rem;
+}
+
+.btn-readyy-salmon {
+    background-color: var(--salmon-light);
+    color: white
+}
+
+.btn-readyy-salmon:hover {
+    background-color: var(--salmon-dark);
+    color: white;
+}
+
+.vertical-center {
+    align-self: center;
+}
+
+.scroll-div {
+    display: flex;
+    overflow-x: auto;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.item-img {
+    height: 8rem;
+    object-fit: contain;
+}

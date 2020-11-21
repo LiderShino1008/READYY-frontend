@@ -1,0 +1,117 @@
+<form [formGroup]="formularioSignup" class="needs-validation">
+    <div class="form-row">
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label for="registro-txt-nombre">Nombre</label>
+                <input [ngClass]="{'is-valid':txtNombre.valid, 'is-invalid':txtNombre.invalid && (txtNombre.dirty || txtNombre.touched)}" formControlName="txtNombre" type="text" class="form-control" id="registro-txt-nombre" placeholder="" value="" required="">
+                <div class="invalid-feedback">Campo vacío o dato inválido.</div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label for="registro-txt-apellido">Apellido</label>
+                <input [ngClass]="{'is-valid':txtApellido.valid, 'is-invalid':txtApellido.invalid && (txtApellido.dirty || txtApellido.touched)}" formControlName="txtApellido" type="text" class="form-control" id="registro-txt-apellido" placeholder="" value="" required="">
+                <div class="invalid-feedback">Campo vacío o dato inválido.</div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label for="registro-txt-nacimiento">Fecha de nacimiento</label>
+                <input [ngClass]="{'is-valid':txtNacimiento.valid, 'is-invalid':txtNacimiento.invalid && (txtNacimiento.dirty || txtNacimiento.touched)}" formControlName="txtNacimiento" type="date" class="form-control" id="registro-txt-nacimiento" value="" required="">
+                <div class="invalid-feedback">Campo vacío o dato inválido.</div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label for="registro-txt-email">Correo electrónico</label>
+                <input [ngClass]="{'is-valid':txtEmail.valid, 'is-invalid':txtEmail.invalid && (txtEmail.dirty || txtEmail.touched)}" formControlName="txtEmail" type="email" class="form-control" id="registro-txt-email" placeholder="nombre@ejemplo.com">
+                <div *ngIf= "txtEmail.errors?.required" class="invalid-feedback text-left">Campo obligatorio.</div>
+                <div *ngIf= "txtEmail.errors?.pattern" class="invalid-feedback text-left">Ingresa un email válido.</div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label for="registro-txt-pwd1">Contraseña</label>
+                <input [ngClass]="{'is-valid':txtPwd1.valid, 'is-invalid':txtPwd1.invalid && (txtPwd1.dirty || txtPwd1.touched)}" formControlName="txtPwd1" type="password" class="form-control" id="registro-txt-pwd1">
+                <div *ngIf= "txtPwd1.errors?.required" class="invalid-feedback text-left">Campo obligatorio.</div>
+                <div *ngIf= "txtPwd1.errors?.pattern" class="invalid-feedback text-left">Mínimo 8 caracteres, incluyendo números, minúsculas y mayúsculas.</div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="form-group">
+                <label for="registro-txt-pwd2">Confirmar contraseña</label>
+                <input [ngClass]="{'is-valid':txtPwd2.valid, 'is-invalid':txtPwd2.invalid && (txtPwd2.dirty || txtPwd2.touched)}" formControlName="txtPwd2" type="password" class="form-control" id="registro-txt-pwd2">
+                <div class="invalid-feedback text-left">La contraseña no coincide.</div>
+                <!--div *ngIf= "txtPwd2.errors?.required" class="invalid-feedback text-left">La contraseña no coincide.</div-->
+            </div>
+        </div>
+        <p class="col-12 mt-3">Selecciona tu plan de pago y adquisición de servicios.</p>
+        <div class="col-12 form-group">
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Plan de pago</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col" class="d-none d-sm-table-cell">Características</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td scope="row">
+                            <div class="custom-control custom-radio">
+                                <input [formControl]="txtPlan" id="plan-principiante" name="registro-txt-plan" type="radio" class="custom-control-input" required="" value="Principiante">
+                                <label class="custom-control-label" for="plan-principiante">Principiante</label>
+                            </div>
+                        </td>
+                        <td scope="row">GRATIS</td>
+                        <td scope="row" class="d-none d-sm-table-cell">2 páginas, 6 categorías, 10 productos por cada categoría, sube hasta 30 archivos.</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">
+                            <div class="custom-control custom-radio">
+                                <input [formControl]="txtPlan" id="plan-profesional" name="registro-txt-plan" type="radio" class="custom-control-input" required="" value="Profesional">
+                                <label class="custom-control-label" for="plan-profesional">Profesional</label>
+                            </div>
+                        </td>
+                        <td scope="row">$12/mes</td>
+                        <td scope="row" class="d-none d-sm-table-cell">4 páginas, 12 categorías, 20 productos por cada categoría, sube hasta 60 archivos.</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">
+                            <div class="custom-control custom-radio">
+                                <input [formControl]="txtPlan" id="plan-avanzado" name="registro-txt-plan" type="radio" class="custom-control-input" required="" value="Avanzado">
+                                <label class="custom-control-label" for="plan-avanzado">Avanzado</label>
+                            </div>
+                        </td>
+                        <td scope="row">$25/mes</td>
+                        <td scope="row" class="d-none d-sm-table-cell">8 páginas, 24 categorías, 40 productos por cada categoría, sube hasta 120 archivos.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                <label for="registro-txt-empresa">Nombre de la empresa</label>
+                <input [ngClass]="{'is-valid':txtEmpresa.valid, 'is-invalid':txtEmpresa.invalid && (txtEmpresa.dirty || txtEmpresa.touched)}" formControlName="txtEmpresa" type="text" class="form-control" id="registro-txt-empresa" placeholder="" value="" required="">
+                <div class="invalid-feedback">Campo vacío o dato inválido.</div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                <label for="registro-txt-direccion">Dirección</label>
+                <input [ngClass]="{'is-valid':txtDireccion.valid, 'is-invalid':txtDireccion.invalid && (txtDireccion.dirty || txtDireccion.touched)}" formControlName="txtDireccion" type="text" class="form-control" id="registro-txt-direccion" placeholder="" value="" required="">
+                <div class="invalid-feedback">Campo vacío o dato inválido.</div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="form-group">
+                <label for="registro-txt-descripcion">Descripción breve</label>
+                <input [ngClass]="{'is-valid':txtDescripcion.valid, 'is-invalid':txtDescripcion.invalid && (txtDescripcion.dirty || txtDescripcion.touched)}" formControlName="txtDescripcion" type="text" class="form-control" id="registro-txt-descripcion" placeholder="" value="" required="">
+                <div class="invalid-feedback">Campo vacío o dato inválido.</div>
+            </div>
+        </div>
+        <div class="col-12 mt-3 text-center">
+            <button class="btn btn-readyy-salmon btn-rounded" type="button" (click)="guardarUsuario()">Unirse ahora</button>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,36 @@
+<main class="bg-white pt-3">
+    <div class="py-3 px-4 px-sm-5 mx-2 mx-sm-4 mx-md-5">
+        <div class="readyy-logo p-1 m-auto">
+            <div class="m-1 form-inline">
+                <img src="assets/img/READYY_logo.svg">
+                <img src="assets/img/READYY.svg">
+            </div>
+        </div>
+        <h5 class="mt-2 mb-4 text-center">
+            <p>¡Simple, elegante, READYY!</p>
+        </h5>
+        <p>Selecciona qué tipo de usuario deseas, ser un cliente para comprar productos o ser un administrador de negocios.</p>
+        <div  class="form-row form-group">
+            <div class="col-12">
+                <div class="custom-control custom-radio">
+                    <input [formControl]="tipoU" (change)="changeUserType($event)" id="user-cliente" name="tipoU" type="radio" class="custom-control-input" required="" value="Cliente">
+                    <label class="custom-control-label" for="user-cliente">Cliente</label>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="custom-control custom-radio">
+                    <input [formControl]="tipoU" (change)="changeUserType($event)" id="user-adm" name="tipoU" type="radio" class="custom-control-input" required="" value="Administrador de negocios">
+                    <label class="custom-control-label" for="user-adm">Administrador de negocios</label>
+                </div>
+            </div>
+        </div>
+        <app-form-buyer *ngIf="regionVisible == 'Cliente'" [valorUT]="tipoU.value"></app-form-buyer>
+        <app-form-business-admin *ngIf="regionVisible == 'Administrador de negocios'" [valorUT]="tipoU.value"></app-form-business-admin>
+    </div>
+    <footer class="px-2 px-sm-5 pb-4 text-center">
+        <div class="p-0 px-sm-5 mx-3">
+            <hr>
+            <p class="pt-3">Plataforma de comercio electrónico <a href="#" class="text-info">READYY</a> por <a href="#" class="text-info">Walter Rivera H</a>.<br>© 2020.</p>
+        </div>
+    </footer>
+</main>
