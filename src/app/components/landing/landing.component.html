@@ -60,52 +60,18 @@
         <h2>Conoce nuestros planes</h2>
         <p>Escoge cual se adapta a tus necesidades y prepara tu zona de lanzamiento.</p>
         <div class="card-deck scroll-div text-center">
-            <div class="col-9 col-sm-5">
+            <div class="col-9 col-sm-5" *ngFor="let plan of listaPlanes">
                 <div class="card shadow-sm mx-0">
                     <div class="card-header">
-                        <h4 class="my-0 font-weight-normal">Principiante</h4>
+                        <h4 class="my-0 font-weight-normal">{{plan.nombre}}</h4>
                     </div>
                     <div class="card-body">
-                        <h1 class="card-title pricing-card-title">$0 <small class="text-muted">/ mes</small></h1>
+                        <h1 class="card-title pricing-card-title">${{plan.precio}} <small class="text-muted">/ mes</small></h1>
                         <ul class="list-unstyled mt-3 mb-4">
-                            <li>2 páginas</li>
-                            <li>6 categorías</li>
-                            <li>10 productos por cada categoría</li>
-                            <li>Sube hasta 30 archivos</li>
-                        </ul>
-                        <button type="button" class="btn btn-readyy-salmon btn-rounded"><span class="px-2">Empezar</span></button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-9 col-sm-5">
-                <div class="card shadow-sm mx-0">
-                    <div class="card-header">
-                        <h4 class="my-0 font-weight-normal">Profesional</h4>
-                    </div>
-                    <div class="card-body">
-                        <h1 class="card-title pricing-card-title">$12 <small class="text-muted">/ mes</small></h1>
-                        <ul class="list-unstyled mt-3 mb-4">
-                            <li>4 páginas</li>
-                            <li>12 categorías</li>
-                            <li>20 productos por cada categoría</li>
-                            <li>Sube hasta 60 archivos</li>
-                        </ul>
-                        <button type="button" class="btn btn-readyy-salmon btn-rounded"><span class="px-2">Empezar</span></button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-9 col-sm-5">
-                <div class="card shadow-sm mx-0">
-                    <div class="card-header">
-                        <h4 class="my-0 font-weight-normal">Avanzado</h4>
-                    </div>
-                    <div class="card-body">
-                        <h1 class="card-title pricing-card-title">$25 <small class="text-muted">/ mes</small></h1>
-                        <ul class="list-unstyled mt-3 mb-4">
-                            <li>8 páginas</li>
-                            <li>24 categorías</li>
-                            <li>40 productos por cada categoría</li>
-                            <li>Sube hasta 120 archivos</li>
+                            <li>{{plan.paginas}} páginas</li>
+                            <li>{{plan.categorias}} categorías</li>
+                            <li>{{plan.productos}} productos por cada categoría</li>
+                            <li>Sube hasta {{plan.archivos}} archivos</li>
                         </ul>
                         <button type="button" class="btn btn-readyy-salmon btn-rounded"><span class="px-2">Empezar</span></button>
                     </div>
@@ -123,27 +89,15 @@
                 </div>
                 <div class="col-12">
                     <div class="row">
-                        <div class="col-6 col-sm-4 col-md-3 col-lg-2 pb-3">
+                        <div class="col-6 col-sm-4 col-md-3 col-lg-2 pb-3" *ngFor="let empresa of listaEmpresas">
                             <div class="card p-2">
                                 <div class="bg-secondary">
-                                    <img src="assets/img/favicon.png" class="card-img-top p-1 item-img">
+                                    <img [src]="empresa.logo" class="card-img-top p-1 item-img">
                                 </div>
                                 <div class="col-12 p-1 text-left">
-                                    <h6 class="mb-1">Ejemplo 1</h6>
-                                    <div>Por: Compañía DS</div>
-                                    <div>El mejor servicio de lavandería de la ciudad</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 col-sm-4 col-md-3 col-lg-2 pb-3">
-                            <div class="card p-2">
-                                <div class="bg-secondary">
-                                    <img src="assets/img/favicon.png" class="card-img-top p-1 item-img">
-                                </div>
-                                <div class="col-12 p-1 text-left">
-                                    <h6 class="mb-1">Ejemplo 1</h6>
-                                    <div>Por: Compañía DS</div>
-                                    <div>El mejor servicio de lavandería de la ciudad</div>
+                                    <h6 class="mb-1">{{empresa.nombre}}</h6>
+                                    <div>Por: {{empresa.empresa}}</div>
+                                    <div>{{empresa.descripcion}}</div>
                                 </div>
                             </div>
                         </div>
@@ -156,12 +110,6 @@
         </div>
     </div> <!-- container -->
 
-    <footer class="px-2 px-sm-5 pb-4 text-center">
-        <div class="px-0 px-md-5 mx-3">
-            <hr>
-            <p class="pt-3">Plataforma de comercio electrónico <a href="#" class="text-info">«READYY»</a> por <a href="#" class="text-info">Walter Rivera H</a>.<br>© 2020.</p>
-            <p><a href="#" class="text-info">Volver arriba <fa-icon [icon]=faArrowUp></fa-icon></a></p>
-        </div>
-    </footer> <!-- /footer -->
+    <app-footer [necesario]="true"></app-footer>
 
 </main>

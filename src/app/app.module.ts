@@ -18,6 +18,7 @@ import { NotFoundComponent } from './components/error/not-found/not-found.compon
 import { CompaniesListComponent } from './components/companies-list/companies-list.component';
 import { FormBusinessAdminComponent } from './components/signup/form-business-admin/form-business-admin.component';
 import { FormBuyerComponent } from './components/signup/form-buyer/form-buyer.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { FormBuyerComponent } from './components/signup/form-buyer/form-buyer.co
     NotFoundComponent,
     CompaniesListComponent,
     FormBusinessAdminComponent,
-    FormBuyerComponent
+    FormBuyerComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

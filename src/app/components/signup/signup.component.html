@@ -27,10 +27,5 @@
         <app-form-buyer *ngIf="regionVisible == 'Cliente'" [valorUT]="tipoU.value"></app-form-buyer>
         <app-form-business-admin *ngIf="regionVisible == 'Administrador de negocios'" [valorUT]="tipoU.value"></app-form-business-admin>
     </div>
-    <footer class="px-2 px-sm-5 pb-4 text-center">
-        <div class="p-0 px-sm-5 mx-3">
-            <hr>
-            <p class="pt-3">Plataforma de comercio electrónico <a href="#" class="text-info">READYY</a> por <a href="#" class="text-info">Walter Rivera H</a>.<br>© 2020.</p>
-        </div>
-    </footer>
+    <app-footer [necesario]="false"></app-footer>
 </main>

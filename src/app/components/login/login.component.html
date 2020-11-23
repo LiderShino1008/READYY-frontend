@@ -29,11 +29,6 @@
         <button [disabled]="!formularioLogin.valid" class="btn btn-readyy-salmon btn-rounded btn-block" type="button" (click)="validarLogin()">Iniciar sesión</button>
     </form>
     
-    <footer class="px-2 px-sm-5 pb-4 text-center">
-        <div class="p-0 px-sm-5 mx-3">
-            <hr>
-            <p class="pt-3">Plataforma de comercio electrónico <a href="#" class="text-info">READYY</a> por <a href="#" class="text-info">Walter Rivera H</a>.<br>© 2020.</p>
-        </div>
-    </footer> <!-- /footer -->
+    <app-footer [necesario]="false"></app-footer>
 
 </main>

@@ -1,4 +1,11 @@
 /* REDEFINITION OF STYLES */
+h1 {
+    color: var(--green-light);
+}
+
+h2 {
+    color: var(--green-dark);
+}
 
 /* CUSTOM STYLES */
 .background-icon-banner {
