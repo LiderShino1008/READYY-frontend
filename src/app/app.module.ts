@@ -15,10 +15,13 @@ import { LandingComponent } from './components/landing/landing.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { NotFoundComponent } from './components/error/not-found/not-found.component';
-import { CompaniesListComponent } from './components/companies-list/companies-list.component';
+import { CompaniesComponent } from './components/companies/companies.component';
 import { FormBusinessAdminComponent } from './components/signup/form-business-admin/form-business-admin.component';
 import { FormBuyerComponent } from './components/signup/form-buyer/form-buyer.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { BuyerComponent } from './components/user/buyer/buyer.component';
+import { AdminComponent } from './components/user/admin/admin.component';
+import { AdminCompaniesComponent } from './components/user/admin-companies/admin-companies.component';
 
 @NgModule({
   declarations: [
@@ -28,10 +31,13 @@ import { FooterComponent } from './components/footer/footer.component';
     LoginComponent,
     SignupComponent,
     NotFoundComponent,
-    CompaniesListComponent,
+    CompaniesComponent,
     FormBusinessAdminComponent,
     FormBuyerComponent,
-    FooterComponent
+    FooterComponent,
+    AdminComponent,
+    AdminCompaniesComponent,
+    BuyerComponent
   ],
   imports: [
     BrowserModule,

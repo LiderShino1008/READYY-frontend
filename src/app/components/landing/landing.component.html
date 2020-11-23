@@ -15,7 +15,6 @@
             </div>
         </div>
     </div> <!-- /container -->
-
     <div class="container mb-4">
         <div class="row pb-2">
             <div class="col-12 text-center mb-3">
@@ -39,23 +38,21 @@
             </div>
         </div>
     </div> <!-- /container -->
-
-        <div class="jumbotron bg-white rounded-0">
+    <div class="jumbotron bg-white rounded-0">
         <div class="container">
             <div class="row">
                 <div class="col-12 col-lg-6 vertical-center">
                     <h2>Hablemos sobre editar</h2>
-                    <p>Tienes la posibilidad de crear y editar bloques de contenido dentro de cada sitio web, ya sea ingresando la información que deseas mostrar, sin saber nada sobre diseño o programación, o con una herramienta de edición de código HTML y CSS.
-
-                    El usuario puede elegir el tamaño de los bloques a mostrar en distintos tipos de pantalla, esto facilita visualizar tu página desde cualquier dispositivo.
-
-                    ¡Simple, elegante, READYY!</p>
+                    <p>
+                        Tienes la posibilidad de crear y editar bloques de contenido dentro de cada sitio web, ya sea ingresando la información que deseas mostrar, sin saber nada sobre diseño o programación, o con una herramienta de edición de código HTML y CSS.
+                        <br><br>El usuario puede elegir el tamaño de los bloques a mostrar en distintos tipos de pantalla, esto facilita visualizar tu página desde cualquier dispositivo.
+                        <br><br>¡Simple, elegante, READYY!
+                    </p>
                 </div>
                 <div class="col-12 col-lg-6 pt-4 pt-lg-0 vertical-center"><img class="w-100" src="assets/img/landing_banner2.png"></div>
             </div>
         </div>
     </div> <!-- /jumbotron -->
-
     <div class="container pb-4">
         <h2>Conoce nuestros planes</h2>
         <p>Escoge cual se adapta a tus necesidades y prepara tu zona de lanzamiento.</p>
@@ -79,9 +76,8 @@
             </div>
         </div>
     </div> <!-- /container -->
-
-    <div class="jumbotron bg-white rounded-0">
-        <div class="container">
+    <div class="jumbotron bg-white rounded-0 pb-0 mb-0">
+        <div class="container mb-5">
             <div class="row">
                 <div class="col-12">
                     <h2>Comprar productos</h2>
@@ -104,12 +100,10 @@
                     </div>
                 </div>
                 <div class="col-12 text-center">
-                    <button class="btn btn-readyy-salmon btn-rounded" href="#" type="button" onclick="window.location='companies-list.html'">Ver más</button>
+                    <a class="btn btn-readyy-salmon btn-rounded" routerLink="/companies">Ver más</a>
                 </div>
             </div>
-        </div>
-    </div> <!-- container -->
-
-    <app-footer [necesario]="true"></app-footer>
-
+        </div> <!-- container -->
+        <app-footer [volverArriba]="true"></app-footer>
+    </div>
 </main>

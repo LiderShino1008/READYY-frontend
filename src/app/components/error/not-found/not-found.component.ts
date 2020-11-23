@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotFoundComponent implements OnInit {
 
+  // Declaraciones
+  isLogged = false;
+
   constructor() { }
 
   ngOnInit(): void {

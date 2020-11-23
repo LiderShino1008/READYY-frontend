@@ -17,10 +17,12 @@
             </li>
             <!-- usuario -->
             <li class="nav-item">
-            <a class="nav-link" href="companies-list.html">Buscar empresas</a>
+            <a class="nav-link" routerLink="/companies">Buscar empresas</a>
             </li>
             <li class="nav-item" *ngIf="isLogged">
-            <a class="nav-link" href="#">Perfil</a>
+                <a class="nav-link" routerLink="user/admin" *ngIf="isAdmin">Perfil</a>
+                <a class="nav-link" routerLink="user/admin-companies" *ngIf="isAdminCompanies">Perfil</a>
+                <a class="nav-link" routerLink="user/buyer" *ngIf="isBuyer">Perfil</a>
             </li>
             <li class="nav-item" *ngIf="isLogged">
             <a class="nav-link" href="#" data-toggle="modal" data-target="#shoppingCart">Mi carrito</a>
@@ -30,13 +32,13 @@
             </li>
             <!-- visitante -->
             <li class="nav-item">
-            <a class="nav-link" href="signup.html">Unirse ahora</a>
+            <a class="nav-link" routerLink="signup">Unirse ahora</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="login.html">Iniciar sesión</a>
+            <a class="nav-link" routerLink="login">Iniciar sesión</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="index.html">Volver al inicio</a>
+            <a class="nav-link" routerLink="home">Volver al inicio</a>
             </li>
         </ul>
     </div>

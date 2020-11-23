@@ -9,6 +9,9 @@ export class NavbarComponent implements OnInit {
 
   // Condiciones elementos visibles
   isLogged = false;
+  isAdmin = false;
+  isAdminCompanies = false;
+  isBuyer = false;
 
   constructor() { }
 

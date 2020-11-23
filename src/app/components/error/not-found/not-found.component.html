@@ -9,11 +9,11 @@
                 <h3>¡Lo sentimos!</h3>
                 <p>Parece que te encuentras un poco perdido... La página que estás buscando no existe.<br>¡Te sugerimos volver atrás y continuar tu vuelo!</p>
                 <div class="text-center">
-                    <a *ngIf="" class="btn btn-readyy-salmon btn-rounded btn-lg" href="#">Inicio</a>
+                    <a *ngIf="!isLogged" class="btn btn-readyy-salmon btn-rounded btn-lg" href="#">Inicio</a>
                     <a *ngIf="isLogged" class="btn btn-readyy-salmon btn-rounded btn-lg" href="#">Perfil</a>
                 </div>
             </div>
         </div>
     </div>
-    <app-footer [necesario]="true"></app-footer>
+    <app-footer [volverArriba]="false"></app-footer>
 </main>

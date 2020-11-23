@@ -1,18 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { faShoppingCart, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'app-companies-list',
-  templateUrl: './companies-list.component.html',
-  styleUrls: ['./companies-list.component.css']
+  selector: 'app-companies',
+  templateUrl: './companies.component.html',
+  styleUrls: ['./companies.component.css']
 })
-export class CompaniesListComponent implements OnInit {
+export class CompaniesComponent implements OnInit {
 
   // Declaraciones
   listaEmpresas: any = [];
-
   verReset = false;
   txtBuscar = new FormControl('', Validators.required);
+
+  // Fontawesome
+  faShoppingCart = faShoppingCart;
+  faTimesCircle = faTimesCircle;
 
   constructor() { }
 

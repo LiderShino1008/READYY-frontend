@@ -9,7 +9,7 @@ import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 export class FooterComponent implements OnInit, OnChanges {
 
   // Declaraciones
-  @Input() public necesario: boolean;
+  @Input() public volverArriba: boolean;
 
   // Fontawesome Icons
   faArrowUp = faArrowUp;
@@ -17,7 +17,7 @@ export class FooterComponent implements OnInit, OnChanges {
   constructor() { }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes.necesario.currentValue);
+    console.log(changes.volverArriba.currentValue);
   }
 
   ngOnInit(): void {
