@@ -2,9 +2,9 @@
     <div class="p-4 bg-grey-light">
         <div class="row px-2">
             <div class="col-12 col-sm-8 col-md-9">
-                <h4 class="font-weight-normal">¡Hola {{infoPerfil.nombre}} {{infoPerfil.apellido}}!</h4>
-                <div>Fecha de nacimiento: {{infoPerfil.fechaNacimiento}}</div>
-                <div>Se unió en: {{infoPerfil.fechaRegistro}}</div>
+                <h4 class="font-weight-normal">¡Hola {{ infoPerfil.nombre }} {{ infoPerfil.apellido }}!</h4>
+                <div>Fecha de nacimiento: {{ infoPerfil.fechaNacimiento }}</div>
+                <div>Se unió en: {{ infoPerfil.fechaRegistro }}</div>
             </div>
             <div class="col-12 col-sm-4 col-md-3 mt-2 mt-sm-0 text-right">
                 <button class="btn btn-readyy-salmon btn-rounded" type="button" data-toggle="modal" data-target="#editPbModal"><fa-icon [icon]="faPen" class="mr-2"></fa-icon>Editar perfil</button>
@@ -15,7 +15,7 @@
         <div class="row pb-4 px-2">
             <h4 class="col-6 font-weight-normal">Historial de compras</h4>
             <div class="col-6 text-right">
-                <button [disabled]="historialCompra.length != 0" (click)="borrarHistorial()" class="btn btn-readyy-salmon btn-rounded" type="button"><fa-icon [icon]="faTrash" class="mr-2"></fa-icon>Borrar</button>
+                <button [disabled]="historialCompra.length == 0" (click)="borrarHistorial()" class="btn btn-readyy-salmon btn-rounded" type="button"><fa-icon [icon]="faTrash" class="mr-2"></fa-icon>Borrar</button>
             </div>
         </div>
         <p class="px-2" *ngIf="historialCompra.length == 0">No hay elementos en esta lista.</p>
@@ -25,19 +25,18 @@
                     <tr>
                         <th scope="col">Producto</th>
                         <th scope="col">Fecha de compra</th>
-
                         <th scope="col">Costo unidad</th>
                         <th scope="col">Cantidad</th>
                         <th scope="col">Subtotal</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let producto of HistorialCompra">
-                        <td scope="row">{{producto.nombre}} <br><i><fa-icon [icon]="faArrowRight"></fa-icon> {{producto.empresa}}</i></td>
-                        <td scope="row">{{producto.fechaCompra}}</td>
-                        <td scope="row">{{producto.precio}}</td>
-                        <td scope="row">{{producto.cantidad}}</td>
-                        <td scope="row">{{producto.total}}</td>
+                    <tr *ngFor="let producto of historialCompra">
+                        <td scope="row">{{ producto.nombre }} <br><i><fa-icon [icon]="faArrowRight"></fa-icon> {{ producto.empresa }}</i></td>
+                        <td scope="row">{{ producto.fechaCompra }}</td>
+                        <td scope="row">{{ producto.precio }}</td>
+                        <td scope="row">{{ producto.cantidad }}</td>
+                        <td scope="row">{{ producto.total }}</td>
                     </tr>
                 </tbody>
             </table>
@@ -47,7 +46,7 @@
 
     <!-- VENTANAS MODALES -->
     <!-- Editar perfil de cliente -->
-    <div class="modal fade" id="editPbModal" tabindex="-1" aria-labelledby="editPbModalLabel" aria-hidden="true">
+    <!-- <div class="modal fade" id="editPbModal" tabindex="-1" aria-labelledby="editPbModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
@@ -106,10 +105,10 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <!-- Carrito de compras -->
-    <div class="modal fade" id="shoppingCart" tabindex="-1" aria-labelledby="shoppingCartLabel" aria-hidden="true">
+    <!-- <div class="modal fade" id="shoppingCart" tabindex="-1" aria-labelledby="shoppingCartLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
@@ -156,6 +155,6 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     
 </main>

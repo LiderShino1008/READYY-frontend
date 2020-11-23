@@ -7,10 +7,9 @@
                     <h1>Crea un sitio web para tu empresa y vende tus productos en línea</h1>
                     <p>Promociona tu negocio y llega a muchas más personas de una forma moderna. Crea y personaliza tu sitio a tu gusto, ¡En READYY te ayudamos a lanzar tu negocio fácil y rápido!</p>
                     <p>
-                        <button class="btn btn-readyy-salmon btn-rounded" href="#" type="button" onclick="window.location = 'signup.html';"><span class="px-2">Unirse</span></button>
-                        <button class="btn btn-readyy-salmon btn-rounded" href="#" type="button" onclick="window.location = 'login.html';">Iniciar sesión</button>
-                    </p>
-                </div>
+                        <a class="btn btn-readyy-salmon btn-rounded" routerLink="/signup"><span class="px-2">Unirse</span></a>
+                        <a class="btn btn-readyy-salmon btn-rounded" routerLink="/login">Iniciar sesión</a>
+                    </p>                </div>
                 <div class="col-12 col-lg-6 pt-4 pt-lg-0 vertical-center"><img class="w-100" src="assets/img/landing_banner1.png"></div>
             </div>
         </div>
@@ -60,17 +59,17 @@
             <div class="col-9 col-sm-5" *ngFor="let plan of listaPlanes">
                 <div class="card shadow-sm mx-0">
                     <div class="card-header">
-                        <h4 class="my-0 font-weight-normal">{{plan.nombre}}</h4>
+                        <h4 class="my-0 font-weight-normal">{{ plan.nombre }}</h4>
                     </div>
                     <div class="card-body">
-                        <h1 class="card-title pricing-card-title">${{plan.precio}} <small class="text-muted">/ mes</small></h1>
+                        <h1 class="card-title pricing-card-title">${{ plan.precio }} <small class="text-muted">/ mes</small></h1>
                         <ul class="list-unstyled mt-3 mb-4">
-                            <li>{{plan.paginas}} páginas</li>
-                            <li>{{plan.categorias}} categorías</li>
-                            <li>{{plan.productos}} productos por cada categoría</li>
-                            <li>Sube hasta {{plan.archivos}} archivos</li>
+                            <li>{{ plan.paginas }} páginas</li>
+                            <li>{{ plan.categorias }} categorías</li>
+                            <li>{{ plan.productos }} productos por cada categoría</li>
+                            <li>Sube hasta {{ plan.archivos }} archivos</li>
                         </ul>
-                        <button type="button" class="btn btn-readyy-salmon btn-rounded"><span class="px-2">Empezar</span></button>
+                        <a type="button" class="btn btn-readyy-salmon btn-rounded" routerLink="/signup"><span class="px-2">Unirse ahora</span></a>
                     </div>
                 </div>
             </div>
@@ -91,9 +90,9 @@
                                     <img [src]="empresa.logo" class="card-img-top p-1 item-img">
                                 </div>
                                 <div class="col-12 p-1 text-left">
-                                    <h6 class="mb-1">{{empresa.nombre}}</h6>
-                                    <div>Por: {{empresa.empresa}}</div>
-                                    <div>{{empresa.descripcion}}</div>
+                                    <h6 class="mb-1">{{ empresa.nombre }}</h6>
+                                    <div>Por: {{ empresa.empresa }}</div>
+                                    <div>{{  empresa.descripcion }}</div>
                                 </div>
                             </div>
                         </div>

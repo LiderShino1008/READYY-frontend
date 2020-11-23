@@ -14,6 +14,7 @@ export class SignupComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.tipoU.reset();
   }
 
   // Funciones

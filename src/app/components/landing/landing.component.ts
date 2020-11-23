@@ -48,7 +48,7 @@ export class LandingComponent implements OnInit {
   }
 
   mostrarEmpresas(): void {
-    this.listaPlanes =
+    this.listaEmpresas =
     [{
       nombre: 'Ejemplo 1',
       logo: 'assets/img/favicon.png',

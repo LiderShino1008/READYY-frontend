@@ -22,12 +22,12 @@ export class BuyerComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.mostrarHistorial();
     this.mostrarUsuario();
+    this.mostrarHistorial();
+    console.log(this.historialCompra.length);
   }
 
   // Funciones
-
   mostrarUsuario(): void {
     this.infoPerfil = {
       nombre: 'Juan Carlos',
