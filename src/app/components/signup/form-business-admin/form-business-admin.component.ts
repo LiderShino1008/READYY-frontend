@@ -16,49 +16,49 @@ export class FormBusinessAdminComponent implements OnInit, OnChanges {
   backendHost: String = 'http://localhost:8888';
 
   formularioSignup = new FormGroup({
-    txtTipoUsuario: new FormControl(''),
-    txtNombre: new FormControl('', [Validators.required]),
-    txtApellido: new FormControl('', [Validators.required]),
-    txtNacimiento: new FormControl('', [Validators.required]),
-    txtEmail: new FormControl('', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]),
-    txtPwd1: new FormControl('', [Validators.required, Validators.pattern('^.*(?=.{8,})(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).*$')]),
-    txtPwd2: new FormControl('', [Validators.required, this.pwdCheck]),
-    txtPlan: new FormControl('', [Validators.required]),
-    txtEmpresa: new FormControl('', [Validators.required]),
-    txtDireccion: new FormControl('', [Validators.required]),
-    txtDescripcion: new FormControl('', [Validators.required])
+    ur_txtTipoUsuario: new FormControl(''),
+    ur_txtNombre: new FormControl('', [Validators.required]),
+    ur_txtApellido: new FormControl('', [Validators.required]),
+    ur_txtNacimiento: new FormControl('', [Validators.required]),
+    ur_txtEmail: new FormControl('', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]),
+    ur_txtPwd1: new FormControl('', [Validators.required, Validators.pattern('^.*(?=.{8,})(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).*$')]),
+    ur_txtPwd2: new FormControl('', [Validators.required, this.pwdCheck]),
+    ur_txtPlan: new FormControl('', [Validators.required]),
+    ur_txtEmpresa: new FormControl('', [Validators.required]),
+    ur_txtDireccion: new FormControl('', [Validators.required]),
+    ur_txtDescripcion: new FormControl('', [Validators.required])
   });
 
   // Getters
-  get txtNombre(): any {
-    return this.formularioSignup.get('txtNombre');
+  get ur_txtNombre(): any {
+    return this.formularioSignup.get('ur_txtNombre');
   }
-  get txtApellido(): any {
-    return this.formularioSignup.get('txtApellido');
+  get ur_txtApellido(): any {
+    return this.formularioSignup.get('ur_txtApellido');
   }
-  get txtNacimiento(): any {
-    return this.formularioSignup.get('txtNacimiento');
+  get ur_txtNacimiento(): any {
+    return this.formularioSignup.get('ur_txtNacimiento');
   }
-  get txtEmail(): any {
-    return this.formularioSignup.get('txtEmail');
+  get ur_txtEmail(): any {
+    return this.formularioSignup.get('ur_txtEmail');
   }
-  get txtPwd1(): any {
-    return this.formularioSignup.get('txtPwd1');
+  get ur_txtPwd1(): any {
+    return this.formularioSignup.get('ur_txtPwd1');
   }
-  get txtPwd2(): any {
-    return this.formularioSignup.get('txtPwd2');
+  get ur_txtPwd2(): any {
+    return this.formularioSignup.get('ur_txtPwd2');
   }
-  get txtPlan(): any {
-    return this.formularioSignup.get('txtPlan');
+  get ur_txtPlan(): any {
+    return this.formularioSignup.get('ur_txtPlan');
   }
-  get txtEmpresa(): any {
-    return this.formularioSignup.get('txtEmpresa');
+  get ur_txtEmpresa(): any {
+    return this.formularioSignup.get('ur_txtEmpresa');
   }
-  get txtDireccion(): any {
-    return this.formularioSignup.get('txtDireccion');
+  get ur_txtDireccion(): any {
+    return this.formularioSignup.get('ur_txtDireccion');
   }
-  get txtDescripcion(): any {
-    return this.formularioSignup.get('txtDescripcion');
+  get ur_txtDescripcion(): any {
+    return this.formularioSignup.get('ur_txtDescripcion');
   }
 
   constructor(private httpClient: HttpClient, private router: Router) { }
@@ -66,15 +66,15 @@ export class FormBusinessAdminComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     // Asignar valor al atributo correspondiente del objeto FormGroup
     this.formularioSignup.patchValue({
-      txtTipoUsuario: changes.valorUT.currentValue
+      ur_txtTipoUsuario: changes.valorUT.currentValue
     });
   }
 
   ngOnInit(): void {
     this.emailYaExiste = false;
     this.mostrarPlanes();
-    this.formularioSignup.get('txtPwd1').valueChanges.subscribe( x => {
-      this.formularioSignup.controls.txtPwd2.updateValueAndValidity();
+    this.formularioSignup.get('ur_txtPwd1').valueChanges.subscribe( x => {
+      this.formularioSignup.controls.ur_txtPwd2.updateValueAndValidity();
     });
   }
 
@@ -92,11 +92,11 @@ export class FormBusinessAdminComponent implements OnInit, OnChanges {
 
   pwdCheck(control) {
     if (control.value != null) {
-      let pwd2 = control.value;
-      let pass = control.root.get('txtPwd1');
+      let ur_pwd2 = control.value;
+      let pass = control.root.get('ur_txtPwd1');
       if (pass) {
-        let pwd1 = pass.value;
-        if ((pwd2!=='') && (pwd1!=='') && (pwd2!==pwd1)) {
+        let ur_pwd1 = pass.value;
+        if ((ur_pwd2!=='') && (ur_pwd1!=='') && (ur_pwd2!==ur_pwd1)) {
           return {passwordValidity: true};
         } else {
           return null;
@@ -112,7 +112,7 @@ export class FormBusinessAdminComponent implements OnInit, OnChanges {
         console.log(res);        
         if (res['codigo'] == 0) {
           this.emailYaExiste = true;
-          this.formularioSignup.get('txtEmail').valueChanges.subscribe(()=>{
+          this.formularioSignup.get('ur_txtEmail').valueChanges.subscribe(()=>{
             this.emailYaExiste = false;            
           });
           alert(res['mensaje']);

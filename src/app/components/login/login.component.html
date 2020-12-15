@@ -14,17 +14,17 @@
             <div class="form-row mb-3">
                 <label for="login-txt-email" class="col-12 text-left">Correo electrónico</label>
                 <div class="col-12">
-                    <input [ngClass]="{'is-valid':txtEmail.valid, 'is-invalid':txtEmail.invalid && (txtEmail.dirty || txtEmail.touched)}" formControlName="txtEmail" type="email" class="form-control" id="login-txt-email" required="" autofocus="">
-                    <div *ngIf= "txtEmail.errors?.required" class="invalid-feedback text-left">Campo obligatorio.</div>
-                    <div *ngIf= "txtEmail.errors?.pattern" class="invalid-feedback text-left">Ingresa un email válido.</div>
+                    <input [ngClass]="{'is-valid':sr_email.valid, 'is-invalid':sr_email.invalid && (sr_email.dirty || sr_email.touched)}" formControlName="sr_email" type="email" class="form-control" id="login-txt-email" required="" autofocus="">
+                    <div *ngIf= "sr_email.errors?.required" class="invalid-feedback text-left">Campo obligatorio.</div>
+                    <div *ngIf= "sr_email.errors?.pattern" class="invalid-feedback text-left">Ingresa un email válido.</div>
                 </div>
             </div>
             <div class="form-row mb-3">
                 <label for="login-txt-password" class="col-12 text-left">Contraseña</label>
                 <div class="col-12">
-                    <input [ngClass]="{'is-valid':txtPassword.valid, 'is-invalid':txtPassword.invalid && (txtPassword.dirty || txtPassword.touched)}" formControlName="txtPassword" type="password" class="form-control" id="login-txt-password" required="">
-                    <div *ngIf= "txtPassword.errors?.required" class="invalid-feedback text-left">Campo obligatorio.</div>
-                    <div *ngIf= "txtPassword.errors?.pattern" class="invalid-feedback text-left">Mínimo 8 caracteres, incluyendo números, minúsculas y mayúsculas.</div>
+                    <input [ngClass]="{'is-valid':sr_password.valid, 'is-invalid':sr_password.invalid && (sr_password.dirty || sr_password.touched)}" formControlName="sr_password" type="password" class="form-control" id="login-txt-password" required="">
+                    <div *ngIf= "sr_password.errors?.required" class="invalid-feedback text-left">Campo obligatorio.</div>
+                    <div *ngIf= "sr_password.errors?.pattern" class="invalid-feedback text-left">Mínimo 8 caracteres, incluyendo números, minúsculas y mayúsculas.</div>
                 </div>
             </div>
             <button [disabled]="!formularioLogin.valid" class="btn btn-readyy-salmon btn-rounded btn-block" type="button" (click)="validarLogin()">Iniciar sesión</button>
