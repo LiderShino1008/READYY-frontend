@@ -1,1 +1,238 @@
-<p>admin-companies works!</p>
+<ul class="list-group list-group-horizontal bg-dark rounded-0">
+    <li (click)="cambiarRegion('perfil')" [ngClass]="regionVisible=='perfil' ? 'btn-primary' : 'btn-dark'" class="btn list-g-i rounded-0">Perfil</li>
+    <li (click)="cambiarRegion('empresas')" [ngClass]="regionVisible=='empresas' ? 'btn-primary' : 'btn-dark'" class="btn list-g-i rounded-0">Empresas</li>
+    <li (click)="cambiarRegion('archivos')" [ngClass]="regionVisible=='archivos' ? 'btn-primary' : 'btn-dark'" class="btn list-g-i rounded-0">Archivos</li>
+    <li (click)="cambiarRegion('categorias')" [ngClass]="regionVisible=='categorias' ? 'btn-primary' : 'btn-dark'" class="btn list-g-i rounded-0">Categorías</li>
+</ul>
+<main [ngSwitch]="regionVisible">
+    <div *ngSwitchCase="'perfil'" class="p-4 bg-grey-light">
+        <div class="row">
+            <div class="col-12 col-sm-8 col-md-9">
+                <h3 class="font-weight-normal">¡Hola {{ infoPerfil.nombre }} {{ infoPerfil.apellido }}!</h3>
+                <div>Fecha de nacimiento: {{ infoPerfil.fechaNacimiento }}</div>
+                <br>
+                <h6>Plan de servicio: {{ infoPerfil.planServicio.nombre }}<fa-icon [icon]="faBriefcase" class="ml-2"></fa-icon></h6>
+                <div>Empresa: {{ infoPerfil.nombreEmpresa }}</div>
+                <div>Dirección: {{ infoPerfil.direccionEmpresa }}</div>
+                <div>Descripción breve: {{ infoPerfil.descripcionEmpresa }}</div>
+            </div>
+            <div class="col-12 col-sm-4 col-md-3 mt-2 mt-sm-0 text-right">
+                <button class="btn btn-readyy-salmon btn-rounded" type="button" (click)="abrirEditarUsuario(modalEditarUsuario, infoPerfil._id)"><fa-icon [icon]="faPen" class="mr-2"></fa-icon>Editar perfil</button>
+            </div>
+        </div>
+    </div>
+    <div *ngSwitchCase="'empresas'" class="p-4">
+        <div class="row pb-4 px-2">
+            <h3 class="col-6 font-weight-normal">Sitios web empresariales</h3>
+            <div class="col-6 text-right">
+                <button [disabled]="!(infoPerfil.empresas.length < infoPerfil.planServicio.empresas)" class="btn btn-readyy-salmon btn-rounded" type="button" (click)="abrirNuevaEmpresa(modalNuevaEmpresa)")><fa-icon [icon]="faPlusCircle" class="mr-2"></fa-icon>Agregar</button>
+            </div>
+        </div>
+        <div class="row">
+            <div *ngIf="infoPerfil.empresas.length == 0" class="col-12">No hay elementos en esta lista.</div>
+            <div *ngIf="infoPerfil.empresas.length != 0">
+                <div class="col-12" *ngFor="let empresa of infoPerfil.empresas">
+                    <div class="card shadow-sm bg-grey-light p-3 mb-3">
+                        <div class="row p-1">
+                            <div class="col-4 col-sm-3 col-md-2 col-xl-1">
+                                <img [src]="empresa.imagen" class="w-100">
+                            </div>
+                            <div class="col-7 col-sm-9 col-md-10 col-xl-11">
+                                <p>
+                                    <b>Título del sitio: </b>{{ empresa.titulo }}<br>
+                                    <b>ID: </b>{{ empresa.identificador }}<br>
+                                    <b>Descripción:</b> {{ empresa.descripcion }}<br>
+                                    <b>Palabras claves: </b>
+                                    <span *ngFor="let palabra of empresa.palabrasClaves; let isLast = last">{{ palabra }}
+                                        <span *ngIf="!isLast">, </span>
+                                    </span><br>
+                                    <span class="d-flex">
+                                        <b class="mr-2">Favicon:</b>
+                                        <span class="favicon-empresa">
+                                            <img [src]="empresa.favicon" class="w-100">
+                                        </span>
+                                    </span>
+                                </p>
+                                <button type="button" class="btn btn-link mr-3 p-0" (click)="abrirEditarEmpresa(modalEditarEmpresa, empresa._id)"><fa-icon [icon]="faEdit" class="mr-2"></fa-icon>Editar</button>
+                                <button type="button" class="btn btn-link text-danger p-0"><fa-icon [icon]="faTrash" class="mr-2"></fa-icon>Borrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngSwitchCase="'archivos'" class="p-4">
+        <div class="row pb-4 px-2">
+            <h3 class="col-6 font-weight-normal">Banco de archivos</h3>
+            <div class="col-6 text-right">
+                <button [disabled]="!(infoPerfil.archivos.length < infoPerfil.planServicio.archivos)" class="btn btn-readyy-salmon btn-rounded" type="button" (click)="abrirNuevoArchivo(modalNuevoArchivo)")><fa-icon [icon]="faPlusCircle" class="mr-2"></fa-icon>Agregar</button>
+            </div>
+        </div>
+        <div *ngIf="infoPerfil.archivos.length == 0" class="row py-3">
+            <div class="col-12">No hay elementos en esta lista.</div>
+        </div>
+        <div *ngIf="infoPerfil.archivos.length != 0" class="row py-3">
+            <div *ngFor="let archivo of infoPerfil.archivos" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
+                <div class="card shadow-sm p-2 bg-grey-light">
+                    <div [ngSwitch]="archivo.tipoArchivo">
+                        <div *ngSwitchCase="'imagen'" class="bg-secondary m-1"><img [src]="archivo.imagen" class="p-1 card-img-top item-img"></div>
+                        <div *ngSwitchCase="'word'" class="text-center text-light bg-secondary m-1 item-icon"><fa-icon [icon]="faFileWord"></fa-icon></div>
+                        <div *ngSwitchCase="'pdf'" class="text-center text-light bg-secondary m-1 item-icon"><fa-icon [icon]="faFilePdf"></fa-icon></div>
+                        <div *ngSwitchCase="'excel'" class="text-center text-light bg-secondary m-1 item-icon"><fa-icon [icon]="faFileExcel"></fa-icon></div>
+                        <div *ngSwitchCase="'powerpoint'" class="text-center text-light bg-secondary m-1 item-icon"><fa-icon [icon]="faFilePowerpoint"></fa-icon></div>
+                        <div *ngSwitchCase="'zip'" class="text-center text-light bg-secondary m-1 item-icon"><fa-icon [icon]="faFileArchive"></fa-icon></div>
+                        <div *ngSwitchCase="'otro'" class="text-center text-light bg-secondary m-1 item-icon"><fa-icon [icon]="faFile"></fa-icon></div>
+                    </div>
+                    <div class="p-1 text-left">
+                        <h6 class="mb-1">{{ archivo.nombre }}</h6>
+                        <div>COD: {{ archivo.__id }}</div>
+                        <div>
+                            <button type="button" class="btn btn-link p-0" (click)="abrirEditarArchivo(modalEditarArchivo, actualArchivo)"><fa-icon [icon]="faEdit" class="mr-2"></fa-icon>Editar</button>
+                        </div>
+                        <div>
+                            <button type="button" class="btn btn-link text-danger p-0"><fa-icon [icon]="faTrash" class="mr-2"></fa-icon>Borrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngSwitchCase="'categorias'" class="p-4">
+        <div class="row pb-5 px-2">
+            <h3 class="col-12 col-sm-4 col-md-6 font-weight-normal">Categorías</h3>
+            <div class="col-12 col-sm-8 col-md-6 text-right d-flex">
+                <input type="text" class="form-control h-100 mr-2" placeholder="Nueva categoría">
+                <button [disabled]="!(infoPerfil.categorias.length < infoPerfil.planServicio.categorias)" class="btn btn-readyy-salmon d-inline-flex" type="button"><fa-icon [icon]="faPlusCircle" class="mr-2 align-self-center"></fa-icon>Agregar</button>
+            </div>
+        </div>
+        <div *ngIf="infoPerfil.categorias.length == 0" class="col-12">No hay elementos en esta lista.</div>
+        <div *ngIf="infoPerfil.categorias.length != 0">
+            <div *ngFor="let categoria of infoPerfil.categorias; let i = index;" class="mb-5">
+                <div class="row px-2">
+                    <div class="col-12 col-sm-6">
+                        <h5 class="mb-1">{{ categoria.nombre }}</h5>
+                        <div>COD: {{ categoria.__id }}</div>
+                        <button type="button" class="btn btn-link p-0 mr-2"><fa-icon [icon]="faEdit" class="mr-2"></fa-icon>Editar</button>
+                        <button type="button" class="btn btn-link text-danger p-0"><fa-icon [icon]="faTrash" class="mr-2"></fa-icon>Borrar</button>
+                    </div>
+                    <div class="col-12 col-sm-6 text-left text-sm-right mt-2 mt-sm-0">
+                        <button [disabled]="!(infoPerfil.categorias[i].productos.length < infoPerfil.planServicio.productos)" class="btn btn-readyy-salmon btn-rounded" type="button" data-toggle="modal" data-target="#newItemModal"><fa-icon [icon]="faPlusCircle" class="mr-2"></fa-icon>Agregar producto</button>
+                    </div>
+                </div>
+                <div class="py-3 scroll-div w-100">
+                    <div *ngIf="categoria.productos.length == 0" class="col-12">No hay elementos en esta lista.</div>
+                    <div *ngIf="categoria.productos.length != 0">
+                        <div class="row">
+                            <div *ngFor="let producto of categoria.productos" class="col-6 col-sm-4 col-md-3 col-lg-2">
+                                <div class="card shadow-sm p-2 bg-grey-light">
+                                    <div class="bg-secondary m-1">
+                                        <img [src]="producto.imagen" class="p-1 card-img-top item-img">
+                                    </div>
+                                    <div class="p-1 text-left">
+                                        <h6 class="mb-1">{{ producto.nombre }}</h6>
+                                        <div>COD: {{ producto.__id }}</div>
+                                        <div>Precio: L.{{ producto.precio }}</div>
+                                        <div>
+                                            <button type="button" class="btn btn-link p-0"><fa-icon [icon]="faEdit" class="mr-2"></fa-icon>Editar</button>
+                                        </div>
+                                        <div>
+                                            <button type="button" class="btn btn-link text-danger p-0"><fa-icon [icon]="faTrash" class="mr-2"></fa-icon>Borrar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<app-footer></app-footer>
+
+<!-- ---------------------------------- -->
+<!-- Ventana modal para editar usuario -->
+<ng-template #modalEditarUsuario let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Editar información de usuario</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        Hola
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-success" (click)="editarUsuario(infoPerfil._id)">Guardar</button>
+        <button type="button" class="btn btn-danger" (click)="modal.close('Close click')">Cerrar</button>
+    </div>
+</ng-template>
+
+<!-- Ventana modal para crear empresa -->
+<ng-template #modalNuevaEmpresa let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Nueva empresa</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        Hola
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-success" (click)="crearEmpresa()">Guardar</button>
+        <button type="button" class="btn btn-danger" (click)="modal.close('Close click')">Cerrar</button>
+    </div>
+</ng-template>
+
+<!-- Ventana modal para editar una empresa -->
+<ng-template #modalEditarEmpresa let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Editar empresa</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        Hola
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-success" (click)="editarEmpresa(actualEmpresa)">Guardar</button>
+        <button type="button" class="btn btn-danger" (click)="modal.close('Close click')">Cerrar</button>
+    </div>
+</ng-template>
+
+<!-- Ventana modal para crear archivo -->
+<ng-template #modalNuevoArchivo let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Nuevo archivo</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        Hola
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-success" (click)="crearArchivo()">Guardar</button>
+        <button type="button" class="btn btn-danger" (click)="modal.close('Close click')">Cerrar</button>
+    </div>
+</ng-template>
+
+<!-- Ventana modal para editar un archivo -->
+<ng-template #modalEditarArchivo let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Editar archivo</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        Hola
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-success" (click)="editarArchivo(actualArchivo)">Guardar</button>
+        <button type="button" class="btn btn-danger" (click)="modal.close('Close click')">Cerrar</button>
+    </div>
+</ng-template>

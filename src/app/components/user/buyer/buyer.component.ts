@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { faPen, faTrash, faShoppingCart, faTimesCircle, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-buyer',
@@ -10,7 +11,8 @@ export class BuyerComponent implements OnInit {
 
   // Declaraciones
   infoPerfil: any;
-  historialCompra: any = [];
+  historialCompras: any = [];
+  backendHost: String = 'http://localhost:8888';
 
   // Fontawesome
   faPen = faPen;
@@ -19,55 +21,30 @@ export class BuyerComponent implements OnInit {
   faTimesCircle = faTimesCircle;
   faArrowRight = faArrowRight;
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
   ngOnInit(): void {
     this.mostrarUsuario();
-    this.mostrarHistorial();
-    console.log(this.historialCompra.length);
+    console.log(this.infoPerfil.historialCompras.length);
   }
 
   // Funciones
   mostrarUsuario(): void {
-    this.infoPerfil = {
-      nombre: 'Juan Carlos',
-      apellido: 'López Pérez',
-      fechaNacimiento: '25/03/1997',
-      fechaRegistro: '19/10/2020'
-    };
-  }
-
-  mostrarHistorial(): void {
-    this.historialCompra =
-    [{
-      nombre: 'Hamburguesa con doble queso de lujo',
-      empresa: 'McDaniel\'s',
-      fechaCompra: '01/01/2020',
-      precio: 35,
-      cantidad: 3,
-      total: 105
-    },
-    {
-      nombre: 'Pizza de jamón',
-      empresa: 'Big Caesars',
-      fechaCompra: '01/01/2020',
-      precio: 35,
-      cantidad: 3,
-      total: 105
-    },
-    {
-      nombre: 'Sushi california',
-      empresa: 'Katana Sushi Bar',
-      fechaCompra: '01/01/2020',
-      precio: 35,
-      cantidad: 3,
-      total: 105
-    }];
+    this.httpClient.get(`${this.backendHost}/usuarios/${'5fd0b081e1907e1cf0fd5582'}`)
+    .subscribe(res=>{
+      console.log(res);
+      this.infoPerfil = {
+        nombre: res['respuesta']['nombre'],
+        apellido: res['respuesta']['apellido'],
+        fechaNacimiento: res['respuesta']['fechaNacimiento'],
+        historialCompras: res['respuesta']['historialCompras']
+      };
+    });
   }
 
   borrarHistorial(): void {
-    console.log('Se borrarán' + this.historialCompra + 'productos del historial de compras.');
-    this.historialCompra = [];
+    console.log('Se borrarán' + this.historialCompras + 'productos del historial de compras.');
+    this.infoPerfil.historialCompras = [];
   }
 
 }

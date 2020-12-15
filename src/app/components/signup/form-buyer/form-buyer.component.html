@@ -24,9 +24,10 @@
         <div class="col-12 col-md-6 col-lg-4">
             <div class="form-group">
                 <label for="registro-txt-email">Correo electrónico</label>
-                <input [ngClass]="{'is-valid':txtEmail.valid, 'is-invalid':txtEmail.invalid && (txtEmail.dirty || txtEmail.touched)}" formControlName="txtEmail" type="email" class="form-control" id="registro-txt-email" placeholder="nombre@ejemplo.com">
+                <input [ngClass]="{'is-valid':txtEmail.valid, 'is-invalid':(txtEmail.invalid && (txtEmail.dirty || txtEmail.touched)) || emailYaExiste}" formControlName="txtEmail" type="email" class="form-control" id="registro-txt-email" placeholder="nombre@ejemplo.com">
                 <div *ngIf= "txtEmail.errors?.required" class="invalid-feedback text-left">Campo obligatorio.</div>
                 <div *ngIf= "txtEmail.errors?.pattern" class="invalid-feedback text-left">Ingresa un email válido.</div>
+                <div *ngIf= "emailYaExiste" class="invalid-feedback text-left">Este correo electrónico ya está en uso.</div>
             </div>
         </div>
         <div class="col-12 col-md-6 col-lg-4">
@@ -41,8 +42,8 @@
             <div class="form-group">
                 <label for="registro-txt-pwd2">Confirmar contraseña</label>
                 <input [ngClass]="{'is-valid':txtPwd2.valid, 'is-invalid':txtPwd2.invalid && (txtPwd2.dirty || txtPwd2.touched)}" formControlName="txtPwd2" type="password" class="form-control" id="registro-txt-pwd2">
-                <div class="invalid-feedback text-left">La contraseña no coincide.</div>
-                <!--div *ngIf= "txtPwd2.errors?.required" class="invalid-feedback text-left">La contraseña no coincide.</div-->
+                <div *ngIf= "txtPwd2.errors?.required" class="invalid-feedback text-left">Campo obligatorio.</div>
+                <div *ngIf= "txtPwd2.errors?.passwordValidity" class="invalid-feedback text-left">La contraseña no coincide.</div>
             </div>
         </div>
         <div class="col-12 mt-3 text-center">

@@ -24,9 +24,10 @@
         <div class="col-12 col-md-6 col-lg-4">
             <div class="form-group">
                 <label for="registro-txt-email">Correo electrónico</label>
-                <input [ngClass]="{'is-valid':txtEmail.valid, 'is-invalid':txtEmail.invalid && (txtEmail.dirty || txtEmail.touched)}" formControlName="txtEmail" type="email" class="form-control" id="registro-txt-email" placeholder="nombre@ejemplo.com">
+                <input [ngClass]="{'is-valid':txtEmail.valid, 'is-invalid':(txtEmail.invalid && (txtEmail.dirty || txtEmail.touched)) || emailYaExiste}" formControlName="txtEmail" type="email" class="form-control" id="registro-txt-email" placeholder="nombre@ejemplo.com">
                 <div *ngIf= "txtEmail.errors?.required" class="invalid-feedback text-left">Campo obligatorio.</div>
                 <div *ngIf= "txtEmail.errors?.pattern" class="invalid-feedback text-left">Ingresa un email válido.</div>
+                <div *ngIf= "emailYaExiste" class="invalid-feedback text-left">Este correo electrónico ya está en uso.</div>
             </div>
         </div>
         <div class="col-12 col-md-6 col-lg-4">
@@ -41,8 +42,8 @@
             <div class="form-group">
                 <label for="registro-txt-pwd2">Confirmar contraseña</label>
                 <input [ngClass]="{'is-valid':txtPwd2.valid, 'is-invalid':txtPwd2.invalid && (txtPwd2.dirty || txtPwd2.touched)}" formControlName="txtPwd2" type="password" class="form-control" id="registro-txt-pwd2">
-                <div class="invalid-feedback text-left">La contraseña no coincide.</div>
-                <!--div *ngIf= "txtPwd2.errors?.required" class="invalid-feedback text-left">La contraseña no coincide.</div-->
+                <div *ngIf= "txtPwd2.errors?.required" class="invalid-feedback text-left">Campo obligatorio.</div>
+                <div *ngIf= "txtPwd2.errors?.passwordValidity" class="invalid-feedback text-left">La contraseña no coincide.</div>
             </div>
         </div>
         <p class="col-12 mt-3">Selecciona tu plan de pago y adquisición de servicios.</p>
@@ -56,35 +57,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr *ngFor="let plan of listaPlanes">
                         <td scope="row">
                             <div class="custom-control custom-radio">
-                                <input [formControl]="txtPlan" id="plan-principiante" name="registro-txt-plan" type="radio" class="custom-control-input" required="" value="Principiante">
-                                <label class="custom-control-label" for="plan-principiante">Principiante</label>
+                                <input [formControl]="txtPlan" [id]="plan.nombre" name="registro-txt-plan" type="radio" class="custom-control-input" required="" [value]="plan._id">
+                                <label class="custom-control-label" [for]="plan.nombre">{{ plan.nombre }}</label>
                             </div>
                         </td>
-                        <td scope="row">GRATIS</td>
-                        <td scope="row" class="d-none d-sm-table-cell">2 páginas, 6 categorías, 10 productos por cada categoría, sube hasta 30 archivos.</td>
-                    </tr>
-                    <tr>
-                        <td scope="row">
-                            <div class="custom-control custom-radio">
-                                <input [formControl]="txtPlan" id="plan-profesional" name="registro-txt-plan" type="radio" class="custom-control-input" required="" value="Profesional">
-                                <label class="custom-control-label" for="plan-profesional">Profesional</label>
-                            </div>
-                        </td>
-                        <td scope="row">$12/mes</td>
-                        <td scope="row" class="d-none d-sm-table-cell">4 páginas, 12 categorías, 20 productos por cada categoría, sube hasta 60 archivos.</td>
-                    </tr>
-                    <tr>
-                        <td scope="row">
-                            <div class="custom-control custom-radio">
-                                <input [formControl]="txtPlan" id="plan-avanzado" name="registro-txt-plan" type="radio" class="custom-control-input" required="" value="Avanzado">
-                                <label class="custom-control-label" for="plan-avanzado">Avanzado</label>
-                            </div>
-                        </td>
-                        <td scope="row">$25/mes</td>
-                        <td scope="row" class="d-none d-sm-table-cell">8 páginas, 24 categorías, 40 productos por cada categoría, sube hasta 120 archivos.</td>
+                        <td scope="row" *ngIf="plan.precio == 0">GRATIS</td>
+                        <td scope="row" *ngIf="plan.precio != 0">${{ plan.precio }}/mes</td>
+                        <td scope="row" class="d-none d-sm-table-cell">{{ plan.empresas }} empresas, {{ plan.categorias }} categorías, {{ plan.productos }} productos por cada categoría, sube hasta {{ plan.archivos }} archivos.</td>
                     </tr>
                 </tbody>
             </table>

@@ -2,9 +2,8 @@
     <div class="p-4 bg-grey-light">
         <div class="row px-2">
             <div class="col-12 col-sm-8 col-md-9">
-                <h4 class="font-weight-normal">¡Hola {{ infoPerfil.nombre }} {{ infoPerfil.apellido }}!</h4>
+                <h3 class="font-weight-normal">¡Hola {{ infoPerfil.nombre }} {{ infoPerfil.apellido }}!</h3>
                 <div>Fecha de nacimiento: {{ infoPerfil.fechaNacimiento }}</div>
-                <div>Se unió en: {{ infoPerfil.fechaRegistro }}</div>
             </div>
             <div class="col-12 col-sm-4 col-md-3 mt-2 mt-sm-0 text-right">
                 <button class="btn btn-readyy-salmon btn-rounded" type="button" data-toggle="modal" data-target="#editPbModal"><fa-icon [icon]="faPen" class="mr-2"></fa-icon>Editar perfil</button>
@@ -13,13 +12,13 @@
     </div>
     <div class="p-4 mb-5">
         <div class="row pb-4 px-2">
-            <h4 class="col-6 font-weight-normal">Historial de compras</h4>
+            <h3 class="col-6 font-weight-normal">Historial de compras</h3>
             <div class="col-6 text-right">
-                <button [disabled]="historialCompra.length == 0" (click)="borrarHistorial()" class="btn btn-readyy-salmon btn-rounded" type="button"><fa-icon [icon]="faTrash" class="mr-2"></fa-icon>Borrar</button>
+                <button [disabled]="infoPerfil.historialCompras.length == 0" (click)="borrarHistorial()" class="btn btn-readyy-salmon btn-rounded" type="button"><fa-icon [icon]="faTrash" class="mr-2"></fa-icon>Borrar</button>
             </div>
         </div>
-        <p class="px-2" *ngIf="historialCompra.length == 0">No hay elementos en esta lista.</p>
-        <div class="scroll-div" *ngIf="historialCompra.length != 0">
+        <p class="px-2" *ngIf="infoPerfil.historialCompras.length == 0">No hay elementos en esta lista.</p>
+        <div class="scroll-div" *ngIf="infoPerfil.historialCompras.length != 0">
             <table class="table table-bordered ws-nw">
                 <thead>
                     <tr>
@@ -31,7 +30,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let producto of historialCompra">
+                    <tr *ngFor="let producto of infoPerfil.historialCompras">
                         <td scope="row">{{ producto.nombre }} <br><i><fa-icon [icon]="faArrowRight"></fa-icon> {{ producto.empresa }}</i></td>
                         <td scope="row">{{ producto.fechaCompra }}</td>
                         <td scope="row">{{ producto.precio }}</td>
@@ -42,7 +41,7 @@
             </table>
         </div>
     </div>
-    <app-footer [volverArriba]="historialCompra.length != 0"></app-footer>
+    <app-footer></app-footer>
 
     <!-- VENTANAS MODALES -->
     <!-- Editar perfil de cliente -->
@@ -78,13 +77,6 @@
                                 <div class="form-group">
                                     <label for="cliente-edit-fecha">Fecha de nacimiento</label>
                                     <input type="date" class="form-control" id="cliente-edit-fecha">
-                                    <div class="invalid-feedback">Campo vacío o dato inválido</div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <div class="form-group">
-                                    <label for="cliente-edit-email">Correo electrónico</label>
-                                    <input type="email" class="form-control" id="cliente-edit-email">
                                     <div class="invalid-feedback">Campo vacío o dato inválido</div>
                                 </div>
                             </div>

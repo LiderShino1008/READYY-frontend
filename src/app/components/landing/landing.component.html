@@ -7,7 +7,7 @@
                     <h1>Crea un sitio web para tu empresa y vende tus productos en línea</h1>
                     <p>Promociona tu negocio y llega a muchas más personas de una forma moderna. Crea y personaliza tu sitio a tu gusto, ¡En READYY te ayudamos a lanzar tu negocio fácil y rápido!</p>
                     <p>
-                        <a class="btn btn-readyy-salmon btn-rounded" routerLink="/signup"><span class="px-2">Unirse</span></a>
+                        <a class="btn btn-readyy-salmon btn-rounded mr-2" routerLink="/signup"><span class="px-2">Unirse</span></a>
                         <a class="btn btn-readyy-salmon btn-rounded" routerLink="/login">Iniciar sesión</a>
                     </p>                </div>
                 <div class="col-12 col-lg-6 pt-4 pt-lg-0 vertical-center"><img class="w-100" src="assets/img/landing_banner1.png"></div>
@@ -57,14 +57,14 @@
         <p>Escoge cual se adapta a tus necesidades y prepara tu zona de lanzamiento.</p>
         <div class="card-deck scroll-div text-center">
             <div class="col-9 col-sm-5" *ngFor="let plan of listaPlanes">
-                <div class="card shadow-sm mx-0">
-                    <div class="card-header">
+                <div class="card shadow-sm mx-0 mb-3">
+                    <div class="card-header bg-white">
                         <h4 class="my-0 font-weight-normal">{{ plan.nombre }}</h4>
                     </div>
                     <div class="card-body">
                         <h1 class="card-title pricing-card-title">${{ plan.precio }} <small class="text-muted">/ mes</small></h1>
                         <ul class="list-unstyled mt-3 mb-4">
-                            <li>{{ plan.paginas }} páginas</li>
+                            <li>{{ plan.empresas }} empresas</li>
                             <li>{{ plan.categorias }} categorías</li>
                             <li>{{ plan.productos }} productos por cada categoría</li>
                             <li>Sube hasta {{ plan.archivos }} archivos</li>
@@ -84,7 +84,7 @@
                 </div>
                 <div class="col-12">
                     <div class="row">
-                        <div class="col-6 col-sm-4 col-md-3 col-lg-2 pb-3" *ngFor="let empresa of listaEmpresas">
+                        <div class="col-6 col-sm-4 col-md-3 col-xl-2 pb-3" *ngFor="let empresa of listaEmpresas">
                             <div class="card p-2">
                                 <div class="bg-secondary">
                                     <img [src]="empresa.logo" class="card-img-top p-1 item-img">
@@ -103,6 +103,6 @@
                 </div>
             </div>
         </div> <!-- container -->
-        <app-footer [volverArriba]="true"></app-footer>
+        <app-footer></app-footer>
     </div>
 </main>
