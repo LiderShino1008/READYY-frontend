@@ -25,13 +25,13 @@
         <div class="row pb-4 px-2">
             <h3 class="col-6 font-weight-normal">Sitios web empresariales</h3>
             <div class="col-6 text-right">
-                <button [disabled]="!(infoPerfil.empresas.length < infoPerfil.planServicio.empresas)" class="btn btn-readyy-salmon btn-rounded" type="button" (click)="abrirNuevaEmpresa(modalNuevaEmpresa)")><fa-icon [icon]="faPlusCircle" class="mr-2"></fa-icon>Agregar</button>
+                <button [disabled]="!(infoPerfil.empresas.length < infoPerfil.planServicio.empresas)" class="btn btn-readyy-salmon btn-rounded" type="button" (click)="abrirNuevaEmpresa(modalNuevaEmpresa)"><fa-icon [icon]="faPlusCircle" class="mr-2"></fa-icon>Agregar</button>
             </div>
         </div>
-        <div class="row">
-            <div *ngIf="infoPerfil.empresas.length == 0" class="col-12">No hay elementos en esta lista.</div>
-            <div *ngIf="infoPerfil.empresas.length != 0">
-                <div class="col-12" *ngFor="let empresa of infoPerfil.empresas">
+        <div class="row mx-0">
+            <div *ngIf="infoPerfil.empresas.length == 0" class="row mx-0">No hay elementos en esta lista.</div>
+            <div class="row mx-0" *ngIf="infoPerfil.empresas.length != 0">
+                <div class="col-12 col-lg-6" *ngFor="let empresa of infoPerfil.empresas">
                     <div class="card shadow-sm bg-grey-light p-3 mb-3">
                         <div class="row p-1">
                             <div class="col-4 col-sm-3 col-md-2 col-xl-1">
@@ -41,11 +41,8 @@
                                 <p>
                                     <b>Título del sitio: </b>{{ empresa.titulo }}<br>
                                     <b>ID: </b>{{ empresa.identificador }}<br>
-                                    <b>Descripción:</b> {{ empresa.descripcion }}<br>
-                                    <b>Palabras claves: </b>
-                                    <span *ngFor="let palabra of empresa.palabrasClaves; let isLast = last">{{ palabra }}
-                                        <span *ngIf="!isLast">, </span>
-                                    </span><br>
+                                    <b>Descripción: </b>{{ empresa.descripcion }}<br>
+                                    <b>Palabras claves: </b>{{ empresa.palabrasClave }}<br>
                                     <span class="d-flex">
                                         <b class="mr-2">Favicon:</b>
                                         <span class="favicon-empresa">
@@ -66,17 +63,17 @@
         <div class="row pb-4 px-2">
             <h3 class="col-6 font-weight-normal">Banco de archivos</h3>
             <div class="col-6 text-right">
-                <button [disabled]="!(infoPerfil.archivos.length < infoPerfil.planServicio.archivos)" class="btn btn-readyy-salmon btn-rounded" type="button" (click)="abrirNuevoArchivo(modalNuevoArchivo)")><fa-icon [icon]="faPlusCircle" class="mr-2"></fa-icon>Agregar</button>
+                <button [disabled]="!(infoPerfil.archivos.length < infoPerfil.planServicio.archivos)" class="btn btn-readyy-salmon btn-rounded" type="button" (click)="abrirNuevoArchivo(modalNuevoArchivo)"><fa-icon [icon]="faPlusCircle" class="mr-2"></fa-icon>Agregar</button>
             </div>
         </div>
-        <div *ngIf="infoPerfil.archivos.length == 0" class="row py-3">
+        <div *ngIf="infoPerfil.archivos.length == 0" class="row mx-0 py-3">
             <div class="col-12">No hay elementos en esta lista.</div>
         </div>
-        <div *ngIf="infoPerfil.archivos.length != 0" class="row py-3">
+        <div *ngIf="infoPerfil.archivos.length != 0" class="row mx-0 py-3">
             <div *ngFor="let archivo of infoPerfil.archivos" class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
                 <div class="card shadow-sm p-2 bg-grey-light">
-                    <div [ngSwitch]="archivo.tipoArchivo">
-                        <div *ngSwitchCase="'imagen'" class="bg-secondary m-1"><img [src]="archivo.imagen" class="p-1 card-img-top item-img"></div>
+                    <div [ngSwitch]="archivo.tipo">
+                        <div *ngSwitchCase="'imagen'" class="bg-secondary m-1"><img [src]="archivo.ruta" class="p-1 card-img-top item-img"></div>
                         <div *ngSwitchCase="'word'" class="text-center text-light bg-secondary m-1 item-icon"><fa-icon [icon]="faFileWord"></fa-icon></div>
                         <div *ngSwitchCase="'pdf'" class="text-center text-light bg-secondary m-1 item-icon"><fa-icon [icon]="faFilePdf"></fa-icon></div>
                         <div *ngSwitchCase="'excel'" class="text-center text-light bg-secondary m-1 item-icon"><fa-icon [icon]="faFileExcel"></fa-icon></div>
@@ -86,9 +83,9 @@
                     </div>
                     <div class="p-1 text-left">
                         <h6 class="mb-1">{{ archivo.nombre }}</h6>
-                        <div>COD: {{ archivo.__id }}</div>
+                        <div>COD: {{ archivo._id }}</div>
                         <div>
-                            <button type="button" class="btn btn-link p-0" (click)="abrirEditarArchivo(modalEditarArchivo, actualArchivo)"><fa-icon [icon]="faEdit" class="mr-2"></fa-icon>Editar</button>
+                            <button type="button" class="btn btn-link p-0" (click)="abrirEditarArchivo(modalEditarArchivo, archivo._id)"><fa-icon [icon]="faEdit" class="mr-2"></fa-icon>Editar</button>
                         </div>
                         <div>
                             <button type="button" class="btn btn-link text-danger p-0"><fa-icon [icon]="faTrash" class="mr-2"></fa-icon>Borrar</button>
@@ -99,7 +96,7 @@
         </div>
     </div>
     <div *ngSwitchCase="'categorias'" class="p-4">
-        <div class="row pb-5 px-2">
+        <div class="row pb-4 px-2">
             <h3 class="col-12 col-sm-4 col-md-6 font-weight-normal">Categorías</h3>
             <div class="col-12 col-sm-8 col-md-6 text-right d-flex">
                 <input type="text" class="form-control h-100 mr-2" placeholder="Nueva categoría">
@@ -108,11 +105,12 @@
         </div>
         <div *ngIf="infoPerfil.categorias.length == 0" class="col-12">No hay elementos en esta lista.</div>
         <div *ngIf="infoPerfil.categorias.length != 0">
-            <div *ngFor="let categoria of infoPerfil.categorias; let i = index;" class="mb-5">
+            <div *ngFor="let categoria of infoPerfil.categorias; let i = index;" class="mb-4">
+                <hr>
                 <div class="row px-2">
                     <div class="col-12 col-sm-6">
                         <h5 class="mb-1">{{ categoria.nombre }}</h5>
-                        <div>COD: {{ categoria.__id }}</div>
+                        <div>COD: {{ categoria._id }}</div>
                         <button type="button" class="btn btn-link p-0 mr-2"><fa-icon [icon]="faEdit" class="mr-2"></fa-icon>Editar</button>
                         <button type="button" class="btn btn-link text-danger p-0"><fa-icon [icon]="faTrash" class="mr-2"></fa-icon>Borrar</button>
                     </div>
@@ -123,7 +121,7 @@
                 <div class="py-3 scroll-div w-100">
                     <div *ngIf="categoria.productos.length == 0" class="col-12">No hay elementos en esta lista.</div>
                     <div *ngIf="categoria.productos.length != 0">
-                        <div class="row">
+                        <div class="d-flex">
                             <div *ngFor="let producto of categoria.productos" class="col-6 col-sm-4 col-md-3 col-lg-2">
                                 <div class="card shadow-sm p-2 bg-grey-light">
                                     <div class="bg-secondary m-1">
@@ -131,7 +129,7 @@
                                     </div>
                                     <div class="p-1 text-left">
                                         <h6 class="mb-1">{{ producto.nombre }}</h6>
-                                        <div>COD: {{ producto.__id }}</div>
+                                        <div>COD: {{ producto._id }}</div>
                                         <div>Precio: L.{{ producto.precio }}</div>
                                         <div>
                                             <button type="button" class="btn btn-link p-0"><fa-icon [icon]="faEdit" class="mr-2"></fa-icon>Editar</button>

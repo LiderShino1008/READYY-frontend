@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { faShoppingCart, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-companies',
@@ -13,12 +14,13 @@ export class CompaniesComponent implements OnInit {
   listaEmpresas: any = [];
   verReset = false;
   txtBuscar = new FormControl('', Validators.required);
+  backendHost: String = 'http://localhost:8888';
 
   // Fontawesome
   faShoppingCart = faShoppingCart;
   faTimesCircle = faTimesCircle;
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
   ngOnInit(): void {
     this.mostrarEmpresas();
@@ -36,25 +38,11 @@ export class CompaniesComponent implements OnInit {
   }
 
   mostrarEmpresas(): void {
-    this.listaEmpresas =
-    [{
-      nombre: 'Ejemplo 1',
-      logo: 'assets/img/favicon.png',
-      empresa: 'Compañía DS',
-      descripcion: 'El mejor servicio de lavandería de la ciudad'
-    },
-    {
-      nombre: 'Ejemplo 2',
-      logo: 'assets/img/favicon.png',
-      empresa: 'Compañía LOL',
-      descripcion: 'Revista de entretenimiento en línea'
-    },
-    {
-      nombre: 'Ejemplo 3',
-      logo: 'assets/img/favicon.png',
-      empresa: 'Compañía FM',
-      descripcion: 'Música de calidad todos los días a toda hora'
-    }];
+    this.httpClient.get(`${this.backendHost}/empresas/companies-list`)
+    .subscribe(res=>{
+      this.listaEmpresas = res['respuesta'];
+      console.log(res);
+    });
   }
 
 }

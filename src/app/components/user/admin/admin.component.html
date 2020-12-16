@@ -1,14 +1,15 @@
 <ul class="list-group list-group-horizontal bg-dark rounded-0">
-    <li (click)="cambiarRegion('usuarios')" [ngClass]="regionVisible=='usuarios' ? 'btn-primary' : 'btn-dark'" class="btn list-g-i rounded-0">Perfil</li>
+    <li (click)="cambiarRegion('perfil')" [ngClass]="regionVisible=='perfil' ? 'btn-primary' : 'btn-dark'" class="btn list-g-i rounded-0">Perfil</li>
+    <li (click)="cambiarRegion('usuarios')" [ngClass]="regionVisible=='usuarios' ? 'btn-primary' : 'btn-dark'" class="btn list-g-i rounded-0">Usuarios</li>
     <li (click)="cambiarRegion('empresas')" [ngClass]="regionVisible=='empresas' ? 'btn-primary' : 'btn-dark'" class="btn list-g-i rounded-0">Empresas</li>
-    <li (click)="cambiarRegion('planes')" [ngClass]="regionVisible=='planes' ? 'btn-primary' : 'btn-dark'" class="btn list-g-i rounded-0">Archivos</li>
+    <li (click)="cambiarRegion('planes')" [ngClass]="regionVisible=='planes' ? 'btn-primary' : 'btn-dark'" class="btn list-g-i rounded-0">Planes</li>
 </ul>
 <main [ngSwitch]="regionVisible">
 
     <div *ngSwitchCase="'perfil'" class="p-4 bg-grey-light">
         <div class="row px-2">
             <div class="col-12 col-sm-8 col-md-9">
-                <h4 class="font-weight-normal">¡Hola {{ infoPerfil.nombre }} {{ inforPerfil.apellido }}!</h4>
+                <h4 class="font-weight-normal">¡Hola {{ infoPerfil.nombre }} {{ infoPerfil.apellido }}!</h4>
                 <div>Fecha de nacimiento: {{ infoPerfil.fechaNacimiento }}</div>
                 <br>
                 <h6>Administrador de plataforma<fa-icon [icon]="faPlane" class="ml-2"></fa-icon></h6>
@@ -28,12 +29,11 @@
                 <button class="btn btn-readyy-salmon btn-rounded" type="button" (click)="abrirNuevoUsuario(modalNuevoUsuario)"><fa-icon [icon]="faPlusCircle" class="mr-2"></fa-icon>Agregar</button>
             </div>
         </div>
-        <!-- <div class="py-3 scroll-div w-100"> -->
-        <div class="py-3 w-100">
+        <div class="py-3 row mx-0">
             <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3" *ngFor="let usuario of listaUsuarios">
                 <div class="card shadow-sm p-2 bg-grey-light">
                     <div class="p-1 text-left">
-                        <div>{{ usuario.nombre }} {{ usuario.apellido </div>
+                        <div>{{ usuario.nombre }} {{ usuario.apellido }}</div>
                         <h6 class="mb-1">{{ usuario.tipoUsuario}}</h6>
                         <div>
                             <button type="button" class="btn btn-link p-0" (click)="abrirEditarUsuario(modalEditarUsuario, usuario._id)"><fa-icon [icon]="faEdit" class="mr-2"></fa-icon>Editar</button>
@@ -53,8 +53,7 @@
                 <button class="btn btn-readyy-salmon btn-rounded" type="button" (click)="abrirNuevaEmpresa(modalNuevaEmpresa)"><fa-icon [icon]="faPlusCircle" class="mr-2"></fa-icon>Agregar</button>
             </div> -->
         </div>
-        <!-- <div class="py-3 scroll-div"> -->
-        <div class="py-3">
+        <div class="py-3 row mx-0">
             <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3" *ngFor="let empresa of listaEmpresas">
                 <div class="card shadow-sm p-2 bg-grey-light">
                     <div class="bg-secondary m-1">
@@ -84,7 +83,6 @@
                 <button class="btn btn-readyy-salmon btn-rounded" type="button" (click)="abrirNuevoPlan(modalNuevoPlan)"><fa-icon [icon]="faPlusCircle" class="mr-2"></fa-icon>Agregar</button>
             </div>
         </div>
-        <!-- <div class="card-deck mx-0 py-3 text-center scroll-div"> -->
         <div class="card-deck mx-0 py-3 text-center">
             <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3" *ngFor="let plan of listaPlanes">
                 <div class="card shadow-sm mx-0">

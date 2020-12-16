@@ -49,14 +49,10 @@ export class AdminComponent implements OnInit {
   }
 
   mostrarUsuario(): void {
-    this.httpClient.get(`${this.backendHost}/usuarios/ac/${'5fd0b0a0e1907e1cf0fd5583'}`)
+    this.httpClient.get(`${this.backendHost}/usuarios/${'5fd0b0a0e1907e1cf0fd5583'}`)
     .subscribe(res=>{
       console.log(res);
-      this.infoPerfil = {
-        nombre: res['respuesta']['nombre'],
-        apellido: res['respuesta']['apellido'],
-        fechaNacimiento: res['respuesta']['fechaNacimiento']
-      };
+      this.infoPerfil = res['respuesta'];
     });
   }
 
@@ -123,7 +119,7 @@ export class AdminComponent implements OnInit {
 
   // ----------------------------------------------------------------
   // ----------------------------------------------------------------
-  abriNuevoPlan(modal): void {
+  abrirNuevoPlan(modal): void {
     this.modalService.open(modal, {size: 'lg'})
   }
 

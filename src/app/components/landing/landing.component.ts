@@ -17,7 +17,7 @@ export class LandingComponent implements OnInit {
 
   ngOnInit(): void {
     this.mostrarPlanes();
-    // this.mostrarEmpresas();
+    this.mostrarEmpresas();
   }
 
   // Funciones
@@ -33,30 +33,11 @@ export class LandingComponent implements OnInit {
   }
 
   mostrarEmpresas(): void {
-    this.httpClient.get(`${this.backendHost}/empresas`)
+    this.httpClient.get(`${this.backendHost}/empresas/companies-list`)
     .subscribe(res=>{
-      //this.listaEmpresas = res;
+      this.listaEmpresas = res['respuesta'];
       console.log(res);
     });
-  //   this.listaEmpresas =
-  //   [{
-  //     nombre: 'Ejemplo 1',
-  //     logo: 'assets/img/favicon.png',
-  //     empresa: 'Compañía DS',
-  //     descripcion: 'El mejor servicio de lavandería de la ciudad'
-  //   },
-  //   {
-  //     nombre: 'Ejemplo 2',
-  //     logo: 'assets/img/favicon.png',
-  //     empresa: 'Compañía LOL',
-  //     descripcion: 'Revista de entretenimiento en línea'
-  //   },
-  //   {
-  //     nombre: 'Ejemplo 3',
-  //     logo: 'assets/img/favicon.png',
-  //     empresa: 'Compañía FM',
-  //     descripcion: 'Música de calidad todos los días a toda hora'
-  //   }];
   }
 
 }

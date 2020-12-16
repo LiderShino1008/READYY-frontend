@@ -85,16 +85,19 @@
                 <div class="col-12">
                     <div class="row">
                         <div class="col-6 col-sm-4 col-md-3 col-xl-2 pb-3" *ngFor="let empresa of listaEmpresas">
-                            <div class="card p-2">
+                            <a class="btn btn-light card p-2 shadow-sm" [routerLink]="['/companies',empresa.usuario._id,'/pages',empresa.identificador]">
                                 <div class="bg-secondary">
-                                    <img [src]="empresa.logo" class="card-img-top p-1 item-img">
+                                    <img [src]="empresa.imagen" class="card-img-top p-1 item-img">
                                 </div>
                                 <div class="col-12 p-1 text-left">
-                                    <h6 class="mb-1">{{ empresa.nombre }}</h6>
-                                    <div>Por: {{ empresa.empresa }}</div>
+                                    <h6 class="mb-1">{{ empresa.titulo }}</h6>
+                                    <small>Por: {{ empresa.usuario.nombreEmpresa }}</small>
+                                    <hr class="my-2 mx-3">
                                     <div>{{  empresa.descripcion }}</div>
+                                    <hr class="my-2 mx-3">
+                                    <small>Palabras clave: {{  empresa.palabrasClave }}</small>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                     </div>
                 </div>
