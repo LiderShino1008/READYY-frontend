@@ -17,31 +17,28 @@
             </li>
             <!-- usuario -->
             <li class="nav-item" data-toggle="collapse" data-target="#navbarsExampleDefault">
-            <a class="nav-link" routerLink="/companies">Buscar empresas</a>
+            <a class="nav-link" routerLink="/companies" *ngIf="currentUrl!='/companies'">Buscar empresas</a>
             </li>
             <li class="nav-item" data-toggle="collapse" data-target="#navbarsExampleDefault" *ngIf="isLogged">
-                <a class="nav-link" routerLink="user/admin" *ngIf="isAdmin">Perfil</a>
-                <a class="nav-link" routerLink="user/admin-companies" *ngIf="isAdminCompanies">Perfil</a>
-                <a class="nav-link" routerLink="user/buyer" *ngIf="isBuyer">Perfil</a>
+                <a class="nav-link" routerLink="/admin" *ngIf="isAdmin">Perfil</a>
+                <a class="nav-link" routerLink="/admin-companies" *ngIf="isAdminCompanies">Perfil</a>
+                <a class="nav-link" routerLink="/buyer" *ngIf="isBuyer">Perfil</a>
             </li>
             <li class="nav-item" data-toggle="collapse" data-target="#navbarsExampleDefault" *ngIf="isLogged && isBuyer">
-            <a class="nav-link" data-toggle="modal" data-target="#shoppingCart">Mi carrito</a>
+                <a class="nav-link" data-toggle="modal" data-target="#shoppingCart">Mi carrito</a>
             </li>
-            <li class="nav-item" data-toggle="collapse" data-target="#navbarsExampleDefault" *ngIf="isLogged">
-            <a class="nav-link">Cerrar sesión</a>
+            <li class="nav-item" data-toggle="collapse" data-target="#navbarsExampleDefault" *ngIf="isLogged" (click)="logout()">
+                <a class="nav-link">Cerrar sesión</a>
             </li>
             <!-- visitante -->
             <li class="nav-item" data-toggle="collapse" data-target="#navbarsExampleDefault">
-            <!-- <a class="nav-link" routerLink="signup" *ngIf="currentUrl != '/signup'">Unirse ahora</a> -->
-            <a class="nav-link" routerLink="signup">Unirse ahora</a>
+                <a class="nav-link" routerLink="signup" *ngIf="!isLogged && currentUrl!='/signup'">Unirse ahora</a>
             </li>
             <li class="nav-item" data-toggle="collapse" data-target="#navbarsExampleDefault">
-            <!-- <a class="nav-link" routerLink="login" *ngIf="currentUrl != '/login'">Iniciar sesión</a> -->
-            <a class="nav-link" routerLink="login">Iniciar sesión</a>
+                <a class="nav-link" routerLink="login" *ngIf="!isLogged && currentUrl!='/login'">Iniciar sesión</a>
             </li>
             <li class="nav-item" data-toggle="collapse" data-target="#navbarsExampleDefault">
-            <!-- <a class="nav-link" routerLink="home" *ngIf="currentUrl != '/home' && !isLogged">Volver al inicio</a> -->
-            <a class="nav-link" routerLink="home">Volver al inicio</a>
+                <a class="nav-link" routerLink="home" *ngIf="!isLogged && currentUrl!='/home'">Volver al inicio</a>
             </li>
         </ul>
     </div>

@@ -47,7 +47,7 @@
             </div>
         </div>
         <div class="col-12 mt-3 text-center">
-            <button class="btn btn-readyy-salmon btn-rounded" type="button" (click)="guardarUsuario()">Unirse ahora</button>
+            <button [disabled]="!formularioSignup.valid" class="btn btn-readyy-salmon btn-rounded" type="button" (click)="guardarUsuario()">Unirse ahora</button>
         </div>
     </div>
 </form>

@@ -6,7 +6,7 @@
                 <div>Fecha de nacimiento: {{ infoPerfil.fechaNacimiento }}</div>
             </div>
             <div class="col-12 col-sm-4 col-md-3 mt-2 mt-sm-0 text-right">
-                <button class="btn btn-readyy-salmon btn-rounded" type="button" data-toggle="modal" data-target="#editPbModal"><fa-icon [icon]="faPen" class="mr-2"></fa-icon>Editar perfil</button>
+                <button class="btn btn-readyy-salmon btn-rounded" type="button" (click)="abrirEditarUsuario(modalEditarUsuario, infoPerfil._id)"><fa-icon [icon]="faPen" class="mr-2"></fa-icon>Editar perfil</button>
             </div>
         </div>
     </div>
@@ -43,110 +43,47 @@
     </div>
     <app-footer></app-footer>
 
-    <!-- VENTANAS MODALES -->
-    <!-- Editar perfil de cliente -->
-    <!-- <div class="modal fade" id="editPbModal" tabindex="-1" aria-labelledby="editPbModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="editPbModalLabel">Editar información de perfil</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form id="form-cliente-info">
-                        <div class="form-row">
-                            <div class="col-12 col-sm-6">
-                                <div class="form-group">
-                                    <label for="cliente-edit-nombre">Nombre</label>
-                                    <input type="text" class="form-control" id="cliente-edit-nombre">
-                                    <div class="invalid-feedback">Campo vacío o dato inválido</div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <div class="form-group">
-                                    <label for="cliente-edit-apellido">Apellido</label>
-                                    <input type="text" class="form-control" id="cliente-edit-apellido">
-                                    <div class="invalid-feedback">Campo vacío o dato inválido</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col-12 col-sm-6">
-                                <div class="form-group">
-                                    <label for="cliente-edit-fecha">Fecha de nacimiento</label>
-                                    <input type="date" class="form-control" id="cliente-edit-fecha">
-                                    <div class="invalid-feedback">Campo vacío o dato inválido</div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <div class="col-6">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="edit-password">
-                            <label class="form-check-label" for="edit-password">Cambiar contraseña</label>
-                        </div>
-                    </div>
-                    <div class="col-6 text-right">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-primary">Guardar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-
-    <!-- Carrito de compras -->
-    <!-- <div class="modal fade" id="shoppingCart" tabindex="-1" aria-labelledby="shoppingCartLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="shoppingCartLabel"><fa-icon [icon]="faShoppingCart" class="mr-2"></fa-icon>Carrito de compras</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <table class="table">
-                        <thead class="thead-light">
-                            <tr>
-                                <th scope="col">Producto</th>
-                                <th scope="col">Cantidad</th>
-                                <th scope="col">Precio</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td scope="row">Hamburguesa con doble queso de lujo</td>
-                                <td scope="row">3</td>
-                                <td scope="row">L. 35.00</td>
-                                <td><button type="button" class="btn text-danger p-0 mr-2"><fa-icon [icon]="faTimesCircle"></fa-icon></button></td>
-                            </tr>
-                            <tr>
-                                <td scope="row">Hamburguesa con doble queso de lujo</td>
-                                <td scope="row">3</td>
-                                <td scope="row">L.35.00</td>
-                                <td><button type="button" class="btn text-danger p-0 mr-2"><fa-icon [icon]="faTimesCircle"></fa-icon></button></td>
-                            </tr>
-                            <tr class="font-weight-bold">
-                                <td scope="row"></td>
-                                <td scope="row">TOTAL</td>
-                                <td scope="row">L.70.00</td>
-                                <td></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary">Comprar</button>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    
 </main>
+
+
+<!-- ---------------------------------- -->
+<!-- Ventana modal para editar usuario -->
+<ng-template #modalEditarUsuario let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Editar información de usuario</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="formEditarUsuario" class="needs-validation">
+            <div class="form-row">
+                <div class="col-12 col-md-6">
+                    <div class="form-group">
+                        <label for="usuario-new-nombre">Nombre</label>
+                        <input [ngClass]="{'is-valid':ur_newNombre.valid, 'is-invalid':ur_newNombre.invalid && (ur_newNombre.dirty || ur_newNombre.touched)}" formControlName="ur_newNombre" type="text" class="form-control" id="usuario-new-nombre" placeholder="" value="" required="">
+                        <div class="invalid-feedback">Campo vacío o dato inválido.</div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="form-group">
+                        <label for="usuario-new-apellido">Apellido</label>
+                        <input [ngClass]="{'is-valid':ur_newApellido.valid, 'is-invalid':ur_newApellido.invalid && (ur_newApellido.dirty || ur_newApellido.touched)}" formControlName="ur_newApellido" type="text" class="form-control" id="usuario-new-apellido" placeholder="" value="" required="">
+                        <div class="invalid-feedback">Campo vacío o dato inválido.</div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="form-group">
+                        <label for="usuario-new-nacimiento">Fecha de nacimiento</label>
+                        <input [ngClass]="{'is-valid':ur_newNacimiento.valid, 'is-invalid':ur_newNacimiento.invalid && (ur_newNacimiento.dirty || ur_newNacimiento.touched)}" formControlName="ur_newNacimiento" type="date" class="form-control" id="usuario-new-nacimiento" value="" required="">
+                        <div class="invalid-feedback">Campo vacío o dato inválido.</div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button [disabled]="!formEditarUsuario.valid" type="button" class="btn btn-success" (click)="editarUsuario()">Guardar</button>
+        <button type="button" class="btn btn-danger" (click)="modal.close('Close click')">Cerrar</button>
+    </div>
+</ng-template>

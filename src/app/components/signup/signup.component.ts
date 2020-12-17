@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -11,9 +12,22 @@ export class SignupComponent implements OnInit {
   regionVisible = '';
   tipoU = new FormControl('', Validators.required);
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+    if(localStorage.getItem('idUsuario') != null) {
+      switch (localStorage.getItem('tipoUsuario')) {
+        case 'Cliente':
+          this.router.navigate(['/buyer']);
+          break;
+        case 'Administrador de negocios':
+          this.router.navigate(['/admin-companies']);
+          break;
+        case 'Administrador de plataforma':
+          this.router.navigate(['/admin']);
+          break;
+      }
+    }
     this.tipoU.reset();
   }
 

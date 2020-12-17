@@ -42,7 +42,7 @@
                                     <b>Título del sitio: </b>{{ empresa.titulo }}<br>
                                     <b>ID: </b>{{ empresa.identificador }}<br>
                                     <b>Descripción: </b>{{ empresa.descripcion }}<br>
-                                    <b>Palabras claves: </b>{{ empresa.palabrasClave }}<br>
+                                    <b>Palabras claves: </b>{{ empresa.palabrasClaves }}<br>
                                     <span class="d-flex">
                                         <b class="mr-2">Favicon:</b>
                                         <span class="favicon-empresa">
@@ -98,9 +98,9 @@
     <div *ngSwitchCase="'categorias'" class="p-4">
         <div class="row pb-4 px-2">
             <h3 class="col-12 col-sm-4 col-md-6 font-weight-normal">Categorías</h3>
-            <div class="col-12 col-sm-8 col-md-6 text-right d-flex">
-                <input type="text" class="form-control h-100 mr-2" placeholder="Nueva categoría">
-                <button [disabled]="!(infoPerfil.categorias.length < infoPerfil.planServicio.categorias)" class="btn btn-readyy-salmon d-inline-flex" type="button"><fa-icon [icon]="faPlusCircle" class="mr-2 align-self-center"></fa-icon>Agregar</button>
+            <form [formGroup]="formNuevaCategoria" class="col-12 col-sm-8 col-md-6 text-right d-flex">
+                <input [formControlName]="cr_txtNombre" [ngClass]="{'is-valid':cr_txtNombre.valid, 'is-invalid':cr_txtNombre.invalid && (cr_txtNombre.dirty || cr_txtNombre.touched)}" type="text" class="form-control h-100 mr-2" placeholder="Nueva categoría">
+                <button [disabled]="!(infoPerfil.categorias.length < infoPerfil.planServicio.categorias)" (click)="crearCategoria()" class="btn btn-readyy-salmon d-inline-flex" type="button"><fa-icon [icon]="faPlusCircle" class="mr-2 align-self-center"></fa-icon>Agregar</button>
             </div>
         </div>
         <div *ngIf="infoPerfil.categorias.length == 0" class="col-12">No hay elementos en esta lista.</div>
@@ -115,7 +115,7 @@
                         <button type="button" class="btn btn-link text-danger p-0"><fa-icon [icon]="faTrash" class="mr-2"></fa-icon>Borrar</button>
                     </div>
                     <div class="col-12 col-sm-6 text-left text-sm-right mt-2 mt-sm-0">
-                        <button [disabled]="!(infoPerfil.categorias[i].productos.length < infoPerfil.planServicio.productos)" class="btn btn-readyy-salmon btn-rounded" type="button" data-toggle="modal" data-target="#newItemModal"><fa-icon [icon]="faPlusCircle" class="mr-2"></fa-icon>Agregar producto</button>
+                        <button [disabled]="!(infoPerfil.categorias[i].productos.length < infoPerfil.planServicio.productos)" class="btn btn-readyy-salmon btn-rounded" type="button" (click)="abrirNuevoProducto(modalNuevoProducto, categoria._id)"><fa-icon [icon]="faPlusCircle" class="mr-2"></fa-icon>Agregar producto</button>
                     </div>
                 </div>
                 <div class="py-3 scroll-div w-100">
@@ -159,10 +159,55 @@
         </button>
     </div>
     <div class="modal-body">
-        Hola
+        <form [formGroup]="formEditarUsuario" class="needs-validation">
+            <div class="form-row">
+                <div class="col-12 col-md-6">
+                    <div class="form-group">
+                        <label for="usuario-new-nombre">Nombre</label>
+                        <input [ngClass]="{'is-valid':ur_newNombre.valid, 'is-invalid':ur_newNombre.invalid && (ur_newNombre.dirty || ur_newNombre.touched)}" formControlName="ur_newNombre" type="text" class="form-control" id="usuario-new-nombre" placeholder="" value="" required="">
+                        <div class="invalid-feedback">Campo vacío o dato inválido.</div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="form-group">
+                        <label for="usuario-new-apellido">Apellido</label>
+                        <input [ngClass]="{'is-valid':ur_newApellido.valid, 'is-invalid':ur_newApellido.invalid && (ur_newApellido.dirty || ur_newApellido.touched)}" formControlName="ur_newApellido" type="text" class="form-control" id="usuario-new-apellido" placeholder="" value="" required="">
+                        <div class="invalid-feedback">Campo vacío o dato inválido.</div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="form-group">
+                        <label for="usuario-new-nacimiento">Fecha de nacimiento</label>
+                        <input [ngClass]="{'is-valid':ur_newNacimiento.valid, 'is-invalid':ur_newNacimiento.invalid && (ur_newNacimiento.dirty || ur_newNacimiento.touched)}" formControlName="ur_newNacimiento" type="date" class="form-control" id="usuario-new-nacimiento" value="" required="">
+                        <div class="invalid-feedback">Campo vacío o dato inválido.</div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="form-group">
+                        <label for="usuario-new-empresa">Nombre de la empresa</label>
+                        <input [ngClass]="{'is-valid':ur_newEmpresa.valid, 'is-invalid':ur_newEmpresa.invalid && (ur_newEmpresa.dirty || ur_newEmpresa.touched)}" formControlName="ur_newEmpresa" type="text" class="form-control" id="usuario-new-empresa" value="" required="">
+                        <div class="invalid-feedback">Campo vacío o dato inválido.</div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="form-group">
+                        <label for="usuario-new-descripcion">Descripción breve de la empresa</label>
+                        <input [ngClass]="{'is-valid':ur_newDescripcionEmpresa.valid, 'is-invalid':ur_newDescripcionEmpresa.invalid && (ur_newDescripcionEmpresa.dirty || ur_newDescripcionEmpresa.touched)}" formControlName="ur_newDescripcionEmpresa" type="text" class="form-control" id="usuario-new-descripcion" value="" required="">
+                        <div class="invalid-feedback">Campo vacío o dato inválido.</div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="form-group">
+                        <label for="usuario-new-direccion">Dirección de la empresa</label>
+                        <input [ngClass]="{'is-valid':ur_newDireccionEmpresa.valid, 'is-invalid':ur_newDireccionEmpresa.invalid && (ur_newDireccionEmpresa.dirty || ur_newDireccionEmpresa.touched)}" formControlName="ur_newDireccionEmpresa" type="text" class="form-control" id="usuario-new-direccion" value="" required="">
+                        <div class="invalid-feedback">Campo vacío o dato inválido.</div>
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-success" (click)="editarUsuario(infoPerfil._id)">Guardar</button>
+        <button [disabled]="!formEditarUsuario.valid" type="button" class="btn btn-success" (click)="editarUsuario(infoPerfil._id)">Guardar</button>
         <button type="button" class="btn btn-danger" (click)="modal.close('Close click')">Cerrar</button>
     </div>
 </ng-template>
@@ -176,10 +221,55 @@
         </button>
     </div>
     <div class="modal-body">
-        Hola
+        <form [formGroup]="formNuevaEmpresa" class="needs-validation">
+            <div class="form-row">
+                <div class="col-12 col-md-6">
+                    <div class="form-group">
+                        <label for="empresa-new-titulo">Título para la página</label>
+                        <input [ngClass]="{'is-valid':er_txtTitulo.valid, 'is-invalid':er_txtTitulo.invalid && (er_txtTitulo.dirty || er_txtTitulo.touched)}" formControlName="er_txtTitulo" type="text" class="form-control" id="empresa-new-titulo" placeholder="" value="" required="">
+                        <div class="invalid-feedback">Campo vacío o dato inválido.</div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="form-group">
+                        <label for="empresa-txt-imagen">Imagen</label>
+                        <input [ngClass]="{'is-valid':er_txtImagen.valid, 'is-invalid':er_txtImagen.invalid && (er_txtImagen.dirty || er_txtImagen.touched)}" formControlName="er_txtImagen" type="file" class="form-control" id="empresa-txt-imagen" placeholder="" value="" required="">
+                        <div class="invalid-feedback">Campo vacío o dato inválido.</div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="form-group">
+                        <label for="empresa-txt-identificador">Identificador (sin espacios)</label>
+                        <input [ngClass]="{'is-valid':er_txtIdentificador.valid, 'is-invalid':er_txtIdentificador.invalid && (er_txtIdentificador.dirty || er_txtIdentificador.touched)}" formControlName="er_txtIdentificador" type="text" class="form-control" id="emresa-txt-identificador" value="" required="">
+                        <div class="invalid-feedback">Campo vacío o dato inválido.</div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="form-group">
+                        <label for="empresa-txt-descripcion">Descripción de la empresa</label>
+                        <input [ngClass]="{'is-valid':er_txtDescripcion.valid, 'is-invalid':er_txtDescripcion.invalid && (er_txtDescripcion.dirty || er_txtDescripcion.touched)}" formControlName="er_txtDescripcion" type="text" class="form-control" id="empresa-txt-descripcion value=" required="">
+                        <div class="invalid-feedback">Campo vacío o dato inválido.</div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="form-group">
+                        <label for="empresa-txt-palabrasClave">Palabras clave</label>
+                        <input [ngClass]="{'is-valid':er_txtPalabrasClave.valid, 'is-invalid':er_txtPalabrasClave.invalid && (er_txtPalabrasClave.dirty || er_txtPalabrasClave.touched)}" formControlName="er_txtPalabrasClave" type="text" class="form-control" id="empresa-txt-palabrasClave" value="" required="">
+                        <div class="invalid-feedback">Campo vacío o dato inválido.</div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="form-group">
+                        <label for="empresa-txt-favicon">Favicon</label>
+                        <input [ngClass]="{'is-valid':er_txtFavicon.valid, 'is-invalid':er_txtFavicon.invalid && (er_txtFavicon.dirty || er_txtFavicon.touched)}" formControlName="er_txtFavicon" type="file" class="form-control" id="empresa-txt-favicon" value="" required="">
+                        <div class="invalid-feedback">Campo vacío o dato inválido.</div>
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-success" (click)="crearEmpresa()">Guardar</button>
+        <button [disabled]="!formNuevaEmpresa.valid" type="button" class="btn btn-success" (click)="crearEmpresa()">Guardar</button>
         <button type="button" class="btn btn-danger" (click)="modal.close('Close click')">Cerrar</button>
     </div>
 </ng-template>
@@ -210,10 +300,20 @@
         </button>
     </div>
     <div class="modal-body">
-        Hola
+        <form [formGroup]="formNuevoArchivo" class="needs-validation">
+            <div class="form-row">
+                <div class="col-12 col-md-6">
+                    <div class="form-group">
+                        <label for="archivo-txt-nombre">Imagen</label>
+                        <input [ngClass]="{'is-valid':ar_txtNombre.valid, 'is-invalid':ar_txtNombre.invalid && (ar_txtNombre.dirty || ar_txtNombre.touched)}" formControlName="ar_txtNombre" type="file" class="form-control" id="archivo-txt-nombre" placeholder="" value="" required="">
+                        <div class="invalid-feedback">Campo vacío o dato inválido.</div>
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-success" (click)="crearArchivo()">Guardar</button>
+        <button [disabled]="!formNuevoArchivo.valid" type="button" class="btn btn-success" (click)="crearArchivo()">Guardar</button>
         <button type="button" class="btn btn-danger" (click)="modal.close('Close click')">Cerrar</button>
     </div>
 </ng-template>
@@ -231,6 +331,47 @@
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-success" (click)="editarArchivo(actualArchivo)">Guardar</button>
+        <button type="button" class="btn btn-danger" (click)="modal.close('Close click')">Cerrar</button>
+    </div>
+</ng-template>
+
+<!-- Ventana modal para agregar producto a una categoria -->
+<ng-template #modalNuevoProducto let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Nuevo producto</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="formNuevoProducto" class="needs-validation">
+            <div class="form-row">
+                <div class="col-12 col-md-6">
+                    <div class="form-group">
+                        <label for="producto-txt-nombre">Nombre</label>
+                        <input [ngClass]="{'is-valid':cr_p_txtNombre.valid, 'is-invalid':cr_p_txtNombre.invalid && (cr_p_txtNombre.dirty || cr_p_txtNombre.touched)}" formControlName="cr_p_txtNombre" type="text" class="form-control" id="producto-txt-nombre" placeholder="" value="" required="">
+                        <div class="invalid-feedback">Campo vacío o dato inválido.</div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="form-group">
+                        <label for="producto-txt-imagen">Imagen</label>
+                        <input [ngClass]="{'is-valid':cr_p_txtImagen.valid, 'is-invalid':cr_p_txtImagen.invalid && (cr_p_txtImagen.dirty || cr_p_txtImagen.touched)}" formControlName="cr_p_txtImagen" type="file" class="form-control" id="producto-txt-imagen" placeholder="" value="" required="">
+                        <div class="invalid-feedback">Campo vacío o dato inválido.</div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="form-group">
+                        <label for="producto-txt-precio">Precio</label>
+                        <input [ngClass]="{'is-valid':cr_p_txtPrecio.valid, 'is-invalid':cr_p_txtPrecio.invalid && (cr_p_txtPrecio.dirty || cr_p_txtPrecio.touched)}" formControlName="cr_p_txtPrecio" type="number" min="0" class="form-control" id="empresa-txt-precio" placeholder="" value="" required="">
+                        <div class="invalid-feedback">Campo vacío o dato inválido.</div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button [disabled]="!formNuevoProducto.valid" type="button" class="btn btn-success" (click)="crearProducto(categoriaInsertar)">Guardar</button>
         <button type="button" class="btn btn-danger" (click)="modal.close('Close click')">Cerrar</button>
     </div>
 </ng-template>

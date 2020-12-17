@@ -28,6 +28,19 @@ export class LoginComponent implements OnInit {
   constructor(private httpClient: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
+    if(localStorage.getItem('idUsuario') != null) {
+      switch (localStorage.getItem('tipoUsuario')) {
+        case 'Cliente':
+          this.router.navigate(['/buyer']);
+          break;
+        case 'Administrador de negocios':
+          this.router.navigate(['/admin-companies']);
+          break;
+        case 'Administrador de plataforma':
+          this.router.navigate(['/admin']);
+          break;
+      }
+    }
   }
 
   // Funciones
@@ -49,16 +62,19 @@ export class LoginComponent implements OnInit {
           this.formularioLogin.reset();
           switch (res['tipoUsuario']) {
             case 'Cliente':
+              localStorage.setItem('idUsuario', res['idUsuario']);
+              localStorage.setItem('tipoUsuario', res['tipoUsuario']);
               this.router.navigate(['/buyer']);
               break;
             case 'Administrador de negocios':
+              localStorage.setItem('idUsuario', res['idUsuario']);
+              localStorage.setItem('tipoUsuario', res['tipoUsuario']);
               this.router.navigate(['/admin-companies']);
               break;
             case 'Administrador de plataforma':
+              localStorage.setItem('idUsuario', res['idUsuario']);
+              localStorage.setItem('tipoUsuario', res['tipoUsuario']);
               this.router.navigate(['/admin']);
-              break;
-          
-            default:
               break;
           }
         } else {

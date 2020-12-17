@@ -18,9 +18,9 @@
                 <button class="btn btn-readyy-salmon btn-rounded" type="button" (click)="abrirEditarUsuario(modalEditarUsuario, infoPerfil._id)"><fa-icon [icon]="faPen" class="mr-2"></fa-icon>Editar perfil</button>
             </div>
         </div>
-    </div>
-    <div class="p-4">
-        <h5 class="px-2 font-weight-normal">► Ir a <a href="#">Administración de Temas y plantillas</a></h5>
+        <div class="p-4">
+            <h5 class="px-2 font-weight-normal">► Ir a <a href="#">Administración de Temas y plantillas</a></h5>
+        </div>
     </div>
     <div *ngSwitchCase="'usuarios'" class="p-4">
         <div class="row pb-4 px-2">
@@ -62,14 +62,11 @@
                     <div class="p-1 text-left">
                         <h6 class="mb-1">{{ empresa.titulo }}</h6>
                         <div>{{ empresa.identificador }}</div>
-                        <div>
-                            <button type="button" class="btn btn-link text-indigo p-0" (click)="abrirEditarEmpresa(modalEditarEmpresa, empresa._id)"><fa-icon [icon]="faBan" class="mr-2"></fa-icon>Bloquear</button>
-                        </div>
                         <div *ngIf="!empresa.estado">
-                            <button type="button" class="btn btn-link text-danger p-0" (click)="desbloquearEmpresa(empresa._id)"><fa-icon [icon]="faTrash" class="mr-2"></fa-icon>Borrar</button>
+                            <button type="button" class="btn btn-link text-danger p-0" (click)="desbloquearEmpresa(empresa._id)"><fa-icon [icon]="faTrash" class="mr-2"></fa-icon>Desbloquear</button>
                         </div>
                         <div *ngIf="empresa.estado">
-                            <button type="button" class="btn btn-link text-danger p-0" (click)="bloquearEmpresa(empresa._id)"><fa-icon [icon]="faTrash" class="mr-2"></fa-icon>Borrar</button>
+                            <button type="button" class="btn btn-link text-danger p-0" (click)="bloquearEmpresa(empresa._id)"><fa-icon [icon]="faTrash" class="mr-2"></fa-icon>Bloquear</button>
                         </div>
                     </div>
                 </div>
@@ -108,350 +105,6 @@
             </div>
         </div>
     </div>
-
-    
-    <!-- VENTANAS MODALES -->
-    <!-- Editar perfil de administrador de plataforma -->
-    <!-- <div class="modal fade" id="editPaModal" tabindex="-1" aria-labelledby="editPaModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="editPaModalLabel">Editar información de perfil</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form id="form-pa-info">
-                        <div class="form-row">
-                            <div class="col-12 col-sm-6">
-                                <div class="form-group">
-                                    <label for="pa-edit-nombre">Nombre</label>
-                                    <input type="text" class="form-control" id="pa-edit-nombre">
-                                    <div class="invalid-feedback">Campo vacío o dato inválido</div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <div class="form-group">
-                                    <label for="pa-edit-apellido">Apellido</label>
-                                    <input type="text" class="form-control" id="pa-edit-apellido">
-                                    <div class="invalid-feedback">Campo vacío o dato inválido</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col-12 col-sm-6 mb-3">
-                                <div class="form-group">
-                                    <label for="pa-edit-fecha">Fecha de nacimiento</label>
-                                    <input type="date" class="form-control" id="pa-edit-fecha">
-                                    <div class="invalid-feedback">Campo vacío o dato inválido</div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <div class="form-group">
-                                    <label for="pa-edit-email">Correo electrónico</label>
-                                    <input type="email" class="form-control" id="pa-edit-email">
-                                    <div class="invalid-feedback">Campo vacío o dato inválido</div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                    <form id="form-pa-password" style="display: none;">
-                        <div class="form-row">
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <label for="bm-password-anterior">Contraseña anterior</label>
-                                    <input type="password" class="form-control" id="pa-password-anterior">
-                                    <div class="invalid-feedback">Campo vacío o dato inválido</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <label for="bm-password-nueva">Nueva contraseña</label>
-                                    <input type="password" class="form-control" id="pa-password-nueva">
-                                    <div class="invalid-feedback">Campo vacío o dato inválido</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <label for="bm-password-confirmar">Confirmar contraseña</label>
-                                    <input type="password" class="form-control" id="pa-password-confirmar">
-                                    <div class="invalid-feedback">La contraseña no coincide.</div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <div class="col-6">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="edit-password">
-                                <label class="form-check-label" for="edit-password">Cambiar contraseña</label>
-                        </div>
-                    </div>
-                    <div class="col-6 text-right">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-primary">Guardar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!-- Nuevo usuario -->
-    <!-- <div class="modal fade" id="newUserModal" tabindex="-1" aria-labelledby="newUserModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="newUserModalLabel">Nuevo usuario</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="form-row">
-                            <div class="col-12 col-sm-6">
-                                <div class="form-group">
-                                    <label for="pa-usuario-nombre">Nombre</label>
-                                    <input type="text" class="form-control" id="pa-usuario-nombre">
-                                    <div class="invalid-feedback">Campo vacío o dato inválido</div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <div class="form-group">
-                                    <label for="pa-usuario-apellido">Apellido</label>
-                                    <input type="text" class="form-control" id="pa-usuario-apellido">
-                                    <div class="invalid-feedback">Campo vacío o dato inválido</div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6 mb-3">
-                                <div class="form-group">
-                                    <label for="pa-usuario-fecha">Fecha de nacimiento</label>
-                                    <input type="date" class="form-control" id="pa-usuario-fecha">
-                                    <div class="invalid-feedback">Campo vacío o dato inválido</div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <div class="form-group">
-                                    <label for="pa-usuario-email">Correo electrónico</label>
-                                    <input type="email" class="form-control" id="pa-usuario-email">
-                                    <div class="invalid-feedback">Campo vacío o dato inválido</div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <div class="form-group">
-                                    <label for="pa-usuario-contraseña">Contraseña</label>
-                                    <input type="password" class="form-control" id="pa-usuario-contraseña">
-                                    <div class="invalid-feedback">Campo vacío o dato inválido</div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <div class="form-group">
-                                    <label for="pa-usuario-confirmar">Confirmar contraseña</label>
-                                    <input type="email" class="form-control" id="pa-usuario-confirmar">
-                                    <div class="invalid-feedback">Campo vacío o dato inválido</div>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <label for="pa-usuario-tipo">Tipo de usuario</label>
-                                    <select class="form-control" id="pa-usuario-tipo"></select>
-                                    <div class="invalid-feedback">Campo vacío o dato inválido</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="bm-data">
-                            <div class="form-row">
-                                <div class="col-12 h6 form-group">Información de la empresa o negocio</div>
-                                <div class="col-12 col-sm-6">
-                                    <div class="form-group">
-                                        <label for="pa-usuario-empresa">Nombre</label>
-                                        <input type="text" class="form-control" id="pa-usuario-empresa">
-                                        <div class="invalid-feedback">Campo vacío o dato inválido</div>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-6">
-                                    <div class="form-group">
-                                        <label for="pa-usuario-direccion">Dirección</label>
-                                        <input type="text" class="form-control" id="pa-usuario-direccion">
-                                        <div class="invalid-feedback">Campo vacío o dato inválido</div>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <label for="pa-usuario-descripcion">Breve descripción</label>
-                                        <input type="text" class="form-control" id="pa-usuario-descripcion">
-                                        <div class="invalid-feedback">Campo vacío o dato inválido</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary">Guardar</button>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!-- Nueva empresa o sitio web -->
-    <!-- <div class="modal fade" id="newBusinessModal" tabindex="-1" aria-labelledby="newBusinessModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="newBusinessModalLabel">Nueva empresa o sitio web</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="form-row">
-                            <div class="col-12 col-sm-6">
-                                <div class="form-group">
-                                    <label for="pa-sitio-titulo">Título del sitio</label>
-                                    <input type="text" class="form-control" id="pa-sitio-titulo">
-                                    <div class="invalid-feedback">Campo vacío o dato inválido</div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <div class="form-group">
-                                    <label for="pa-sitio-id">ID (sin espacios)</label>
-                                    <input type="text" class="form-control" id="pa-sitio-id" min="0">
-                                    <div class="invalid-feedback">Campo vacío o dato inválido</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col-12 col-sm-6">
-                                <div class="form-group">
-                                    <label for="pa-sitio-descripcion">Descripción</label>
-                                    <input type="text" class="form-control" id="pa-sitio-descripcion">
-                                    <div class="invalid-feedback">Campo vacío o dato inválido</div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <div class="form-group">
-                                    <label for="pa-sitio-palabras">Plabaras claves</label>
-                                    <input type="text" class="form-control" id="pa-sitio-descripcion">
-                                    <div class="invalid-feedback">Campo vacío o dato inválido</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col-12 col-md-6">
-                                <div class="form-group">
-                                    <label for="pa-sitio-logo">Logotipo</label>
-                                    <div><input type="file" class="overflow-hidden" id="pa-sitio-logo" lang="es"></div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-6">
-                                <div class="form-group">
-                                    <label for="pa-sitio-favicon">Favicon</label>
-                                    <div><input type="file" class="overflow-hidden" id="pa-sitio-favicon" lang="es"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <label for="pa-sitio-css">CSS extra</label>
-                                    <textarea class="form-control" id="pa-sitio-css" rows="3"></textarea>
-                                </div>
-                                <div class="invalid-feedback">Campo vacío o dato inválido</div>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <label for="pa-sitio-js">JS extra</label>
-                                    <textarea class="form-control" id="pa-sitio-js" rows="3"></textarea>
-                                </div>
-                                <div class="invalid-feedback">Campo vacío o dato inválido</div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary">Guardar</button>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!-- Nuevo plan -->
-    <!-- <div class="modal fade" id="newPlanModal" tabindex="-1" aria-labelledby="newPlanModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="newPlanModalLabel">Nuevo plan de servicios</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="form-row">
-                            <div class="col-12 col-sm-6">
-                                <div class="form-group">
-                                    <label for="pa-plan-nombre">Nombre o título</label>
-                                    <input type="text" class="form-control" id="pa-plan-nombre">
-                                    <div class="invalid-feedback">Campo vacío o dato inválido</div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <div class="form-group">
-                                    <label for="pa-plan-precio">Precio (en dólares)</label>
-                                    <input type="text" class="form-control" id="pa-plan-precio">
-                                    <div class="invalid-feedback">Campo vacío o dato inválido</div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <div class="form-group">
-                                    <label for="pa-plan-paginas">Maximo de páginas</label>
-                                    <input type="number" class="form-control" id="pa-plan-paginas" min="0">
-                                    <div class="invalid-feedback">Campo vacío o dato inválido</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col-12 col-sm-6">
-                                <div class="form-group">
-                                    <label for="pa-plan-categorias">Categorías disponible</label>
-                                    <input type="number" class="form-control" id="pa-plan-categorias" min="0">
-                                    <div class="invalid-feedback">Campo vacío o dato inválido</div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <div class="form-group">
-                                    <label for="pa-plan-productos">Productos por categoría</label>
-                                    <input type="number" class="form-control" id="pa-plan-productos" min="0">
-                                    <div class="invalid-feedback">Campo vacío o dato inválido</div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <div class="form-group">
-                                    <label for="pa-plan-archivos">Límite de archivos</label>
-                                    <input type="number" class="form-control" id="pa-plan-archivos" min="0">
-                                    <div class="invalid-feedback">Campo vacío o dato inválido</div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary">Guardar</button>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!-- /VENTANAS MODALES -->
     
 </main>
 <app-footer></app-footer>
@@ -466,10 +119,55 @@
         </button>
     </div>
     <div class="modal-body">
-        Hola
+        <form [formGroup]="formEditarUsuario" class="needs-validation">
+            <div class="form-row">
+                <div class="col-12 col-md-6">
+                    <div class="form-group">
+                        <label for="usuario-new-nombre">Nombre</label>
+                        <input [ngClass]="{'is-valid':ur_newNombre.valid, 'is-invalid':ur_newNombre.invalid && (ur_newNombre.dirty || ur_newNombre.touched)}" formControlName="ur_newNombre" type="text" class="form-control" id="usuario-new-nombre" placeholder="" value="" required="">
+                        <div class="invalid-feedback">Campo vacío o dato inválido.</div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="form-group">
+                        <label for="usuario-new-apellido">Apellido</label>
+                        <input [ngClass]="{'is-valid':ur_newApellido.valid, 'is-invalid':ur_newApellido.invalid && (ur_newApellido.dirty || ur_newApellido.touched)}" formControlName="ur_newApellido" type="text" class="form-control" id="usuario-new-apellido" placeholder="" value="" required="">
+                        <div class="invalid-feedback">Campo vacío o dato inválido.</div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="form-group">
+                        <label for="usuario-new-nacimiento">Fecha de nacimiento</label>
+                        <input [ngClass]="{'is-valid':ur_newNacimiento.valid, 'is-invalid':ur_newNacimiento.invalid && (ur_newNacimiento.dirty || ur_newNacimiento.touched)}" formControlName="ur_newNacimiento" type="date" class="form-control" id="usuario-new-nacimiento" value="" required="">
+                        <div class="invalid-feedback">Campo vacío o dato inválido.</div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6" *ngIf="actualUsuario.tipoUsuario=='Administrador de negocios'">
+                    <div class="form-group">
+                        <label for="usuario-new-empresa">Nombre de la empresa</label>
+                        <input [ngClass]="{'is-valid':ur_newEmpresa.valid, 'is-invalid':ur_newEmpresa.invalid && (ur_newEmpresa.dirty || ur_newEmpresa.touched)}" formControlName="ur_newEmpresa" type="date" class="form-control" id="usuario-new-empresa" value="" required="">
+                        <div class="invalid-feedback">Campo vacío o dato inválido.</div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6" *ngIf="actualUsuario.tipoUsuario=='Administrador de negocios'">
+                    <div class="form-group">
+                        <label for="usuario-new-descripcion">Descripción breve de la empresa</label>
+                        <input [ngClass]="{'is-valid':ur_newDescripcion.valid, 'is-invalid':ur_newDescripcion.invalid && (ur_newDescripcion.dirty || ur_newDescripcion.touched)}" formControlName="ur_newDescripcion" type="date" class="form-control" id="usuario-new-descripcion" value="" required="">
+                        <div class="invalid-feedback">Campo vacío o dato inválido.</div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6" *ngIf="actualUsuario.tipoUsuario=='Administrador de negocios'">
+                    <div class="form-group">
+                        <label for="usuario-new-direccion">Dirección de la empresa</label>
+                        <input [ngClass]="{'is-valid':ur_newDireccion.valid, 'is-invalid':ur_newDireccion.invalid && (ur_newDireccion.dirty || ur_newDireccion.touched)}" formControlName="ur_newDireccion" type="date" class="form-control" id="usuario-new-direccion" value="" required="">
+                        <div class="invalid-feedback">Campo vacío o dato inválido.</div>
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-success" (click)="editarUsuario(infoPerfil._id)">Guardar</button>
+        <button [disabled]="!formEditarUsuario.valid" type="button" class="btn btn-success" (click)="editarUsuario()">Guardar</button>
         <button type="button" class="btn btn-danger" (click)="modal.close('Close click')">Cerrar</button>
     </div>
 </ng-template>
@@ -491,23 +189,6 @@
     </div>
 </ng-template>
 
-<!-- Ventana modal para editar empresa -->
-<ng-template #modalEditarEmpresa let-modal>
-    <div class="modal-header">
-        <h4 class="modal-title">Editar empresa</h4>
-        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-        <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-    <div class="modal-body">
-        Hola
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-success" (click)="editarEmpresa(actualEmpresa)">Guardar</button>
-        <button type="button" class="btn btn-danger" (click)="modal.close('Close click')">Cerrar</button>
-    </div>
-</ng-template>
-
 <!-- Ventana modal para crear nuevo plan de servicio -->
 <ng-template #modalNuevoPlan let-modal>
     <div class="modal-header">
@@ -517,10 +198,55 @@
         </button>
     </div>
     <div class="modal-body">
-        Hola
+        <form [formGroup]="formCrearPlan" class="needs-validation">
+            <div class="form-row">
+                <div class="col-12 col-md-6">
+                    <div class="form-group">
+                        <label for="plan-txt-nombre">Nombre</label>
+                        <input [ngClass]="{'is-valid':pr_txtNombre.valid, 'is-invalid':pr_txtNombre.invalid && (pr_txtNombre.dirty || pr_txtNombre.touched)}" formControlName="pr_txtNombre" type="text" class="form-control" id="plan-txt-nombre" placeholder="" value="" required="">
+                        <div class="invalid-feedback">Campo vacío o dato inválido.</div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="form-group">
+                        <label for="plan-txt-precio">Precio</label>
+                        <input [ngClass]="{'is-valid':pr_txtPrecio.valid, 'is-invalid':pr_txtPrecio.invalid && (pr_txtPrecio.dirty || pr_txtPrecio.touched)}" formControlName="pr_txtPrecio" type="number" min="0" class="form-control" id="plan-txt-precio" placeholder="" value="" required="">
+                        <div class="invalid-feedback">Campo vacío o dato inválido.</div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="form-group">
+                        <label for="plan-txt-empresas">Límite de empresas</label>
+                        <input [ngClass]="{'is-valid':pr_txtEmpresas.valid, 'is-invalid':pr_txtEmpresas.invalid && (pr_txtEmpresas.dirty || pr_txtEmpresas.touched)}" formControlName="pr_txtEmpresas" type="number" min="0" class="form-control" id="plan-txt-empresas" value="" required="">
+                        <div class="invalid-feedback">Campo vacío o dato inválido.</div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="form-group">
+                        <label for="plan-txt-categorias">Límite de categorías empresa</label>
+                        <input [ngClass]="{'is-valid':pr_txtCategorias.valid, 'is-invalid':pr_txtCategorias.invalid && (pr_txtCategorias.dirty || pr_txtCategorias.touched)}" formControlName="pr_txtCategorias" type="number" min="0" class="form-control" id="plan-txt-categorias" value="" required="">
+                        <div class="invalid-feedback">Campo vacío o dato inválido.</div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="form-group">
+                        <label for="plan-txt-productos">Límite de productos por categoría</label>
+                        <input [ngClass]="{'is-valid':pr_txtProductos.valid, 'is-invalid':pr_txtProductos.invalid && (pr_txtProductos.dirty || pr_txtProductos.touched)}" formControlName="pr_txtProductos" type="number" min="0" class="form-control" id="plan-txt-productos" value="" required="">
+                        <div class="invalid-feedback">Campo vacío o dato inválido.</div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="form-group">
+                        <label for="plan-txt-archivos">Límite de archivos</label>
+                        <input [ngClass]="{'is-valid':pr_txtArchivos.valid, 'is-invalid':pr_txtArchivos.invalid && (pr_txtArchivos.dirty || pr_txtArchivos.touched)}" formControlName="pr_txtArchivos" type="number" min="0" class="form-control" id="plan-txt-archivos" value="" required="">
+                        <div class="invalid-feedback">Campo vacío o dato inválido.</div>
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-success" (click)="crearPlan()">Guardar</button>
+        <button [disabled]="!formCrearPlan.valid" type="button" class="btn btn-success" (click)="crearPlan()">Guardar</button>
         <button type="button" class="btn btn-danger" (click)="modal.close('Close click')">Cerrar</button>
     </div>
 </ng-template>
